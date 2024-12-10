@@ -7,14 +7,35 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Mon, 09 Dec 2024 20:45:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2024 16:55:17 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>单周期处理器（LA）讲座笔记</title>
+      <link>https://victorzhangai.github.io/p/%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8la%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 10 Dec 2024 16:55:17 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/p/%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8la%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;单周期处理器la版本&#34;&gt;单周期处理器（LA版本）&lt;/h2&gt;&#xA;&lt;p&gt;延迟槽：曾几何时它很好，然而它非但无法解决延迟造成的流水线阻塞问题，而且会使微结构的设计复杂化，而且编译器并不能总是提取出有效指令填入流水线导致流水线中出现过量空指令，影响流水线性能&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>一分钟上手Sublime</title>
+      <link>https://victorzhangai.github.io/p/%E4%B8%80%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8Bsublime/</link>
+      <pubDate>Tue, 10 Dec 2024 16:52:35 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/p/%E4%B8%80%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8Bsublime/</guid>
+      <description>&lt;p&gt;（注：这篇文章成文于一年前，放在博客上只是为了留档）&lt;/p&gt;&#xA;&lt;p&gt;最开始接触这玩意儿其实是因为前端（一朝做贼，再想做好人可不容易啊），菜鸟教程推荐的编辑器里头有VSCode，Sublime和WebStorm，这仨里头VSC配C的环境给我配出心理阴影了，而且这玩意儿甚至原生不支持ctrl+滚轮缩放字体。WS要钱，一年两千八，我说我别tm做个前端还得贴钱打工，于是选了Sublime，不得不承认这玩意儿确实好使得一批，现在除了C，Python和Mathematica直接Sublime+命令行，真正做到了有高亮有编译器就能写。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Csapp Chapter4</title>
+      <link>https://victorzhangai.github.io/p/csapp-chapter4/</link>
+      <pubDate>Tue, 10 Dec 2024 16:44:47 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/p/csapp-chapter4/</guid>
+      <description>&lt;h2 id=&#34;41&#34;&gt;4.1&lt;/h2&gt;&#xA;&lt;h3 id=&#34;prelude&#34;&gt;prelude&lt;/h3&gt;&#xA;&lt;p&gt;PC holds the address of the instruction that currently executed.&lt;/p&gt;&#xA;&lt;p&gt;registers, base pointer, stack pointer&lt;/p&gt;&#xA;&lt;p&gt;condition code: ZF, SF, OF&lt;/p&gt;&#xA;&lt;p&gt;memory(monolithic byte array)&lt;/p&gt;&#xA;&lt;p&gt;Types of encoding the Y-86 instructions:&lt;/p&gt;&#xA;&lt;p&gt;I-type, D-type and B-type&lt;/p&gt;&#xA;&lt;h3 id=&#34;instructions&#34;&gt;instructions&lt;/h3&gt;&#xA;&lt;p&gt;movq is split: I, R, M -&amp;gt; R, M&lt;/p&gt;&#xA;&lt;p&gt;AL instructions: addq, subq, andq, xorq (as there is no zero register in Y-86 processor, you must add an xorq instruction)&lt;/p&gt;&#xA;&lt;p&gt;jumps: jmp, &amp;lt;=, &amp;lt;, ==, !=, &amp;gt;=, &amp;gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Whoami</title>
       <link>https://victorzhangai.github.io/p/whoami/</link>
       <pubDate>Mon, 09 Dec 2024 20:45:32 +0800</pubDate>
       <guid>https://victorzhangai.github.io/p/whoami/</guid>
-      <description>&lt;h1 id=&#34;vzstless-as-your-friend-or-thinker&#34;&gt;VZstless as your friend or thinker&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;🍥 Call this name as VictorZhang was signed up by somebody else&amp;hellip;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;👻 Love frontend in any perspective, digital, or web.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;🐣 Libre &amp;amp; OpenSource aholic.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;⭐ Still an undergraduate and a crazyone.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;🐧 A human-like history book or cheatsheet.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;✉️ &lt;a href=&#34;mailto:2319725508@qq.com&#34;&gt;2319725508@qq.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;🍀I work so I live.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;vzstless.moe&#34;&gt;blog&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img alt=&#34;skills&#34; src=&#34;https://skillicons.dev/icons?i=arch,ubuntu,debian,bash,powershell,cloudflare,python,javascript,scala,go,c,haskell,ts,react,fastapi,git,github,githubactions,notion,ps,redis,vscode,vim,azure&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github-readme-stats-one-bice.vercel.app/api?username=victorzhangai&amp;count_private=true&amp;theme=calm&amp;show_icons=true&amp;include_all_commits=true&amp;role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR&#34; alt=&#34;Where had I walked&#34; height=&#34;185px&#34; /&gt; &lt;!-- img src=&#34;https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=victorzhangai&amp;layout=compact&amp;langs_count=8&amp;theme=calm&amp;role=OWNER,ORGANIZATION_MEMBER&#34; alt=&#34;Mostly Used&#34; height=&#34;185px&#34; / --&gt;&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;vzstless-as-your-friend-or-thinker&#34;&gt;VZstless as your friend or thinker&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;🍥 Call this name as VictorZhang was signed up by somebody else&amp;hellip;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;👻 Love frontend in any perspective, digital, or web.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;🐣 Libre &amp;amp; OpenSource aholic.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;⭐ Still an undergraduate and a crazyone.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;🐧 A human-like history book or cheatsheet.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;✉️ &lt;a href=&#34;mailto:2319725508@qq.com&#34;&gt;2319725508@qq.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;🍀I work so I live.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;vzstless.moe&#34;&gt;blog&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://skillicons.dev/icons?i=arch,ubuntu,debian,bash,powershell,cloudflare,python,javascript,scala,go,c,haskell,ts,react,fastapi,git,github,githubactions,notion,ps,redis,vscode,vim,azure&#34; alt=&#34;skills&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github-readme-stats-one-bice.vercel.app/api?username=victorzhangai&amp;count_private=true&amp;theme=calm&amp;show_icons=true&amp;include_all_commits=true&amp;role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR&#34; alt=&#34;Where had I walked&#34; height=&#34;185px&#34; /&gt; &lt;!-- img src=&#34;https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=victorzhangai&amp;layout=compact&amp;langs_count=8&amp;theme=calm&amp;role=OWNER,ORGANIZATION_MEMBER&#34; alt=&#34;Mostly Used&#34; height=&#34;185px&#34; / --&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
