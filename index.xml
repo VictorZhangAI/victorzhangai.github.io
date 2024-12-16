@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sun, 15 Dec 2024 13:38:47 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Dec 2024 21:51:39 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>生产力与生产关系</title>
+      <link>https://victorzhangai.github.io/p/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E7%94%9F%E4%BA%A7%E5%85%B3%E7%B3%BB/</link>
+      <pubDate>Mon, 16 Dec 2024 21:51:39 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/p/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E7%94%9F%E4%BA%A7%E5%85%B3%E7%B3%BB/</guid>
+      <description>&lt;p&gt;注：以下讨论不涉及C，Python和JavaScript，因为你不用也得用，迟早有一天你会被这仨语言中的一个找上茬儿&lt;/p&gt;&#xA;&lt;p&gt;马原课本告诉我们，生产力决定生产关系，生产关系反作用于生产力。我们可以使用这个理论来给计算机行业中的错误思想套公式。现在许多人中流传着Java焦虑，好像Java死了我的工作就彻底寄了，然后经典的中年危机就业焦虑。然而大概率事实是不是Java不行，而是你从始至终就没入行。换语言不会使你干好，反而你长期囿于原先的生产关系而没有意识到自己的生产力本身落后，换了语言，原形毕露，没有论坛可查，自己失去了debug和查找性能瓶颈的能力。类似的还有软件工程。首先，你大概率不是CEO之类的要职，而你的第一个demo做得并不好甚至没做出来，你就觉得现在的软件生产模型不行，想从瀑布模型转变成敏捷模型。然而你没注意到敏捷模型对生产力的要求是达到了一定境界的，你的生产力并不足以满足敏捷模型短期迭代的内在要求，大概率结局是项目流产。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>关于一些网络热门课程</title>
       <link>https://victorzhangai.github.io/p/%E5%85%B3%E4%BA%8E%E4%B8%80%E4%BA%9B%E7%BD%91%E7%BB%9C%E7%83%AD%E9%97%A8%E8%AF%BE%E7%A8%8B/</link>
