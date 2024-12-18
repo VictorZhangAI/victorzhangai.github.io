@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Mon, 16 Dec 2024 21:51:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2024 21:38:49 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>系数为±1的n次方程根在复平面的分布</title>
+      <link>https://victorzhangai.github.io/p/%E7%B3%BB%E6%95%B0%E4%B8%BA1%E7%9A%84n%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%A0%B9%E5%9C%A8%E5%A4%8D%E5%B9%B3%E9%9D%A2%E7%9A%84%E5%88%86%E5%B8%83/</link>
+      <pubDate>Wed, 18 Dec 2024 21:38:49 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/p/%E7%B3%BB%E6%95%B0%E4%B8%BA1%E7%9A%84n%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%A0%B9%E5%9C%A8%E5%A4%8D%E5%B9%B3%E9%9D%A2%E7%9A%84%E5%88%86%E5%B8%83/</guid>
+      <description>&lt;p&gt;（一篇在分享会上的稿件的留档）&lt;/p&gt;&#xA;&lt;h3 id=&#34;引子&#34;&gt;引子&lt;/h3&gt;&#xA;&lt;p&gt;Mathematica的基础语法三句话就能解决：&lt;/p&gt;&#xA;&lt;p&gt;1.内置函数的每个单词以大写字母开头。&lt;/p&gt;&#xA;&lt;p&gt;2.函数用[]传参。&lt;/p&gt;&#xA;&lt;p&gt;3.List用{}包围。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>生产力与生产关系</title>
       <link>https://victorzhangai.github.io/p/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E7%94%9F%E4%BA%A7%E5%85%B3%E7%B3%BB/</link>
