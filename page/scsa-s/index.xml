@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Fri, 20 Dec 2024 20:27:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2024 20:45:05 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/page/scsa-s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>文件包含相关</title>
+      <link>https://victorzhangai.github.io/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Fri, 20 Dec 2024 20:45:05 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E7%9B%B8%E5%85%B3/</guid>
+      <description>&lt;h3 id=&#34;文件名后缀检测与绕过&#34;&gt;文件名后缀检测与绕过&lt;/h3&gt;&#xA;&lt;h4 id=&#34;一般思路&#34;&gt;一般思路&lt;/h4&gt;&#xA;&lt;p&gt;.php -&amp;gt; 更换大小写 -&amp;gt; Windows可使用末尾增加.或者空格或者::$DATA进行过滤绕过 -&amp;gt; Apache可使用&lt;code&gt;SetHandler application/x-httpd-php&lt;/code&gt;进行任意文件绕过 -&amp;gt; MIME绕过 -&amp;gt; 图片马&lt;/p&gt;</description>
+    </item>
     <item>
       <title>速查表</title>
       <link>https://victorzhangai.github.io/%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
