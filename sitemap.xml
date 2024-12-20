@@ -3,10 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://victorzhangai.github.io/</loc>
-    <lastmod>2024-12-19T21:25:05+08:00</lastmod>
+    <lastmod>2024-12-20T20:27:00+08:00</lastmod>
   </url><url>
     <loc>https://victorzhangai.github.io/page/scsa-s/</loc>
-    <lastmod>2024-12-19T21:25:05+08:00</lastmod>
+    <lastmod>2024-12-20T20:27:00+08:00</lastmod>
+  </url><url>
+    <loc>https://victorzhangai.github.io/page/</loc>
+    <lastmod>2024-12-20T20:27:00+08:00</lastmod>
+  </url><url>
+    <loc>https://victorzhangai.github.io/%E9%80%9F%E6%9F%A5%E8%A1%A8/</loc>
+    <lastmod>2024-12-20T20:27:00+08:00</lastmod>
   </url><url>
     <loc>https://victorzhangai.github.io/metasploit/</loc>
     <lastmod>2024-12-19T21:25:05+08:00</lastmod>
@@ -15,9 +21,6 @@
     <lastmod>2024-12-19T21:25:05+08:00</lastmod>
   </url><url>
     <loc>https://victorzhangai.github.io/openssl/</loc>
-    <lastmod>2024-12-19T21:25:05+08:00</lastmod>
-  </url><url>
-    <loc>https://victorzhangai.github.io/page/</loc>
     <lastmod>2024-12-19T21:25:05+08:00</lastmod>
   </url><url>
     <loc>https://victorzhangai.github.io/sqlmap/</loc>

