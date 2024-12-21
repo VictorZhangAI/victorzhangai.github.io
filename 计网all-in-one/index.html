@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="分类 星型结构：易于组网，中心节点瘫痪会导致整个网络瘫痪\n环型结构：没有路径选择问题，但某个节点故障直接影响网络通信，网络吞吐能力差\n网型结构：可靠程度高，但是布线成本高\n树形结构：网络总长度较短，但层级越高的节点可靠性要求越高\n总线结构：网络业务容易扩展，但是故障排查成本大\n">
+<title>计网All-in-One</title>
+
+<link rel='canonical' href='https://victorzhangai.github.io/%E8%AE%A1%E7%BD%91all-in-one/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="计网All-in-One">
+<meta property='og:description' content="分类 星型结构：易于组网，中心节点瘫痪会导致整个网络瘫痪\n环型结构：没有路径选择问题，但某个节点故障直接影响网络通信，网络吞吐能力差\n网型结构：可靠程度高，但是布线成本高\n树形结构：网络总长度较短，但层级越高的节点可靠性要求越高\n总线结构：网络业务容易扩展，但是故障排查成本大\n">
+<meta property='og:url' content='https://victorzhangai.github.io/%E8%AE%A1%E7%BD%91all-in-one/'>
+<meta property='og:site_name' content='VZstless'>
+<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:published_time' content='2024-12-21T15:31:11&#43;08:00'/><meta property='article:modified_time' content='2024-12-21T15:31:11&#43;08:00'/>
+<meta name="twitter:title" content="计网All-in-One">
+<meta name="twitter:description" content="分类 星型结构：易于组网，中心节点瘫痪会导致整个网络瘫痪\n环型结构：没有路径选择问题，但某个节点故障直接影响网络通信，网络吞吐能力差\n网型结构：可靠程度高，但是布线成本高\n树形结构：网络总长度较短，但层级越高的节点可靠性要求越高\n总线结构：网络业务容易扩展，但是故障排查成本大\n">
+    <link rel="shortcut icon" href="/1f365.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu9665492565906287031.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">VZstless</a></h1>
+            <h2 class="site-description">maybe a cat</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/VictorZhangAI'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://vzstless.notion.so'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/_index.zh-cn/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>关于我</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li  class='current' >
+            <a href='/page/scsa-s/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>SCSA-S</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E8%BD%AC%E7%A7%BB%E4%B8%AD%E7%9A%84%E6%95%85%E4%BA%8B/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>转移中的故事</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#分类">分类</a></li>
+    <li><a href="#硬件设备与软件设备">硬件设备与软件设备</a></li>
+    <li><a href="#计算机网络体系结构">计算机网络体系结构</a>
+      <ol>
+        <li><a href="#osi协议">OSI协议</a></li>
+        <li><a href="#tcp协议">TCP协议</a></li>
+      </ol>
+    </li>
+    <li><a href="#局域网">局域网</a></li>
+    <li><a href="#以太网">以太网</a></li>
+    <li><a href="#虚拟局域网">虚拟局域网</a></li>
+    <li><a href="#交换机">交换机</a>
+      <ol>
+        <li><a href="#交换机工作原理">交换机工作原理</a></li>
+      </ol>
+    </li>
+    <li><a href="#arp协议">ARP协议</a></li>
+    <li><a href="#网络层协议">网络层协议</a></li>
+    <li><a href="#路由">路由</a>
+      <ol>
+        <li><a href="#路由基础">路由基础</a></li>
+        <li><a href="#动态路由协议">动态路由协议</a></li>
+      </ol>
+    </li>
+    <li><a href="#传输层">传输层</a></li>
+    <li><a href="#远程访问协议">远程访问协议</a></li>
+    <li><a href="#域名解析协议">域名解析协议</a></li>
+    <li><a href="#dhcp">DHCP</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/%E8%AE%A1%E7%BD%91all-in-one/">计网All-in-One</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-12-21</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="分类">分类
+</h2><p>星型结构：易于组网，中心节点瘫痪会导致整个网络瘫痪<br>
+环型结构：没有路径选择问题，但某个节点故障直接影响网络通信，网络吞吐能力差<br>
+网型结构：可靠程度高，但是布线成本高<br>
+树形结构：网络总长度较短，但层级越高的节点可靠性要求越高<br>
+总线结构：网络业务容易扩展，但是故障排查成本大</p>
+<p>按照规模划分为：局域网，城域网，广域网，英特网</p>
+<h2 id="硬件设备与软件设备">硬件设备与软件设备
+</h2><p>网卡：将计算机待传输的数据转化为数据包，负责计算机与网线的链接<br>
+双绞线与光纤<br>
+集线器：对收集的信号进行再生整形放大<br>
+modem：进行数字信号与模拟信号之间的转换<br>
+交换机：用来进行两个网络之间的连接与数据过滤<br>
+路由器：分组过滤，分组转发，优先级，复用，加密，压缩，防火墙，性能管理，流量管理，容错控制<br>
+服务器：专门用于为其他计算机提供服务的计算机<br>
+终端：一般的独立计算机<br>
+软件：网络协议与网络操作系统</p>
+<h2 id="计算机网络体系结构">计算机网络体系结构
+</h2><p>体系结构={层，协议，接口}</p>
+<p>层：n层服务了n+1层，也接收着n-1层的服务<br>
+协议：语义，语法，定时</p>
+<h3 id="osi协议">OSI协议
+</h3><p>物理层：为通信提供物理链路<br>
+传输层：建立相邻节点的数据链路，传输按照一定格式组织起来的数据帧<br>
+网络层：在通信子网中提供数据包并进行报文分组，提供源站到目标站的数据传输服务<br>
+传输层：为不同系统中的会话实体提供端到端的连接，传输的基本单位是报文<br>
+会话层：在两个表示实体之间建立会话关系<br>
+表示层：负责数据表示方式的问题解决<br>
+应用层：在OSI环境下提供各种网络服务</p>
+<h3 id="tcp协议">TCP协议
+</h3><p>应用层：向用户提供一组常用，可以在因特网上获得的应用服务<br>
+传输层：提供端到端的通信<br>
+因特网层：负责相邻计算机之间的通信<br>
+网络接口层：接受IP数据并使用网络发送</p>
+<h2 id="局域网">局域网
+</h2><p>拓扑结构，传输介质，介质访问控制技术</p>
+<p>总线型拓扑，环型拓扑，星型拓扑</p>
+<p>固定介入类，集中控制接入类，分布控制接入类</p>
+<p>LLC子层负责与媒体访问无关的功能，MAC子层负责与具体传输媒体有关的功能，只有MAC子层能够知道连接的局域网的标准</p>
+<h2 id="以太网">以太网
+</h2><p>802.3以太网标准：一个以太网最多允许5个网段，最多允许使用4个中继器，其中3个网段能够连接终端<br>
+以太网是使用带碰撞检测的载波侦听多路访问总线型网络</p>
+<p>CSMA技术和CD技术</p>
+<p>交换式以太网：建立虚连接和转发，在局域网间采用多台交换设备连接</p>
+<h2 id="虚拟局域网">虚拟局域网
+</h2><p>虚拟局域网是由一些局域网网段构成的可跨越不同物理网段，不同网络类型的逻辑网络<br>
+VLAN的信息交换：端口交换，帧交换，信元交换<br>
+虚拟局域网要采用集中式路由和分布式路由</p>
+<h2 id="交换机">交换机
+</h2><h3 id="交换机工作原理">交换机工作原理
+</h3><p>MAC地址表，转发，广播<br>
+初始化MAC地址表-&gt;MAC地址表学习-&gt;单帧转发-&gt;广播，组播和未知单帧的转发</p>
+<h2 id="arp协议">ARP协议
+</h2><p>负责从IP地址到物理地址的映射<br>
+MAC地址：前三字节由RA分配，后三字节由厂家指派<br>
+RARP：将MAC转化为IP</p>
+<h2 id="网络层协议">网络层协议
+</h2><p>网络层负责路由选择，拥塞控制和网际互联等<br>
+IPv4：前8位为网络地址，后24位为主机地址<br>
+子网掩码：1对应的位为网络号，0对应的位为主机号<br>
+CIDR记法：IP::={&lt;网络前缀&gt;, &lt;主机号&gt;}</p>
+<h2 id="路由">路由
+</h2><h3 id="路由基础">路由基础
+</h3><p>需要跨网络转发的数据包提供的路径信息<br>
+路由器在网络层工作，主要功能是路由选择<br>
+路由指分组从源节点到目的节点的传输路线<br>
+路由算法：静态路由算法，动态路由算法<br>
+静态路由选择：扩散路由选择：适用于规模小，负荷轻的网络；固定式路由选择；随机路由选择<br>
+动态路由选择：独立路由选择，集中路由选择，分布路由选择</p>
+<h3 id="动态路由协议">动态路由协议
+</h3><p>RIP协议：运行于UDP之上；只和相邻路由器交换信息，拥有路由表<br>
+RIP协议按照固定的时间间隔交换路由信息<br>
+RIP大大限制了网络规模，收敛时间过长<br>
+OSPF协议：区域边界路由器进行概括，拥有区域标识符<br>
+OSPF会在每隔十秒钟发送Hello报文查看路由器是否可达，每隔三十分钟刷新一次数据库中的链路状态</p>
+<h2 id="传输层">传输层
+</h2><p>传输层主要用于复用和分用，提供应用进程间的逻辑通信<br>
+UDP和TCP均使用应用层的端口进行通信<br>
+TCP：传输前要建立连接，传输是可靠的，使用超时重传和流量控制保证可靠性<br>
+三次握手：SYN-&gt;SYN+ACK-&gt;ACK<br>
+四次挥手：保证两端均关闭TCP，FIN-&gt;ACK-&gt;FIN+ACK-&gt;ACK<br>
+UDP发送但不保证到达</p>
+<h2 id="远程访问协议">远程访问协议
+</h2><p>Telnet: 用户使用Telnet即可在所在地通过TCP链接注册到远程主机上<br>
+SSH: 建立在应用层上，较为可靠<br>
+邮件传输使用SMTP协议，通用因特网邮件扩充（MIME）</p>
+<h2 id="域名解析协议">域名解析协议
+</h2><p>顶级域名：国家，国际(.int)和行业相关<br>
+域名服务器：根域名服务器，顶级域名服务器，权限域名服务器，顶级域名服务器<br>
+查询：迭代查询，递归查询</p>
+<h2 id="dhcp">DHCP
+</h2><p>采用UDP传输协议<br>
+发现，提供，选择，确认<br>
+重新登录，更新租约</p>
+<p>（不是，这也太多了，半天根本复习不完啊）</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 VZstless
+    </section>
+    
+    <section class="powerby">
+        
+            Maybe making a better tomorrow... <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

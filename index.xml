@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 21 Dec 2024 08:33:05 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Dec 2024 15:31:11 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计网All-in-One</title>
+      <link>https://victorzhangai.github.io/%E8%AE%A1%E7%BD%91all-in-one/</link>
+      <pubDate>Sat, 21 Dec 2024 15:31:11 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/%E8%AE%A1%E7%BD%91all-in-one/</guid>
+      <description>&lt;h2 id=&#34;分类&#34;&gt;分类&lt;/h2&gt;&#xA;&lt;p&gt;星型结构：易于组网，中心节点瘫痪会导致整个网络瘫痪&lt;br&gt;&#xA;环型结构：没有路径选择问题，但某个节点故障直接影响网络通信，网络吞吐能力差&lt;br&gt;&#xA;网型结构：可靠程度高，但是布线成本高&lt;br&gt;&#xA;树形结构：网络总长度较短，但层级越高的节点可靠性要求越高&lt;br&gt;&#xA;总线结构：网络业务容易扩展，但是故障排查成本大&lt;/p&gt;</description>
+    </item>
     <item>
       <title>信息搜集</title>
       <link>https://victorzhangai.github.io/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/</link>
