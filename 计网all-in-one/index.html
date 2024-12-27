@@ -336,6 +336,8 @@
     <li><a href="#远程访问协议">远程访问协议</a></li>
     <li><a href="#域名解析协议">域名解析协议</a></li>
     <li><a href="#dhcp">DHCP</a></li>
+    <li><a href="#安全防御">安全防御</a></li>
+    <li><a href="#dns">DNS</a></li>
   </ol>
 </nav>
         </div>
@@ -392,7 +394,7 @@
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -499,8 +501,21 @@ SSH: 建立在应用层上，较为可靠<br>
 查询：迭代查询，递归查询</p>
 <h2 id="dhcp">DHCP
 </h2><p>采用UDP传输协议<br>
-发现，提供，选择，确认<br>
-重新登录，更新租约</p>
+发现，提供，选择，确认(DORA)<br>
+客户端每隔五分钟重新发布Discover<br>
+重新登录，更新租约<br>
+作用域：一个连续的IP范围<br>
+DHCP服务器故障会导致全网不可用</p>
+<h2 id="安全防御">安全防御
+</h2><p>防火墙位于路由器后，交换机前，典型功能为访问控制，传输安全，路由，地址切换，服务代理，攻击检测和防御<br>
+性能指标：丢包率，吞吐量，时延，并发连接数<br>
+IDS: HIDS, NIDS<br>
+VPN: 依托NSP在公共网络中建立的虚拟专用通信网络</p>
+<h2 id="dns">DNS
+</h2><p>迭代查询，递归查询，反向查询<br>
+主区域，次要区域，存根区域<br>
+记录方式：SOA记录，NS记录，AAAA记录<br>
+MS记录，SRV记录</p>
 <p>（不是，这也太多了，半天根本复习不完啊）</p>
 
 </section>
