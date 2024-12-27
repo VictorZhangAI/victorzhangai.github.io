@@ -402,7 +402,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">whois <span class="o">[</span>URL<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">whois <span class="o">[</span>URL<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>DNS解析指令</p>
@@ -411,7 +411,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dig <span class="o">[</span>URL<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">dig <span class="o">[</span>URL<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>查找负责解析的DNS主机</p>
@@ -420,7 +420,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dig <span class="o">[</span>URL<span class="o">]</span> @m.n.p.q
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">dig <span class="o">[</span>URL<span class="o">]</span> @m.n.p.q
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>查找NS记录</p>
@@ -429,7 +429,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dig <span class="o">[</span>URL<span class="o">]</span> NS
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">dig <span class="o">[</span>URL<span class="o">]</span> NS
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>查找TXT记录</p>
@@ -438,7 +438,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dig <span class="o">[</span>URL<span class="o">]</span> TXT
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">dig <span class="o">[</span>URL<span class="o">]</span> TXT
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>多地ping
@@ -450,7 +450,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 subDomainsBrute.py --full -t <span class="m">10</span> <span class="o">[</span>URL<span class="o">]</span> -w
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python3 subDomainsBrute.py --full -t <span class="m">10</span> <span class="o">[</span>URL<span class="o">]</span> -w
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中&ndash;full为全部扫描，-t为使用线程数，-w为扩展扫描</p>
@@ -462,7 +462,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">theHarvester -d <span class="o">[</span>URL<span class="o">]</span> -c
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">theHarvester -d <span class="o">[</span>URL<span class="o">]</span> -c
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>-c进行子域名爆破</p>
@@ -475,7 +475,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">aquatone-discover --set-key <span class="o">[</span>engine-name<span class="o">]</span> <span class="o">[</span>key<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">aquatone-discover --set-key <span class="o">[</span>engine-name<span class="o">]</span> <span class="o">[</span>key<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>减少扫描目标</p>
@@ -484,7 +484,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">aquatone-scan -d <span class="o">[</span>URL<span class="o">]</span> -p <span class="o">[</span>PORTS<span class="o">]</span> -t <span class="o">[</span>THREADS<span class="o">]</span> -s <span class="o">[</span>SLEEP_TIME<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">aquatone-scan -d <span class="o">[</span>URL<span class="o">]</span> -p <span class="o">[</span>PORTS<span class="o">]</span> -t <span class="o">[</span>THREADS<span class="o">]</span> -s <span class="o">[</span>SLEEP_TIME<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>-d指定域名，-p指定端口，使用逗号隔开，-t指定使用线程数目，-s指定发送请求的间隔时间</p>
@@ -494,7 +494,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">masscan –p <span class="m">80</span> ip/24 --rate <span class="m">10000</span> -oL output.txt
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">masscan –p <span class="m">80</span> ip/24 --rate <span class="m">10000</span> -oL output.txt
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>-p为设定输出端口，&ndash;rate为设定发包速率，-oL为设定输出路径</p>
@@ -504,7 +504,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wafw00f <span class="o">[</span>IP<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wafw00f <span class="o">[</span>IP<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用waf00f探测waf设备</p>
@@ -514,7 +514,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dirb http://IP <span class="o">[</span>dict_path<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">dirb http://IP <span class="o">[</span>dict_path<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用dirb，借助字典暴力探测web目录</p>
@@ -524,7 +524,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dig <span class="o">[</span>DNS_server<span class="o">]</span> -t axfr <span class="o">[</span>request_URL<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">dig <span class="o">[</span>DNS_server<span class="o">]</span> -t axfr <span class="o">[</span>request_URL<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>-t 为域传输类型请求</p>

@@ -338,6 +338,7 @@
     <li><a href="#dhcp">DHCP</a></li>
     <li><a href="#安全防御">安全防御</a></li>
     <li><a href="#dns">DNS</a></li>
+    <li><a href="#ftp">FTP</a></li>
   </ol>
 </nav>
         </div>
@@ -516,6 +517,16 @@ VPN: 依托NSP在公共网络中建立的虚拟专用通信网络</p>
 主区域，次要区域，存根区域<br>
 记录方式：SOA记录，NS记录，AAAA记录<br>
 MS记录，SRV记录</p>
+<h2 id="ftp">FTP
+</h2><p>主动模式和被动模式<br>
+主动模式<br>
+命令链接：cli&gt;1024, ser-21;<br>
+数据链接：cli&gt;1024, ser-20;<br>
+被动模式<br>
+命令链接：ser&gt;1024, cli-21;<br>
+数据链接：ser&gt;1024, cli&gt;1024;<br>
+TFTP使用UDP<br>
+命令格式：ftp -v -d -l -n -g [hostname]</p>
 <p>（不是，这也太多了，半天根本复习不完啊）</p>
 
 </section>

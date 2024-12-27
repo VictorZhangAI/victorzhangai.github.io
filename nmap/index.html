@@ -390,7 +390,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -sP <span class="o">[</span>IP<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -sP <span class="o">[</span>IP<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>主机存活检测</p>
@@ -399,7 +399,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p T:1-65535,U:1-65535 -sS -sU <span class="o">[</span>IP<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -p T:1-65535,U:1-65535 -sS -sU <span class="o">[</span>IP<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>主机全端口扫描</p>
@@ -408,7 +408,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -sV -O <span class="o">[</span>IP<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -sV -O <span class="o">[</span>IP<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>主机程序版本和操作系统侦测</p>
@@ -417,7 +417,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p <span class="m">80</span> -sS <span class="o">[</span>IP<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -p <span class="m">80</span> -sS <span class="o">[</span>IP<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>对主机80端口进行TCP SYN扫描。nmap向目标端口发送TCP SYN报文，如果目标机返回TCP SYN+ACK报文，则说明目标端口处于开放状态，同时nmap会紧接着向目标机发送TCP RST报文以重置此连接；如果目标机返回TCP RST+ACK报文，则说明目标端口处于关闭状态。</p>
@@ -426,7 +426,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p <span class="m">80</span> -sT <span class="o">[</span>IP<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -p <span class="m">80</span> -sT <span class="o">[</span>IP<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>对主机进行TCP connect扫描。nmap向目标端口发送TCP SYN报文，如果目标机返回TCP SYN+ACK报文，则说明目标端口处于开放状态，同时nmap会紧接着向目标机依次发送TCP ACK、TCP RST+ACK完成三次握手和重置此连接；如果目标机返回TCP RST+ACK报文，则说明目标端口处于关闭状态。</p>
@@ -435,7 +435,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p <span class="m">80</span> -sA <span class="o">[</span>IP<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -p <span class="m">80</span> -sA <span class="o">[</span>IP<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>对目标主机进行TCP ACK扫描。nmap向目标端口发送TCP ACK报文，无论目标端口是否处于开放状态，目标机都会返回TCP RST报文。如果nmap主机能收到此TCP RST报文，则说明目标端口未被防火墙屏蔽。TCP ACK扫描只能用于确定防火墙是否屏蔽某个端口，可以辅助TCP SYN的方式来判断目标主机防火墙的状况。</p>
@@ -444,7 +444,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap –sn –PE -n <span class="o">[</span>IP<span class="o">]</span> –oX out.xml
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap –sn –PE -n <span class="o">[</span>IP<span class="o">]</span> –oX out.xml
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>C段扫描，其中-sn为不扫描端口，-PE为使用ICMP扫描，-n为不使用DNS解析</p>
@@ -455,7 +455,7 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap –sS –Pn –O <span class="o">[</span>IP<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap –sS –Pn –O <span class="o">[</span>IP<span class="o">]</span>
 </span></span><span class="line"><span class="cl">nmap -sS -sV <span class="o">[</span>IP<span class="o">]</span>
 </span></span><span class="line"><span class="cl">nmap -p <span class="m">80</span> --script http-waf-fingerprint <span class="o">[</span>IP<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
@@ -466,7 +466,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap --script dns-zone-transfer.nse --script-args <span class="s2">&#34;dns-zone-transfer.domain=[request_URL]&#34;</span> -Pn -p <span class="m">53</span> <span class="o">[</span>DNS_server<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap --script dns-zone-transfer.nse --script-args <span class="s2">&#34;dns-zone-transfer.domain=[request_URL]&#34;</span> -Pn -p <span class="m">53</span> <span class="o">[</span>DNS_server<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中<code>--script dns-zone-transfer.nse</code>代表使用域传输脚本，<code>--script-args</code>配置脚本对应参数，<code>-Pn</code>进行ping测试<code>-p 53</code>为指定53号端口</p>

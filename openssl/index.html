@@ -401,7 +401,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl enc -e -rc4 -in test.txt -out test_rc4.enc
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl enc -e -rc4 -in test.txt -out test_rc4.enc
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>加密</p>
@@ -410,7 +410,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl enc -d -rc4 -in test_rc4.enc -out test_rc4.dm
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl enc -d -rc4 -in test_rc4.enc -out test_rc4.dm
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>解密</p>
@@ -420,7 +420,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl enc -e -aes-128-cbc -a -salt -in test.txt -out test_aes128.enc
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl enc -e -aes-128-cbc -a -salt -in test.txt -out test_aes128.enc
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>加密</p>
@@ -429,7 +429,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl enc -d -aes-128-cbc -a -salt -in test_aes128.enc -out test_aes128.d
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl enc -d -aes-128-cbc -a -salt -in test_aes128.enc -out test_aes128.d
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>解密</p>
@@ -439,7 +439,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl enc -e -des3 -a -salt -in test.txt -out test_des3.enc
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl enc -e -des3 -a -salt -in test.txt -out test_des3.enc
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>加密</p>
@@ -448,7 +448,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl enc -d -des3 -a -salt -in test_des3.enc -out test_des3.d
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl enc -d -des3 -a -salt -in test_des3.enc -out test_des3.d
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>解密</p>
@@ -458,7 +458,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl genrsa -out rsa.key <span class="m">1024</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl genrsa -out rsa.key <span class="m">1024</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>生成密钥对</p>
@@ -467,7 +467,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl rsa -in rsa.key -pubout -out rsa_pub.key
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl rsa -in rsa.key -pubout -out rsa_pub.key
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>导出公钥</p>
@@ -476,7 +476,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl rsautl -encrypt -in test.txt -inkey rsa_pub.key -pubin -out test_rsa.enc
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl rsautl -encrypt -in test.txt -inkey rsa_pub.key -pubin -out test_rsa.enc
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用公钥加密文件</p>
@@ -485,7 +485,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl rsautl -decrypt -in test_rsa.enc -inkey rsa.key -out test_rsa.c
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl rsautl -decrypt -in test_rsa.enc -inkey rsa.key -out test_rsa.c
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用私钥解密文件</p>
@@ -495,7 +495,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl dgst -md5 md.txt
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl dgst -md5 md.txt
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>生成哈希</p>
@@ -505,7 +505,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl genrsa -out rsa.key <span class="m">1024</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl genrsa -out rsa.key <span class="m">1024</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>生成RSA密钥对</p>
@@ -514,7 +514,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl rsa -in rsa.key -pubout -out rsa_pub.key
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl rsa -in rsa.key -pubout -out rsa_pub.key
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>导出公钥</p>
@@ -523,7 +523,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl sha1 -sign rsa.key -out rsasign.bin test.txt
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl sha1 -sign rsa.key -out rsasign.bin test.txt
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用私钥签名</p>
@@ -532,7 +532,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl sha1 -verify rsa_pub.key -signature rsasign.bin test.txt
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl sha1 -verify rsa_pub.key -signature rsasign.bin test.txt
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>RSA公钥认证签名</p>
@@ -542,7 +542,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl dsaparam -out dsap.pem <span class="m">1024</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl dsaparam -out dsap.pem <span class="m">1024</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>生成DSA参数</p>
@@ -551,7 +551,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl dsaparam -in dsap.pem -text -noout
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl dsaparam -in dsap.pem -text -noout
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>查看DSA明文</p>
@@ -560,7 +560,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl gendsa -out dsa1.pem dsap.pem
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl gendsa -out dsa1.pem dsap.pem
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>生成DSA密钥</p>
@@ -569,7 +569,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl gendsa -out dsaprivatekey.pem -des3 dsap.pem
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl gendsa -out dsaprivatekey.pem -des3 dsap.pem
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>生成私钥并使用DES加密</p>
@@ -578,7 +578,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl dsa -in dsaprivatekey.pem -pubout -out dsapublickey.pem
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl dsa -in dsaprivatekey.pem -pubout -out dsapublickey.pem
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>由私钥生成公钥</p>
@@ -587,7 +587,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl dgst -dss1 -sign dsaprivatekey.pem -out dsasign.bin test.txt
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl dgst -dss1 -sign dsaprivatekey.pem -out dsasign.bin test.txt
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用私钥dsaprivatekey.pem签名text.txt，dsasign.bin为签名文件</p>
@@ -596,7 +596,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl dgst -dss1 -verify dsapublickey.pem -signature dsasign.bin test.txt
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl dgst -dss1 -verify dsapublickey.pem -signature dsasign.bin test.txt
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用公钥验证签名</p>
@@ -605,7 +605,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl dgst -dss1 -prverify dsaprivatekey.pem -signature dsasign.bin test.txt
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl dgst -dss1 -prverify dsaprivatekey.pem -signature dsasign.bin test.txt
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用私钥验证签名</p>
