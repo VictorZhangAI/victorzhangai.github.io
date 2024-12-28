@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Thu, 26 Dec 2024 21:33:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2024 07:53:00 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>漏洞扫描</title>
+      <link>https://victorzhangai.github.io/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F/</link>
+      <pubDate>Sat, 28 Dec 2024 07:53:00 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F/</guid>
+      <description>&lt;h2 id=&#34;nikto&#34;&gt;Nikto&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nikto -host http://&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;IP&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; -c /sqli-labs -o /usr/result.html -F htm&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;对靶机的sqli-labs进行扫描，并将结果保存至result.html中&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nikto -host http://&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;IP&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; -mutate &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; -mutate-option /usr/sub.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;根据sub.txt字典中的子域名选项进行子域名扫描&lt;/p&gt;</description>
+    </item>
     <item>
       <title>密码学相关工具</title>
       <link>https://victorzhangai.github.io/%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
