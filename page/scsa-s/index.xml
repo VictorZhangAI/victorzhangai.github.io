@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 28 Dec 2024 07:53:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2024 08:25:40 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/page/scsa-s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Hacking</title>
+      <link>https://victorzhangai.github.io/google-hacking/</link>
+      <pubDate>Sat, 28 Dec 2024 08:25:40 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/google-hacking/</guid>
+      <description>&lt;h2 id=&#34;google&#34;&gt;Google&lt;/h2&gt;&#xA;&lt;p&gt;+ 强制搜索后方的单词&lt;br&gt;&#xA;- 忽略关键词&lt;br&gt;&#xA;~ 同义词&lt;br&gt;&#xA;. 单一通配符&lt;br&gt;&#xA;* 通配符，可以代表多个字符&lt;br&gt;&#xA;&amp;quot;&amp;quot; 精确查询&lt;br&gt;&#xA;| OR 符合一个就显示&lt;br&gt;&#xA;Intext:key 搜索网页上某个关键字的页面&lt;br&gt;&#xA;Allintext:key 可以键入多个关键字&lt;br&gt;&#xA;intitle:key 搜索网页标题中是否有关键字&lt;br&gt;&#xA;Allintitle:key 同理&lt;br&gt;&#xA;cache:url 查看URL快照&lt;br&gt;&#xA;filetype: 搜索指定类型文件&lt;br&gt;&#xA;info: 相关信息&lt;br&gt;&#xA;inurl: 搜索结果是否在URL中，可与info结合进行后台查询&lt;br&gt;&#xA;site: 搜索域名及其子域名&lt;br&gt;&#xA;related URL: 与这个URL相关的页面&lt;/p&gt;</description>
+    </item>
     <item>
       <title>漏洞扫描</title>
       <link>https://victorzhangai.github.io/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F/</link>
