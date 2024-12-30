@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 28 Dec 2024 08:25:40 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2024 08:08:50 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>商学的死亡</title>
+      <link>https://victorzhangai.github.io/p/%E5%95%86%E5%AD%A6%E7%9A%84%E6%AD%BB%E4%BA%A1/</link>
+      <pubDate>Mon, 30 Dec 2024 08:08:50 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/p/%E5%95%86%E5%AD%A6%E7%9A%84%E6%AD%BB%E4%BA%A1/</guid>
+      <description>&lt;p&gt;理论上一个计算机都快学不明白的人不应该对外行的见识发表暴论，但既然学校选择了力推外专业“选修”，不修毕不了业，那我就不先礼后兵了&lt;br&gt;&#xA;许多人现如今已经不太看重所谓的MBA或者别的类似的商学学位，认为它们纯纯是二水货，事实证明他们没错。商学的死不是因为商学被什么别的哲学取代了，而是商学被计算机从思维意义上被取代了。这时候你大概率要问：是计算机代替了人力参与了商学相关的事务了吗？是也不是，因为不只是人类意义上的代替，还有思想层面的代替。&lt;br&gt;&#xA;几乎所有的管理学相关的思想在计算机哲学中都能找到代替品，而且研究层面上更加极端。流水线优化与对节拍异化为了CPU流水线性能优化，工作中心分配异化为了操作系统中的线程调度优化，公交线路布局异化为了找最长路径，观察次数异化为了单纯的统计题，工序优化异化为了对一个有向图进行拓扑排序，至于剩下的，大概率交给Excel或者大模型都可以完成。从思想和实践层面，计算机科学都直接毙掉了商学。&lt;br&gt;&#xA;也许商学的下一步应该把&lt;em&gt;UNIX编程艺术&lt;/em&gt;列为必读书目？但总之不应该是罗宾斯管理学这种老东西了。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Google Hacking</title>
       <link>https://victorzhangai.github.io/google-hacking/</link>
