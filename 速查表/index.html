@@ -10,7 +10,7 @@
 <meta property='og:description' content="XSS 1 2 3 4 &lt;script&gt;alert(666);&lt;/script&gt; &lt;a href=&#34;javascript:alert(666)&#34;&gt;touch me!&lt;/a&gt; &lt;img src=1 onerror=alert(666)&gt; &lt;input type=text onclick=alert(666) /&gt; 变体：改大小写，加引号，斜杠代替空格，使用回车与换行符，使用编码\n管道符 Linux常用管道符： ;前面的执行完执行后面的\r|显示后面的执行结果\r||当前面的执行出错时执行后面的\rWindows常用管道符 &amp;前面的语句为假则直接执行后面的\r&amp;&amp;前面的语句为假则直接出错，后面的也不执行\r|直接执行后面的语句\r||前面出错执行后面的\r危险函数与常量 PHP中常见代码执行函数： array_map()\reval()\rassert()\rpreg_replace()\rcall_user_func()\r$a($b)动态函数\rPHP中常见系统命令执行函数： system()\rexec()\rshell_exec()\rpassthru()\rpopen()\r反引号&quot;`&quot;\r危险常量 1 2 3 4 5 6 7 8 __LINE__ //文件中的当前行号 __FILE__ //文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名 __DIR__ //文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录 __FUNCTION__ //该常量所在的函数名称（PHP 4.3.0 新加）。自PHP5起本常量返回该函数被定义时的名字（区分大小写）。在PHP4中该值总是小写字母的 __CLASS__ //该类被定义时的名字（PHP 4.3.0 新加）。自PHP5起本常量返回该类被定义时的名字（区分大小写） __TRAIT__ //Trait的名字（PHP 5.4.0 新加）。自PHP5.4.0起，PHP实现了代码复用的一个方法，称为traits __METHOD__ //类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写） __NAMESPACE__ //当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增） 一句话系列 1 &lt;?php phpinfo();?&gt; 查看配置信息（注：php报错时会暴露绝对路径）\n">
 <meta property='og:url' content='https://victorzhangai.github.io/%E9%80%9F%E6%9F%A5%E8%A1%A8/'>
 <meta property='og:site_name' content='VZstless'>
-<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:published_time' content='2024-12-20T20:27:00&#43;08:00'/><meta property='article:modified_time' content='2024-12-20T20:27:00&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:tag' content='SECURITY' /><meta property='article:published_time' content='2024-12-20T20:27:00&#43;08:00'/><meta property='article:modified_time' content='2024-12-20T20:27:00&#43;08:00'/>
 <meta name="twitter:title" content="速查表">
 <meta name="twitter:description" content="XSS 1 2 3 4 &lt;script&gt;alert(666);&lt;/script&gt; &lt;a href=&#34;javascript:alert(666)&#34;&gt;touch me!&lt;/a&gt; &lt;img src=1 onerror=alert(666)&gt; &lt;input type=text onclick=alert(666) /&gt; 变体：改大小写，加引号，斜杠代替空格，使用回车与换行符，使用编码\n管道符 Linux常用管道符： ;前面的执行完执行后面的\r|显示后面的执行结果\r||当前面的执行出错时执行后面的\rWindows常用管道符 &amp;前面的语句为假则直接执行后面的\r&amp;&amp;前面的语句为假则直接出错，后面的也不执行\r|直接执行后面的语句\r||前面出错执行后面的\r危险函数与常量 PHP中常见代码执行函数： array_map()\reval()\rassert()\rpreg_replace()\rcall_user_func()\r$a($b)动态函数\rPHP中常见系统命令执行函数： system()\rexec()\rshell_exec()\rpassthru()\rpopen()\r反引号&quot;`&quot;\r危险常量 1 2 3 4 5 6 7 8 __LINE__ //文件中的当前行号 __FILE__ //文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名 __DIR__ //文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录 __FUNCTION__ //该常量所在的函数名称（PHP 4.3.0 新加）。自PHP5起本常量返回该函数被定义时的名字（区分大小写）。在PHP4中该值总是小写字母的 __CLASS__ //该类被定义时的名字（PHP 4.3.0 新加）。自PHP5起本常量返回该类被定义时的名字（区分大小写） __TRAIT__ //Trait的名字（PHP 5.4.0 新加）。自PHP5.4.0起，PHP实现了代码复用的一个方法，称为traits __METHOD__ //类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写） __NAMESPACE__ //当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增） 一句话系列 1 &lt;?php phpinfo();?&gt; 查看配置信息（注：php报错时会暴露绝对路径）\n">
     <link rel="shortcut icon" href="/1f365.ico" />
@@ -569,6 +569,12 @@ popen()
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/security/">SECURITY</a>
+        
+    </section>
+
 
     
     <section class="article-copyright">

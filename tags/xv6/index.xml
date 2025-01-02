@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Xv6 on VZstless</title>
+        <link>http://localhost:1313/tags/xv6/</link>
+        <description>Recent content in Xv6 on VZstless</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>VZstless</copyright>
+        <lastBuildDate>Wed, 01 Jan 2025 08:28:39 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/xv6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>xv6 LECTURE1</title>
+        <link>http://localhost:1313/p/xv6-lecture1/</link>
+        <pubDate>Wed, 01 Jan 2025 08:28:39 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/xv6-lecture1/</guid>
+        <description>&lt;h2 id=&#34;handout-1&#34;&gt;Handout 1
+&lt;/h2&gt;&lt;p&gt;Purpose of an OS:&lt;/p&gt;
+&lt;p&gt;Isolate hard/software, virtualize hardware&lt;br&gt;
+Interact with OS via syscalls&lt;br&gt;
+First arg in syscall is FD&lt;br&gt;
+UNIX I/O is 8-bit bytes&lt;/p&gt;
+&lt;p&gt;When CPU receives a syscall:&lt;br&gt;
+save, jump, execute, call, restore, reduce, jump back&lt;/p&gt;
+&lt;p&gt;Shell is a user program instead of shell&lt;br&gt;
+fork() lets us create a new process&lt;br&gt;
+exec() replaces current process with an executable file&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-1&#34;&gt;Book Chapter 1
+&lt;/h2&gt;&lt;p&gt;Operating system let different softwares use hardware together&lt;br&gt;
+Process: instructions, data, stack&lt;br&gt;
+fork() returns 0 in the child process while pid in the parent process&lt;br&gt;
+wait() returns the pid and copies the exit status&lt;br&gt;
+exec() loads a file and executes it&lt;/p&gt;
+&lt;p&gt;file descripter refers to a file.&lt;br&gt;
+fork() and exec()let the shell has the chance to redirect child&amp;rsquo;s I/O&lt;br&gt;
+File descripter is a good abstraction&lt;/p&gt;
+&lt;p&gt;Pipe is a small kernel buffer conncting files.&lt;br&gt;
+Pipe: auto-clean, pass long data, allow parallel execution&lt;/p&gt;
+&lt;p&gt;Underlying file is called inode&lt;br&gt;
+cd is built-in, if not, the shell will form a infinity process tree of dir-changing&lt;/p&gt;
+&lt;p&gt;ALL XV6 PROGRAMS RUN AS ROOT!!!!!&lt;/p&gt;
+&lt;h2 id=&#34;amusement-unix&#34;&gt;Amusement: UNIX
+&lt;/h2&gt;&lt;p&gt;In order to avoid large amount of team population and project cost, we need to build a good programming environment. UNIX is for building such an environment.&lt;br&gt;
+PROBLEM: Large number of softwares, large scale of jobs&lt;br&gt;
+Software is always demanded for different operations, to avoid rewrite code per annum, the code should be divided into modules.
+Layers: kernel, shell, util&lt;br&gt;
+A show of pipes&lt;br&gt;
+Easy and packed pattern-matching algorithms&lt;br&gt;
+Refer file as a simple sequence of bytes, file is contained in directories&lt;br&gt;
+Concept of I/O redirection&lt;br&gt;
+C: If you need to avoid hardware, simply use it; but also ways to interact with hardware directly&lt;br&gt;
+An example of a software, inputting boolean equation and outputting circuit traces&lt;br&gt;
+Computer is built for easy to use&lt;/p&gt;
+&lt;h2 id=&#34;lecture-1&#34;&gt;Lecture 1
+&lt;/h2&gt;&lt;p&gt;What would a kernel do?&lt;br&gt;
+Everyone thought OS provides what they already know&lt;br&gt;
+Many tensions occurred in OS design&lt;br&gt;
+Func call vs Syscall? func hasn&amp;rsquo;t previlege to access real CPU and mem but syscalls have&lt;br&gt;
+High-level language is designed to be portable&lt;br&gt;
+There is a rule that we read from fd 0 and write to fd 1&lt;br&gt;
+Kernel holds a process table and guided by fd&lt;br&gt;
+Instruction ecall passes the system from user space to the kernel space&lt;br&gt;
+Parent and child process shares the same fd&lt;br&gt;
+exec() loads the program in the file and throw away current process&lt;br&gt;
+exec() remains the fd that already exists&lt;br&gt;
+wait() waits the child process to return, if the process hasn&amp;rsquo;t child process, it&amp;rsquo;ll return -1&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

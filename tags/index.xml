@@ -7,6 +7,49 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
+    <lastBuildDate>Wed, 01 Jan 2025 08:28:39 +0800</lastBuildDate>
     <atom:link href="https://victorzhangai.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>XV6 OS</title>
+      <link>https://victorzhangai.github.io/tags/xv6-os/</link>
+      <pubDate>Wed, 01 Jan 2025 08:28:39 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/tags/xv6-os/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>COMMENT</title>
+      <link>https://victorzhangai.github.io/tags/comment/</link>
+      <pubDate>Mon, 30 Dec 2024 08:08:50 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/tags/comment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SECURITY</title>
+      <link>https://victorzhangai.github.io/tags/security/</link>
+      <pubDate>Sat, 28 Dec 2024 08:25:40 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MISC</title>
+      <link>https://victorzhangai.github.io/tags/misc/</link>
+      <pubDate>Wed, 18 Dec 2024 21:38:49 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/tags/misc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OI</title>
+      <link>https://victorzhangai.github.io/tags/oi/</link>
+      <pubDate>Wed, 11 Dec 2024 10:17:29 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/tags/oi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>COA</title>
+      <link>https://victorzhangai.github.io/tags/coa/</link>
+      <pubDate>Tue, 10 Dec 2024 16:55:17 +0800</pubDate>
+      <guid>https://victorzhangai.github.io/tags/coa/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
