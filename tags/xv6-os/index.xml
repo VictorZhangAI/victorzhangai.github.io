@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>XV6 OS on VZstless</title>
-    <link>https://victorzhangai.github.io/tags/xv6-os/</link>
+    <link>https://vzstless.moe/tags/xv6-os/</link>
     <description>Recent content in XV6 OS on VZstless</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
     <lastBuildDate>Wed, 01 Jan 2025 08:28:39 +0800</lastBuildDate>
-    <atom:link href="https://victorzhangai.github.io/tags/xv6-os/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vzstless.moe/tags/xv6-os/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>xv6 LECTURE1</title>
-      <link>https://victorzhangai.github.io/p/xv6-lecture1/</link>
+      <link>https://vzstless.moe/p/xv6-lecture1/</link>
       <pubDate>Wed, 01 Jan 2025 08:28:39 +0800</pubDate>
-      <guid>https://victorzhangai.github.io/p/xv6-lecture1/</guid>
+      <guid>https://vzstless.moe/p/xv6-lecture1/</guid>
       <description>&lt;h2 id=&#34;handout-1&#34;&gt;Handout 1&lt;/h2&gt;&#xA;&lt;p&gt;Purpose of an OS:&lt;/p&gt;&#xA;&lt;p&gt;Isolate hard/software, virtualize hardware&lt;br&gt;&#xA;Interact with OS via syscalls&lt;br&gt;&#xA;First arg in syscall is FD&lt;br&gt;&#xA;UNIX I/O is 8-bit bytes&lt;/p&gt;&#xA;&lt;p&gt;When CPU receives a syscall:&lt;br&gt;&#xA;save, jump, execute, call, restore, reduce, jump back&lt;/p&gt;&#xA;&lt;p&gt;Shell is a user program instead of shell&lt;br&gt;&#xA;fork() lets us create a new process&lt;br&gt;&#xA;exec() replaces current process with an executable file&lt;/p&gt;&#xA;&lt;h2 id=&#34;book-chapter-1&#34;&gt;Book Chapter 1&lt;/h2&gt;&#xA;&lt;p&gt;Operating system let different softwares use hardware together&lt;br&gt;&#xA;Process: instructions, data, stack&lt;br&gt;&#xA;fork() returns 0 in the child process while pid in the parent process&lt;br&gt;&#xA;wait() returns the pid and copies the exit status&lt;br&gt;&#xA;exec() loads a file and executes it&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>COA on VZstless</title>
-    <link>https://victorzhangai.github.io/tags/coa/</link>
+    <link>https://vzstless.moe/tags/coa/</link>
     <description>Recent content in COA on VZstless</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
     <lastBuildDate>Tue, 10 Dec 2024 16:55:17 +0800</lastBuildDate>
-    <atom:link href="https://victorzhangai.github.io/tags/coa/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vzstless.moe/tags/coa/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>单周期处理器（LA）讲座笔记</title>
-      <link>https://victorzhangai.github.io/p/%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8la%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</link>
+      <link>https://vzstless.moe/p/%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8la%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Tue, 10 Dec 2024 16:55:17 +0800</pubDate>
-      <guid>https://victorzhangai.github.io/p/%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8la%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://vzstless.moe/p/%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8la%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;h2 id=&#34;单周期处理器la版本&#34;&gt;单周期处理器（LA版本）&lt;/h2&gt;&#xA;&lt;p&gt;延迟槽：曾几何时它很好，然而它非但无法解决延迟造成的流水线阻塞问题，而且会使微结构的设计复杂化，而且编译器并不能总是提取出有效指令填入流水线导致流水线中出现过量空指令，影响流水线性能&lt;/p&gt;</description>
     </item>
     <item>
       <title>Csapp Chapter4</title>
-      <link>https://victorzhangai.github.io/p/csapp-chapter4/</link>
+      <link>https://vzstless.moe/p/csapp-chapter4/</link>
       <pubDate>Tue, 10 Dec 2024 16:44:47 +0800</pubDate>
-      <guid>https://victorzhangai.github.io/p/csapp-chapter4/</guid>
+      <guid>https://vzstless.moe/p/csapp-chapter4/</guid>
       <description>&lt;h2 id=&#34;41&#34;&gt;4.1&lt;/h2&gt;&#xA;&lt;h3 id=&#34;prelude&#34;&gt;prelude&lt;/h3&gt;&#xA;&lt;p&gt;PC holds the address of the instruction that currently executed.&lt;/p&gt;&#xA;&lt;p&gt;registers, base pointer, stack pointer&lt;/p&gt;&#xA;&lt;p&gt;condition code: ZF, SF, OF&lt;/p&gt;&#xA;&lt;p&gt;memory(monolithic byte array)&lt;/p&gt;&#xA;&lt;p&gt;Types of encoding the Y-86 instructions:&lt;/p&gt;&#xA;&lt;p&gt;I-type, D-type and B-type&lt;/p&gt;&#xA;&lt;h3 id=&#34;instructions&#34;&gt;instructions&lt;/h3&gt;&#xA;&lt;p&gt;movq is split: I, R, M -&amp;gt; R, M&lt;/p&gt;&#xA;&lt;p&gt;AL instructions: addq, subq, andq, xorq (as there is no zero register in Y-86 processor, you must add an xorq instruction)&lt;/p&gt;&#xA;&lt;p&gt;jumps: jmp, &amp;lt;=, &amp;lt;, ==, !=, &amp;gt;=, &amp;gt;&lt;/p&gt;</description>
     </item>
   </channel>
