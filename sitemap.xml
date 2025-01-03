@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vzstless.moe/</loc>
-    <lastmod>2025-01-02T16:43:11+08:00</lastmod>
+    <lastmod>2025-01-03T22:12:02+08:00</lastmod>
+  </url><url>
+    <loc>https://vzstless.moe/post/</loc>
+    <lastmod>2025-01-03T22:12:02+08:00</lastmod>
+  </url><url>
+    <loc>https://vzstless.moe/tags/</loc>
+    <lastmod>2025-01-03T22:12:02+08:00</lastmod>
+  </url><url>
+    <loc>https://vzstless.moe/p/xv6-lecture2/</loc>
+    <lastmod>2025-01-03T22:12:02+08:00</lastmod>
+  </url><url>
+    <loc>https://vzstless.moe/tags/xv6-os/</loc>
+    <lastmod>2025-01-03T22:12:02+08:00</lastmod>
   </url><url>
     <loc>https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E4%BA%8C%E7%AB%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-01-02T16:43:11+08:00</lastmod>
@@ -11,16 +23,7 @@
     <loc>https://vzstless.moe/tags/oi/</loc>
     <lastmod>2025-01-02T16:43:11+08:00</lastmod>
   </url><url>
-    <loc>https://vzstless.moe/post/</loc>
-    <lastmod>2025-01-02T16:43:11+08:00</lastmod>
-  </url><url>
-    <loc>https://vzstless.moe/tags/</loc>
-    <lastmod>2025-01-02T16:43:11+08:00</lastmod>
-  </url><url>
     <loc>https://vzstless.moe/p/xv6-lecture1/</loc>
-    <lastmod>2025-01-01T08:28:39+08:00</lastmod>
-  </url><url>
-    <loc>https://vzstless.moe/tags/xv6-os/</loc>
     <lastmod>2025-01-01T08:28:39+08:00</lastmod>
   </url><url>
     <loc>https://vzstless.moe/tags/comment/</loc>

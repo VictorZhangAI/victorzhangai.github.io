@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Thu, 02 Jan 2025 16:43:11 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2025 22:12:02 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE2</title>
+      <link>https://vzstless.moe/p/xv6-lecture2/</link>
+      <pubDate>Fri, 03 Jan 2025 22:12:02 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture2/</guid>
+      <description>&lt;h2 id=&#34;handout-2&#34;&gt;Handout 2&lt;/h2&gt;&#xA;&lt;p&gt;memory layout:&lt;br&gt;&#xA;text: code, read-only data&lt;br&gt;&#xA;data: global C vars&lt;br&gt;&#xA;stack: local variables&lt;br&gt;&#xA;heap: sbrk, malloc, free&lt;br&gt;&#xA;.c -compile-&amp;gt; .o -link-&amp;gt; executable file&lt;br&gt;&#xA;strlen() uses array access while strcmp() uses pointer access&lt;br&gt;&#xA;kalloc() keeps a large linked list of free pages of memory&lt;br&gt;&#xA;LRU buffer cache is implemented as a dual-pointer linked list&lt;br&gt;&#xA;static: limited to the file where the variable is declared&lt;/p&gt;&#xA;&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;&#xA;&lt;p&gt;This class focus on RAM and I/O&lt;br&gt;&#xA;address space: represent bus as a giant array of data&lt;br&gt;&#xA;memory allocation: decide where array to store things&lt;br&gt;&#xA;A stack is much more smaller than heap&lt;/p&gt;</description>
+    </item>
     <item>
       <title>《算法竞赛》第二章笔记</title>
       <link>https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E4%BA%8C%E7%AB%A0%E7%AC%94%E8%AE%B0/</link>
