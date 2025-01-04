@@ -399,7 +399,11 @@ address space: represent bus as a giant array of data<br>
 memory allocation: decide where array to store things<br>
 A stack is much more smaller than heap</p>
 <h2 id="kr">K&amp;R
-</h2><p>(TODO)</p>
+</h2><p>alloc: use a stack to allocate memory space<br>
+afree: pop the space and decrease the pointer<br>
+the behavior is undefined for arithmetic or comparisons with pointers that do not point to members of the same array<br>
+size_t is uint returned by sizeof()<br>
+the result of modifying the string pointer is undefined</p>
 
 </section>
 
