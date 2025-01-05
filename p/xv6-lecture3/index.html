@@ -410,7 +410,17 @@ sret instruction is used to return to user space from kernel space</p>
 <p>Boot a RISC-V Computer:<br>
 power on -&gt; run bootloader -&gt; load kernel into memory address 0x80000000(I/O starts from here) and run into M mode -&gt; set up a stack at _entry for runnning C code -&gt; run into start of C -&gt; program the clock chip to generate timer interrupts -&gt; call useerinit to start the first syscall -&gt; complete exec() -&gt; return to user space and initialize the shell</p>
 <h2 id="lecture-3">Lecture 3
-</h2><p>(TODO)</p>
+</h2><p>No strong isolation will cause memory overwrite, which will lead to a bug hard to debug<br>
+OS should be defensive<br>
+There is a flag to check whether the CPU is at user mode or kernel mode<br>
+BIOS is always trustworthy</p>
+<p>fork() as a syscall hasn&rsquo;t its function decalaration<br>
+when calling fork: ecall sys_fork (here sys_fork is a number) -&gt; syscall -&gt; find number in a0 -&gt; create a new process<br>
+How to get control from buggy useer application? set a timer</p>
+<p>think qemu as a real circuit board<br>
+qemu is an infinite for loop: fetch, decode, execute<br>
+use gdb: b _entry; c; si; layout asm;<br>
+use n to goto next line of C code</p>
 
 </section>
 
