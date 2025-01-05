@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Fri, 03 Jan 2025 22:12:02 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2025 09:49:10 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE3</title>
+      <link>https://vzstless.moe/p/xv6-lecture3/</link>
+      <pubDate>Sun, 05 Jan 2025 09:49:10 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture3/</guid>
+      <description>&lt;h2 id=&#34;handout-3&#34;&gt;Handout 3&lt;/h2&gt;&#xA;&lt;p&gt;No OS: lack of isolation&lt;br&gt;&#xA;fork() -&amp;gt; abstract core&lt;br&gt;&#xA;exec()/sbrk() -&amp;gt; abstract RAM&lt;br&gt;&#xA;assumption: user is always willing to break the isolation, while kernel is always trustable&lt;br&gt;&#xA;user mode and supervisor mode&lt;br&gt;&#xA;pgtbl: maps virtual-&amp;gt;physical&lt;br&gt;&#xA;ecall: change to supervisor mode, get to a known point of the kernel code&lt;/p&gt;&#xA;&lt;p&gt;Singularity provides a way of process isolation without hardware support&lt;/p&gt;&#xA;&lt;p&gt;kernel is a big program holds all of the syscalls&lt;br&gt;&#xA;On CVE there&amp;rsquo;s 2997 bugs detected on Linux in 2024(kernel bugs are much more common than we thought)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE2</title>
       <link>https://vzstless.moe/p/xv6-lecture2/</link>
