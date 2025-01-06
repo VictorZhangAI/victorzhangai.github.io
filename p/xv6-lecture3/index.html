@@ -311,6 +311,8 @@
     <li><a href="#handout-3">Handout 3</a></li>
     <li><a href="#book-chapter-2">Book Chapter 2</a></li>
     <li><a href="#lecture-3">Lecture 3</a></li>
+    <li><a href="#book-chapter-43--44">Book Chapter 4.3 &amp; 4.4</a></li>
+    <li><a href="#just-before-lab-syscall">Just before Lab syscall&hellip;</a></li>
   </ol>
 </nav>
         </div>
@@ -367,7 +369,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -421,7 +423,32 @@ How to get control from buggy useer application? set a timer</p>
 qemu is an infinite for loop: fetch, decode, execute<br>
 use gdb: b _entry; c; si; layout asm;<br>
 use n to goto next line of C code</p>
-
+<h2 id="book-chapter-43--44">Book Chapter 4.3 &amp; 4.4
+</h2><p>(Before the labs&hellip;)<br>
+args for exec() in a0 &amp; a1, syscall number in a7<br>
+SYS_exec -&gt; sys_exec<br>
+return value in p-&gt;trapframe-&gt;a0</p>
+<p>fetchstr -&gt; copyinstr -&gt; walkaddr -&gt; walk -&gt; pagetable</p>
+<h2 id="just-before-lab-syscall">Just before Lab syscall&hellip;
+</h2><p>installing riscv64-unknown-elf-gdb:<br>
+download the tar file from TUNA mirror site, unpack it, enter the current directory</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir build
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> build
+</span></span><span class="line"><span class="cl">../configure --prefix<span class="o">=</span>/usr/local --target<span class="o">=</span>riscv64-unknown-elf
+</span></span><span class="line"><span class="cl">make -j <span class="m">12</span>
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
