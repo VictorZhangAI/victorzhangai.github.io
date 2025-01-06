@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Thu, 02 Jan 2025 16:43:11 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jan 2025 10:04:13 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/tags/oi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《算法竞赛》第二章笔记</title>
+      <link>https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E4%BA%8C%E7%AB%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 06 Jan 2025 10:04:13 +0800</pubDate>
+      <guid>https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E4%BA%8C%E7%AB%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;bfs与dfs&#34;&gt;BFS与DFS&lt;/h2&gt;&#xA;&lt;p&gt;BFS = 队列，访问第i层节点时，第i层节点出队，第i+1层节点入队&lt;br&gt;&#xA;DFS = 递归&lt;br&gt;&#xA;DFS的常见操作：DFS时间戳，DFS序列二次输出，产生树的深度，产生子树节点总数&lt;br&gt;&#xA;先序遍历，中序遍历，后序遍历&lt;br&gt;&#xA;DFS框架：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>《算法竞赛》第二章笔记</title>
       <link>https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E4%BA%8C%E7%AB%A0%E7%AC%94%E8%AE%B0/</link>
