@@ -313,6 +313,7 @@
     <li><a href="#lecture-3">Lecture 3</a></li>
     <li><a href="#book-chapter-43--44">Book Chapter 4.3 &amp; 4.4</a></li>
     <li><a href="#just-before-lab-syscall">Just before Lab syscall&hellip;</a></li>
+    <li><a href="#using-gdb">using gdb</a></li>
   </ol>
 </nav>
         </div>
@@ -421,7 +422,7 @@ when calling fork: ecall sys_fork (here sys_fork is a number) -&gt; syscall -&gt
 How to get control from buggy useer application? set a timer</p>
 <p>think qemu as a real circuit board<br>
 qemu is an infinite for loop: fetch, decode, execute<br>
-use gdb: b _entry; c; si; layout asm;<br>
+use gdb: b _entry; c; si; layout src;<br>
 use n to goto next line of C code</p>
 <h2 id="book-chapter-43--44">Book Chapter 4.3 &amp; 4.4
 </h2><p>(Before the labs&hellip;)<br>
@@ -446,6 +447,33 @@ download the tar file from TUNA mirror site, unpack it, enter the current direct
 </span></span><span class="line"><span class="cl">../configure --prefix<span class="o">=</span>/usr/local --target<span class="o">=</span>riscv64-unknown-elf
 </span></span><span class="line"><span class="cl">make -j <span class="m">12</span>
 </span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="using-gdb">using gdb
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">target remote localhost:26000
+</span></span><span class="line"><span class="cl">b syscall
+</span></span><span class="line"><span class="cl">c
+</span></span><span class="line"><span class="cl">layout src
+</span></span><span class="line"><span class="cl">backtrace
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">p /x *p
+</span></span><span class="line"><span class="cl">p /x <span class="nv">$sstatus</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>

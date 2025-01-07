@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 09:49:10 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2025 18:57:30 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/tags/xv6-os/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE4</title>
+      <link>https://vzstless.moe/p/xv6-lecture4/</link>
+      <pubDate>Tue, 07 Jan 2025 18:57:30 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture4/</guid>
+      <description>&lt;h2 id=&#34;handout-4&#34;&gt;Handout 4&lt;/h2&gt;&#xA;&lt;p&gt;what if a user program writes to a random part of memory?&lt;br&gt;&#xA;what way could we separate and isolate memory?&lt;br&gt;&#xA;page tables&lt;br&gt;&#xA;a level of indirection: CPU -(VM)&amp;gt; MMU -(PM)&amp;gt; MEM&lt;br&gt;&#xA;satp, MMU, kernel&lt;/p&gt;&#xA;&lt;p&gt;reduce the size of page tables, not building a direct-map&lt;/p&gt;&#xA;&lt;p&gt;page=4KB, maximum 52 bits, nowadays 27bits&lt;br&gt;&#xA;page table entry: 64 bits, 54 used, 10 of them are flags, low 12 bits of PA are from VA&lt;br&gt;&#xA;3-level page table to reduce its size&lt;br&gt;&#xA;a tree descended 9 bits at a time&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE3</title>
       <link>https://vzstless.moe/p/xv6-lecture3/</link>
