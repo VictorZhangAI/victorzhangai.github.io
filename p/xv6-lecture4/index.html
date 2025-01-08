@@ -367,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -443,7 +443,49 @@ make exploit attack harder by such a protection process</p>
 exec() -&gt; namei() -&gt; quick check -&gt; proc_pagetable() -&gt; loadseg() -&gt; walkaddr()</p>
 <p>xv6 is lack of malloc()-like allocator to allocate small pieces of space</p>
 <h2 id="lecture-4">Lecture 4
-</h2><p>(TODO)</p>
+</h2><p>What do we want from isolation?</p>
+<p>The VA_MAX could be larger than PA_MAX<br>
+where does page table allocates? kalloc()<br>
+there are 4096 bytes of continuous PA in PM, but not continuous for pages<br>
+the size of PM is determined by designers<br>
+satp is points to the top directory</p>
+<p>don&rsquo;t use a translation scheme to rely on another translation scheme, so store PA in tables<br>
+satp also stores PA<br>
+why walk() ? initialization, sysinfo() needs walk()<br>
+flexibility stays in dealing with page faults<br>
+where will the data store? depends on a &ldquo;multiplexer&rdquo;<br>
+mostly-identity mapping is used in kernel mapping</p>
+<p>stack overflow: page fault instead of covering other program&rsquo;s memory<br>
+consolidate the mapping? good, but xv6 didn&rsquo;t do this action</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">b main
+</span></span><span class="line"><span class="cl">c
+</span></span><span class="line"><span class="cl">b kvminit
+</span></span><span class="line"><span class="cl">c
+</span></span><span class="line"><span class="cl">layout src
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">b kvminithart
+</span></span><span class="line"><span class="cl">c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>where to store satp? in each proc structure, there&rsquo;s a satp<br>
+why 3-level not a single big table? you can remain many blocks empty<br>
+etext is the last addr of kernel, KERNBASE=0x80000000, etext-KERNBASE=size of kernel</p>
 
 </section>
 
