@@ -286,7 +286,41 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#bfs与dfs">BFS与DFS</a></li>
+    <li><a href="#剪枝">剪枝</a></li>
+    <li><a href="#洪水填充">洪水填充</a></li>
+    <li><a href="#bfs最短路径">BFS最短路径</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -334,7 +368,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -393,7 +427,52 @@ DFS框架：</p>
 </div>
 </div><p>对比：BFS可能耗费大量空间，DFS可能搜索大量无效节点，DFS适合用于寻找任意可行解，BFS适合用于寻找范围最优解，DFS代码量远小于BFS<br>
 BFS常使用map和set进行去重，DFS常使用剪枝进行优化</p>
-<p>连通性判断(TODO)</p>
+<p>连通性判断
+例：lanqiao178，遍历一个连通块，再遍历下一个连通块，直至遍历完所有的连通块，统计共有多少个连通块<br>
+DFS：搜索周围所有的#，把搜索过的#进行标记，统计没有高地的岛屿数量</p>
+<h2 id="剪枝">剪枝
+</h2><p>BFS判重：相同的点只处理一次<br>
+例：lanqiao642，使用STL的map与set判重</p>
+<p>例：hdu1010: 奇偶判断，可行性剪枝<br>
+先使用可行性：剪掉k&gt;T, 剪掉tmp=T-k-(abs(c-x)+abs(d-y))<br>
+奇偶剪枝：本题在tmp为奇数情况下必定无解<br>
+使用曼哈顿距离判断两格是否可达<br>
+优化搜索顺序，排除等效冗余</p>
+<h2 id="洪水填充">洪水填充
+</h2><p>从种子点出发在封闭区域内进行涂色<br>
+DFS示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">floodfill</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fillColor</span><span class="p">,</span> <span class="kt">int</span> <span class="n">oldColor</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="nb">true</span> <span class="o">&amp;&amp;</span> <span class="n">color</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">oldColor</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">setColor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fillColor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">floodfill</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fillColor</span><span class="p">,</span> <span class="n">oldColor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">floodfill</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fillColor</span><span class="p">,</span> <span class="n">oldColor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">floodfill</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fillColor</span><span class="p">,</span> <span class="n">oldColor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">floodfill</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fillColor</span><span class="p">,</span> <span class="n">oldColor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间、空间复杂度均为O(n^2)</p>
+<h2 id="bfs最短路径">BFS最短路径
+</h2><p>相邻两个点距离相等时使用BFS计算最短路径时间复杂度为O(m)<br>
+(TODO)</p>
 
 </section>
 
