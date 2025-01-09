@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Tue, 07 Jan 2025 18:57:30 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jan 2025 21:52:22 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE5</title>
+      <link>https://vzstless.moe/p/xv6-lecture5/</link>
+      <pubDate>Thu, 09 Jan 2025 21:52:22 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture5/</guid>
+      <description>&lt;h2 id=&#34;gdb&#34;&gt;GDB&lt;/h2&gt;&#xA;&lt;p&gt;step: one line of code at a time, jumps into the function&lt;br&gt;&#xA;next: jump over functions&lt;br&gt;&#xA;stepi, nexti: do same thing for asm code&lt;br&gt;&#xA;continue: run until next breakpoint&lt;br&gt;&#xA;finish: runs until the function ends&lt;/p&gt;&#xA;&lt;p&gt;break: set a breakpoint&lt;br&gt;&#xA;watch: stop whenever value changes&lt;br&gt;&#xA;x: prints the raw memory&lt;br&gt;&#xA;print: prints the expression&lt;br&gt;&#xA;info registers: print value of registers&lt;br&gt;&#xA;info frame: prints current stack frame&lt;/p&gt;&#xA;&lt;p&gt;set: change value of a variable&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE4</title>
       <link>https://vzstless.moe/p/xv6-lecture4/</link>
