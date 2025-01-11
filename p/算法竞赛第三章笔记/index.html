@@ -316,6 +316,7 @@
     <li><a href="#bfs与优先队列">BFS与优先队列</a></li>
     <li><a href="#bfs与双端队列">BFS与双端队列</a></li>
     <li><a href="#a算法">A*算法</a></li>
+    <li><a href="#iddfs与ida">IDDFS与IDA*</a></li>
   </ol>
 </nav>
         </div>
@@ -498,8 +499,55 @@ DFS示例：</p>
 <h2 id="a算法">A*算法
 </h2><p>给定一个确定的起点与确定（或可预测）的终点，求起点到终点的最短路径<br>
 贪心搜索：只看终点，不看起点，不回头重新选择，不能提前绕开障碍<br>
-Dijkstra：只管起点，不管终点，遍历几乎所有的点就可以得到最终的结果<br>
-(TODO)</p>
+Dijkstra：只管起点，不管终点，遍历几乎所有的点就可以得到最终的结果</p>
+<p>A*算法的核心：f(i)=g(i)+h(i)<br>
+设路径为s-i-t，f(i)为对i的评估，g(i)为已经走过的路径，h(i)为从i到t的代价</p>
+<p>曼哈顿距离：只能朝四个方向进行移动<br>
+h(i)=abs(i.x-t.x)+abs(i.y-t.y)<br>
+对角线距离：只能在八个方向移动<br>
+h(i)=max(abs(i.x-t.x), abs(i-y-t.y))<br>
+欧氏距离：可以向任意方向移动<br>
+h(i)=sqrt((i.x-t.x)^2 + (i.y-t.y)^2)</p>
+<h2 id="iddfs与ida">IDDFS与IDA*
+</h2><p>IDDFS：限制层数的基础上进行DFS</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">bool IDDFS(s, t, max_depth)
+</span></span><span class="line"><span class="cl">    for depth from 0 to max_depth
+</span></span><span class="line"><span class="cl">        if(DFS(s, t, 0) == true)
+</span></span><span class="line"><span class="cl">            return true;
+</span></span><span class="line"><span class="cl">    return false;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bool DFS(s, t, d)
+</span></span><span class="line"><span class="cl">    if(d &gt; Depth)
+</span></span><span class="line"><span class="cl">        return false;
+</span></span><span class="line"><span class="cl">    if(s == t)
+</span></span><span class="line"><span class="cl">        return true;
+</span></span><span class="line"><span class="cl">    for each adjacent i of s
+</span></span><span class="line"><span class="cl">        if(DFS(i, t, d+1) == true)
+</span></span><span class="line"><span class="cl">            return true;
+</span></span><span class="line"><span class="cl">    return false;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>IDA*：在IDDFS基础上进行剪枝操作<br>
+例：poj3134，使用估价函数进行剪枝</p>
 
 </section>
 
