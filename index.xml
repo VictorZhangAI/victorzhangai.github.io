@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Thu, 09 Jan 2025 21:52:22 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jan 2025 16:14:43 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE6</title>
+      <link>https://vzstless.moe/p/xv6-lecture6/</link>
+      <pubDate>Sun, 12 Jan 2025 16:14:43 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture6/</guid>
+      <description>&lt;h2 id=&#34;handout-6&#34;&gt;Handout 6&lt;/h2&gt;&#xA;&lt;p&gt;focusing on user-&amp;gt;kernel transition&lt;br&gt;&#xA;NEVER execute user code in supervisor mode&lt;br&gt;&#xA;C on RISC-V puts function arguments in a0, a1, a2, &amp;amp;c&lt;/p&gt;&#xA;&lt;p&gt;check pagetables: C-a c, info mem&lt;br&gt;&#xA;trampoline: the start of kernel&amp;rsquo;s trap handling code&lt;br&gt;&#xA;at the top: avoid punch a hole in user addr&lt;/p&gt;&#xA;&lt;p&gt;observe PC is an indirect way to check whether we&amp;rsquo;re in supervisor mode&lt;/p&gt;&#xA;&lt;p&gt;ecall:&lt;br&gt;&#xA;change mode, save PC in SEPC, jump to STVEC, disable further interrupts&lt;br&gt;&#xA;ecall does as little as possible&lt;br&gt;&#xA;even supervisor mode is constrained to use pgtbl&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE5</title>
       <link>https://vzstless.moe/p/xv6-lecture5/</link>
