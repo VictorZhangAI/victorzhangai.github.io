@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sun, 12 Jan 2025 16:14:43 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jan 2025 12:07:31 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lxv6 LECTURE7</title>
+      <link>https://vzstless.moe/p/lxv6-lecture7/</link>
+      <pubDate>Tue, 14 Jan 2025 12:07:31 +0800</pubDate>
+      <guid>https://vzstless.moe/p/lxv6-lecture7/</guid>
+      <description>&lt;h2 id=&#34;handout-7&#34;&gt;Handout 7&lt;/h2&gt;&#xA;&lt;p&gt;VM-related projects: COW, mappings, performance&lt;br&gt;&#xA;ideas: isolation, indirection&lt;br&gt;&#xA;panic? update page tables when page fault happens&lt;br&gt;&#xA;VA causes page fault: stval reg&lt;br&gt;&#xA;violation causes page fault: scause reg&lt;br&gt;&#xA;instruction/mode can also cause page fault&lt;/p&gt;&#xA;&lt;p&gt;if the user program asks for more memory, sbrk() could be expensive&lt;br&gt;&#xA;zero-filled page? large part of memory filled with zero&lt;br&gt;&#xA;COW or write then copy&lt;/p&gt;&#xA;&lt;p&gt;don&amp;rsquo;t let fork() copy every pages from parent&lt;br&gt;&#xA;but share addr space between parent and child, use RSW in PTEs&lt;br&gt;&#xA;page fault: make copy, map, read/write(hard in real life!)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>《算法竞赛》第四章笔记</title>
+      <link>https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 13 Jan 2025 14:20:50 +0800</pubDate>
+      <guid>https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
     <item>
       <title>xv6 LECTURE6</title>
       <link>https://vzstless.moe/p/xv6-lecture6/</link>
