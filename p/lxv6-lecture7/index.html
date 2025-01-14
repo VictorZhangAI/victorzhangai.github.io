@@ -369,7 +369,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -424,7 +424,30 @@ the new approach breaks RDMA self-tests</p>
 something about the new rules<br>
 the way of using RDMA for soft-dirty or userfaultfd() is broken now</p>
 <h2 id="lecture-7">Lecture 7
-</h2><p>(TODO)</p>
+</h2><p>page faults can let page mapping from a static map to a dynamic one<br>
+information needed: faulted va page, stval register<br>
+type of page fault</p>
+<p>when page fault happens:<br>
+allocate 1 page, set the page all 0, map the page, restart instruction<br>
+what if the process uses up the PM? just kill the process<br>
+lazy allocation: the memory not allocated will not be mapped</p>
+<p>free the memory that is not allocated will cause a fault, as the sbrk() let p-&gt;sz go upper<br>
+negative number? shrinking addr space, but be careful!!!</p>
+<p>zero-fill on demand<br>
+kalloc() a zero page, change the mapping<br>
+copy, update, restart<br>
+the cost of switching space and storing registers will be huge!!!</p>
+<p>COW fork: use share instead of copy<br>
+set all pages read only, receive page fault, copy the page into a new page, map it, restart instruction, call userret()<br>
+except trampoline which could never be freed, other physical memory blocks are belonged to two or more different processes<br>
+but when to free the page?</p>
+<p>demand paging<br>
+exec(): load text, data, segment, eagerly alloc page<br>
+read, map, restart<br>
+If out of memory: evict, use the just-free-page, restart<br>
+evict the clean pages not dirty ones!!!</p>
+<p>mmap(va, len, plot, flags, fd, off)<br>
+unmap(va, len), write back dirty block</p>
 
 </section>
 
