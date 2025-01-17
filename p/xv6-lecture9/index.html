@@ -367,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -423,7 +423,34 @@ asynchronous, concurrency, program devices<br>
 How the &lsquo;$&rsquo; appears, and what happens after ls ?<br>
 PLIC: 53 interrupt connect from devices<br>
 core hold interrupt</p>
-<p>Driver manages device</p>
+<p>Driver manages device<br>
+interrupt handler: top, bottom, a queue in it with read/write interface<br>
+the queue is used to decouple top &amp; bottom<br>
+programming device: memory-mapped I/O; ld/st<br>
+the kernel and the device should make a protocol</p>
+<p>$: device put it into UART, UART gen interrupts when the char has been sent<br>
+ls: keyboard connect to receive line, generate interrupt</p>
+<p>RISC-V support:<br>
+SIE: 1 bit for external interrupt<br>
+SSTATUS: bit enable/disable<br>
+SIP: interrupt pending<br>
+SCAUSE: the cause of interrupt<br>
+STVEC: holds address for the switching</p>
+<p>plicinit(): take interrupt from the devices<br>
+more initialization in main.c, main() finally calls scheduler()</p>
+<p>init.c: creates a device as console<br>
+shell itself writes into fd 2</p>
+<p>a pointer to producer and a pointer to consumer</p>
+<p>Interrupt:<br>
+If SIE bitset: clear SIE bits<br>
+sepc&lt;-pc, save current mode, entering supervisor mode, pc&lt;-stvec</p>
+<p>interrupts &amp; concurrency:<br>
+devices &amp; CPU run in parallel, interrupt stops current program<br>
+top &amp; bottom deliver may run in parallel<br>
+producer &amp; consumer: read after write, using a queue</p>
+<p>once, interrupt was fast, now, interrupt is slow.<br>
+solution: polling <br>
+dynamic switch</p>
 
 </section>
 
