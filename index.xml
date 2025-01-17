@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Thu, 16 Jan 2025 08:15:22 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jan 2025 23:24:27 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE9</title>
+      <link>https://vzstless.moe/p/xv6-lecture9/</link>
+      <pubDate>Thu, 16 Jan 2025 23:24:27 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture9/</guid>
+      <description>&lt;h2 id=&#34;handout-9&#34;&gt;Handout 9&lt;/h2&gt;&#xA;&lt;p&gt;CPU &amp;amp; devices: complicated &amp;amp; parallel&lt;br&gt;&#xA;most code in modern OSes are device drivers&lt;br&gt;&#xA;UART, RS232 port&lt;br&gt;&#xA;UART &amp;amp; FIFO: not using a busy loop, but using interrupts&lt;br&gt;&#xA;UART interrupts if: rx FIFO goes from empty to not-empty, or tx FIFO goes from full to not-full&lt;/p&gt;&#xA;&lt;p&gt;device interrupts: device -&amp;gt; PLIC -&amp;gt; trap -&amp;gt; usertrap()/kerneltrap() -&amp;gt; devintr()&lt;br&gt;&#xA;interrupt just means the state of device is changed&lt;br&gt;&#xA;the bottom-half of interrupt doesn&amp;rsquo;t run in the context of top-half&lt;br&gt;&#xA;registers: sie(supervisor interrupt enabled), PLIC claim: get next IRQ, sstatus&lt;/p&gt;</description>
+    </item>
     <item>
       <title>ASM in C</title>
       <link>https://vzstless.moe/p/asm-in-c/</link>

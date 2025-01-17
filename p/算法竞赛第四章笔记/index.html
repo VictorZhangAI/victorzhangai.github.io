@@ -310,6 +310,7 @@
   <ol>
     <li><a href="#并查集">并查集</a></li>
     <li><a href="#树状数组">树状数组</a></li>
+    <li><a href="#线段树">线段树</a></li>
   </ol>
 </nav>
         </div>
@@ -366,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -562,7 +563,90 @@ a1+a2+...+ak = kΣDi - Σ(i-1)Di
 求前缀和使用两个树状数组处理  
 <p>树状数组的扩展应用：<br>
 二维区间修改+区间查询<br>
-例：洛谷P4514
+例：洛谷P4514，结合二维差分数组进行二维区间修改</p>
+<p>对于偏序问题有两种解法，归并排序和树状数组，归并排序需要多次复制数组，比树状数组慢一点<br>
+例：洛谷P1908<br>
+把数字看作数组的下标，每处理一个数字，树状数组的下表对应元素就+1，统计前缀和即可得到逆序对数量<br>
+当数字过多时应使用离散化处理<br>
+区间最值：也可使用树状数组进行求解，但是使用线段树等更加高效，例：hdu1754</p>
+<p>离线处理：先读取所有的查询，然后统一处理，计算结束后统一输出</p>
+<h2 id="线段树">线段树
+</h2><p>线段树用于解决区间最值问题和区间和问题<br>
+线段树上的节点是“区间”<br>
+对于线段树有：左右子树各一半，叶子节点只有一个元素，非叶子节点有多个元素，L=R时为叶子节点，L &lt; R时为非叶子节点，左叶为[L, M]，右叶子为[M+1, R]，M=(L+R)/2</p>
+<p>线段树适合解的问题：大区间的解可以从小区间中的解合并而来<br>
+线段树的定义：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">//第一种
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">tree</span><span class="p">[</span><span class="n">N</span> <span class="o">*</span> <span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//第二种
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">tree</span><span class="p">[</span><span class="n">N</span> <span class="o">*</span> <span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">ls</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">){</span><span class="k">return</span> <span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">rs</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">){</span><span class="k">return</span> <span class="n">p</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>二叉树的本质推导可得N个元素的线段树至少需要4N的空间才能装下<br>
+线段树的构造：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">push_up</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tree</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">tree</span><span class="p">[</span><span class="n">ls</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span> <span class="o">+</span> <span class="n">tree</span><span class="p">[</span><span class="n">rs</span><span class="p">(</span><span class="n">p</span><span class="p">)];</span> <span class="c1">//区间和
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">tree</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">ls</span><span class="p">(</span><span class="n">p</span><span class="p">)],</span> <span class="n">tree</span><span class="p">[</span><span class="n">rs</span><span class="p">(</span><span class="n">p</span><span class="p">)])</span> <span class="c1">// 求最小值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pl</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//节点编号与指向区间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">pl</span> <span class="o">==</span> <span class="n">pr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tree</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">pl</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">pl</span> <span class="o">+</span> <span class="n">pr</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">build</span><span class="p">(</span><span class="n">ls</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">pl</span><span class="p">,</span> <span class="n">mid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">build</span><span class="p">(</span><span class="n">rs</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">push_up</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>区间查询与lazy-tag相关
 (TODO)</p>
 
 </section>
