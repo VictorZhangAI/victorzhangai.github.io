@@ -286,7 +286,41 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#20241211">2024.12.11</a></li>
+    <li><a href="#20241215">2024.12.15</a></li>
+    <li><a href="#20241222">2024.12.22</a></li>
+    <li><a href="#2025117">2025.1.17</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -338,7 +372,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -353,16 +387,89 @@
     <section class="article-content">
     
     
-    <p>2024.12.11</p>
-<p>确切来讲，这个博客的转移拖得太久太久了。最开始我用的Hexo框架弄，结果Hexo在20年之后的几乎所有issue都在痛骂这个框架，帮助信息也是没几个正经的。我年中弄这个框架的时候就受不了两点，一是你一个博客框架在我电脑开性能模式下还敢狂转风扇你也是没谁了，二是这玩意儿的定制化程度低得可怕。我想把Hexo主页最上方的地球图片换了，结果前脚改完配置文件后脚一生成发布版就给我改回去了。牛的。</p>
+    <h2 id="20241211">2024.12.11
+</h2><p>确切来讲，这个博客的转移拖得太久太久了。最开始我用的Hexo框架弄，结果Hexo在20年之后的几乎所有issue都在痛骂这个框架，帮助信息也是没几个正经的。我年中弄这个框架的时候就受不了两点，一是你一个博客框架在我电脑开性能模式下还敢狂转风扇你也是没谁了，二是这玩意儿的定制化程度低得可怕。我想把Hexo主页最上方的地球图片换了，结果前脚改完配置文件后脚一生成发布版就给我改回去了。牛的。</p>
 <p>大概半年后就是今年十二月，我尝试了Hugo，怎么说呢，槽点还是很多。主要集中在你在Ubuntu上apt装的Hugo出了一堆在官网issue上头都找不到的离奇bug（点名批评server后白屏），最后把Hugo卸了，去snap上头安装一个，问题居然解决了。哈，你甚至没法界定到底是Ubuntu的锅还是Hugo的锅。</p>
 <p>Hugo另外一个和Hexo逻辑不太一样的地方在于Hugo的自动化部署比较麻烦，需要借助脚本还得分两个repo存放。因为Hexo是不区分public和dev的而Hugo在每次发布的时候都会生成一个新的public。</p>
 <p>有一篇关于Turing Complete的指令集速查表在这次博客迁移的过程中丢失了，剩下的文章都从我的大机械盘中找了回来。总之，盖新家是真折腾人啊，但愿Hugo别突然爆发什么奇怪的Breaking Change，能让我的博客活久一点儿。如果Hugo爆发Breaking Change，大概率我就只能转战W3C了（笑）</p>
 <p>接下来就是找时间部署在Cloudflare上头然后尝试着把评论和Tag加上。</p>
-<p>2024.12.15</p>
-<p>ok，逆天，事实证明坑只会多不会少。当你发现你的工作流寄了的时候你的第一反应是什么？看log。然而log的醒目之处只是告诉了你github要把服务器换成ubuntu-24.04 LTS，尝试将工作流中的ubuntu-latest更改为ubuntu-24.04 LTS，无果，仍然失败，后来我猜测是不是DNS签名的问题，删除CNAME，无果。最后，发现居然是hugo推送的latest在snap上头下载不到，你得在工作流中把hugo的版本换了才能部署。又是一个不知道是该骂ubuntu还是该骂hugo的一天啊&hellip;&hellip;</p>
-<p>2024.12.22</p>
-<p>域名转移居然要注册满60天，啊？！？</p>
+<h2 id="20241215">2024.12.15
+</h2><p>ok，逆天，事实证明坑只会多不会少。当你发现你的工作流寄了的时候你的第一反应是什么？看log。然而log的醒目之处只是告诉了你github要把服务器换成ubuntu-24.04 LTS，尝试将工作流中的ubuntu-latest更改为ubuntu-24.04 LTS，无果，仍然失败，后来我猜测是不是DNS签名的问题，删除CNAME，无果。最后，发现居然是hugo推送的latest在snap上头下载不到，你得在工作流中把hugo的版本换了才能部署。又是一个不知道是该骂ubuntu还是该骂hugo的一天啊&hellip;&hellip;</p>
+<h2 id="20241222">2024.12.22
+</h2><p>域名转移居然要注册满60天，啊？！？</p>
+<h2 id="2025117">2025.1.17
+</h2><p>记一次WSL-Git故障修复</p>
+<p>从2025年1月16日下午开始机器莫名其妙无法进行push与clone，尝试查找原因，关闭代理再开启，无效，重启wsl，无效，重启本机，无效<br>
+在本机安装的其他Linux Distro上尝试进行push，无效，切换为powershell进行push，无效，下载git bash进行push，无效<br>
+推测可能是网络镜像问题，在用户目录下建立.wslconfig文件输入如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">wsl2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">memory</span><span class="p">=</span><span class="mi">32</span><span class="nx">GB</span>
+</span></span><span class="line"><span class="cl"><span class="nx">processors</span><span class="p">=</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="nx">swap</span><span class="p">=</span><span class="mi">8</span><span class="nx">GB</span>
+</span></span><span class="line"><span class="cl"><span class="nx">debugConsole</span><span class="p">=</span><span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">networkingMode</span><span class="p">=</span><span class="nx">mirrored</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>无效。<br>
+在Google上搜索&quot;WSL git slow&quot;，出现的结果都是让你从WSL1升级至WSL2，无效<br>
+Google搜索443error，出现的结果为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global http.proxy 127.0.0.1:8087
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>无效。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global --unset http.proxy
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>第二个回答，仍然无效<br>
+将代理转为高可用，无效；将代理从海外代理改为全局代理，无效且ping不到google<br>
+转战国内网站，最高点击的一个回答中有如下显示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo rm /etc/resolv.conf
+</span></span><span class="line"><span class="cl">sudo bash -c <span class="s1">&#39;echo &#34;nameserver 8.8.8.8&#34; &gt; /etc/resolv.conf&#39;</span>
+</span></span><span class="line"><span class="cl">sudo bash -c <span class="s1">&#39;echo &#34;[network]&#34; &gt; /etc/wsl.conf&#39;</span>
+</span></span><span class="line"><span class="cl">sudo bash -c <span class="s1">&#39;echo &#34;generateResolvConf = false&#34; &gt;&gt; /etc/wsl.conf&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>无效<br>
+再查证后，使用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global --unset http.proxy
+</span></span><span class="line"><span class="cl">git config --global --unset https.proxy
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>push成功！！！</p>
 <p>总之，很高兴认识你，各种意义上的。愿你在这儿找到你想要的东西！</p>
 
 </section>
