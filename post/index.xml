@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Thu, 16 Jan 2025 23:24:27 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2025 07:11:18 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE10</title>
+      <link>https://vzstless.moe/p/xv6-lecture10/</link>
+      <pubDate>Sun, 19 Jan 2025 07:11:18 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture10/</guid>
+      <description>&lt;h2 id=&#34;handout-10&#34;&gt;Handout 10&lt;/h2&gt;&#xA;&lt;p&gt;kernel must deal with parallel syscalls&lt;br&gt;&#xA;race between two cores calling kfree() leads to a page losing&lt;br&gt;&#xA;if multiple cores calls the lock, only one will be returned, other will wait until the lock release&lt;br&gt;&#xA;auto locking? needs explicit comtrol over different regions of code&lt;br&gt;&#xA;deadlocking problem&lt;br&gt;&#xA;locks are often not private business of modules&lt;br&gt;&#xA;lock &amp;amp; parallelism may require a whole re-write for the project!&lt;br&gt;&#xA;use big lock first, big lock is always enough&lt;br&gt;&#xA;check and re-lock the lock atomically, pushing down the question into hardware&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE9</title>
       <link>https://vzstless.moe/p/xv6-lecture9/</link>
