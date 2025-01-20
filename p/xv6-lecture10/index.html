@@ -368,7 +368,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -451,7 +451,40 @@ inode acts as a shard lock<br>
 implementation of spinlock: no lock at all<br>
 scheduler, different process call fork() at the same time</p>
 <h2 id="lecture-10">Lecture 10
-</h2><p>(TODO)</p>
+</h2><p>apps want to use multiple cores, so kernel must handle multiple syscalls<br>
+the performance of single core has reached a limit</p>
+<p>why locks? avoid race conditions<br>
+many locks -&gt; more parallelism<br>
+access a shared data, one is write -&gt; using lock<br>
+lock-free programming</p>
+<p>could lock be automatic? wrong result, eg: rename(&lsquo;d1/x&rsquo;, d2/y);<br>
+lock avoids wrong updates, make operations atomic<br>
+lock helps maintain an invariant</p>
+<p>deadlock:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">acquire</span><span class="p">(</span><span class="n">lock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="nf">acquire</span><span class="p">(</span><span class="n">lock</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>order the locks globally</p>
+<p>internals of m2 must be seen by m1</p>
+<p>rebuild code with locks: start with coarse-grained locks, measure locks are co-required<br>
+lock isolation, redesign</p>
+<p>UART in printf: a buffer with a read pointer and a write pointer<br>
+implementation of amoswap depends on memory layout<br>
+same CPU: let operation atomic<br>
+memory fence: any ld/st instruction aren&rsquo;t allowed to move after this instruction<br>
+use a race detector</p>
+<p>is fence unnecessary as there are atomic memory instructions?<br>
+the compiler knows what couldn&rsquo;t be moved</p>
+<p>old OS kernels didn&rsquo;t have lock acquire as they always assume that they run on a single core</p>
 
 </section>
 
