@@ -422,8 +422,12 @@ solution: the caller must pass condition lock to sleep</p>
 <p>sleep: mark the current process SLEEPING and release the resources of core<br>
 same channel: see spurious wakeups</p>
 <p>pipewrite &amp; piperead are complex applications of sleep &amp; wakeup<br>
-nwrite == nread + PIPESIZE<br>
-(until 7.8, TODO)</p>
+nwrite == nread + PIPESIZE</p>
+<p>wait: wait_lock; exit: reparent<br>
+kill: set p-&gt;killed, wakeup<br>
+p-&gt;parent is protected by wait_lock instesd of p-&gt;lock<br>
+round robin: run each process in turn<br>
+linux&rsquo;s sleep adds a wait queue</p>
 <h2 id="lecture-11">Lecture 11
 </h2><p>(TODO)</p>
 
