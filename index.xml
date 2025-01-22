@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Tue, 21 Jan 2025 16:58:37 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2025 14:43:23 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE12</title>
+      <link>https://vzstless.moe/p/xv6-lecture12/</link>
+      <pubDate>Wed, 22 Jan 2025 14:43:23 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture12/</guid>
+      <description>&lt;h2 id=&#34;handout-12&#34;&gt;Handout 12&lt;/h2&gt;&#xA;&lt;p&gt;why hold p-&amp;gt;lock across threads?&lt;br&gt;&#xA;forbid holding lock when yielding the CPU!&lt;br&gt;&#xA;threads often wait for conditions&lt;/p&gt;&#xA;&lt;p&gt;use coordination primitives&lt;br&gt;&#xA;uartwrite(): writing thread should give up CPU&lt;br&gt;&#xA;sleep() cannot simply wait the event, or will cause lose wake-up problem&lt;/p&gt;&#xA;&lt;p&gt;what&amp;rsquo;s wrong if uartwrite() releases the lock before broken_sleep()?&lt;br&gt;&#xA;uartwrite() went to sleep EVEN THOUGH UART TX WAS DONE, nothing will awake uartwrite()&lt;br&gt;&#xA;use lock to prevent wakeup() from running during the entire window&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE11</title>
       <link>https://vzstless.moe/p/xv6-lecture11/</link>
