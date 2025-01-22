@@ -367,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -429,7 +429,30 @@ p-&gt;parent is protected by wait_lock instesd of p-&gt;lock<br>
 round robin: run each process in turn<br>
 linux&rsquo;s sleep adds a wait queue</p>
 <h2 id="lecture-11">Lecture 11
-</h2><p>(TODO)</p>
+</h2><p>full use of multi-core<br>
+thread: one single exec<br>
+care the PC<br>
+interleaving of multiple threads<br>
+interleave threads</p>
+<p>scheduling: interleave one thread, execute another thread<br>
+compute-bound?<br>
+pre-empitue scheduling: even the code doesn&rsquo;t release the resources of CPU, the kernel will interrupt it by timer<br>
+on the contrary, volunteer scheduling<br>
+p1 -&gt; tf1 -&gt; kernel stack-&gt; swtch()-&gt; ctx1 -&gt; ctx0 -&gt; swtch() -&gt; scheduler() -&gt; tf2 -&gt; p2<br>
+where contexts stores? process structure, p-&gt;context<br>
+process vs threads? a process in user; or in kernel; or stored in trapframe and context</p>
+<p>yield(): change the thread into runnable<br>
+no point to save PC as we know we&rsquo;re in swtch<br>
+ra will be the point to return<br>
+why only half of regs are stored by swtch()? it is called by C function<br>
+we want the start process also atomic<br>
+what we really care is ra</p>
+<p>RISC-V uses general registers instead of floating-point registers<br>
+we believe the kernel code will infinitely looping without interrupt<br>
+why trampoline and swtch must be written in assembly? C is hard to reach ra &amp; sp</p>
+<p>almost each thread in Linux is a complete process<br>
+allocproc() sets the new context for the process<br>
+the first call in forkret is about initializing file system and crash recovery</p>
 
 </section>
 
