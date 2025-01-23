@@ -58,7 +58,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu9665492565906287031.png" width="300"
+                        <img src="/img/avatar_hu_65b50560fe06d9e.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -367,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -408,7 +408,75 @@ kernel space: target will never execute another user instruction but may spend a
 <h2 id="book-chapter-7">Book Chapter 7
 </h2><p>(DONE)</p>
 <h2 id="lecture-12">Lecture 12
-</h2><p>(TODO)</p>
+</h2><p>coordination</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">acquire</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">lock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">RUNNABLE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">swtch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nf">release</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">lock</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>check whether the thread is runnable<br>
+calling swtch() requires p-&gt;lock but forbid any other locks</p>
+<p>two threads acquire same locks<br>
+freeze as the process2 will spin forever</p>
+<p>coordination: sleep() &amp; wakeup()<br>
+busywait loop<br>
+sleep channel: sleep() and wakeup() could check whether the thread is sleeping<br>
+why sleep needs the second argument?</p>
+<p>lost-wakeup problems<br>
+broken_sleep: simply set the value<br>
+wakeup: for each p in procs: setback the process to runnable</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">done</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">uartwrite</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">each</span> <span class="n">c</span> <span class="n">in</span> <span class="nl">buf</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">not</span> <span class="nl">done</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">sleep</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tx_chan</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">done</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">intr</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">done</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">wakeup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tx_chan</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>add lock &amp; unlock; why not work?<br>
+on some other core, UART interrupt is working<br>
+nothing will wake up the broken_sleep, as wakeup() has already happened<br>
+tx_done: a way for interrupt routine to connect the uartintr()<br>
+each typing will cause an interrupt, wakes up the sleeping process for a while then continue sleeping</p>
+<p>wakeup(): run through process table, lock every process, if SLEEPING &amp; same channel, wakeup and release lock<br>
+after we released the condition lock, the wakeup() will not see this process until it holds process lock<br>
+reader acquire the lock to prevent writer from sleeping<br>
+last thing sleep() does is acquiring condition lock</p>
+<p>exit() will close files if necessary<br>
+wait() will find the process whose parent process is current process and in state ZOMBIE<br>
+parent will call freeproc() to release resources<br>
+concurrent exit of parent and child?</p>
+<p>why doesn&rsquo;t kill() kills all the processes that could be handled?<br>
+not allowed in real world, but in xv6, there&rsquo;s no permissions, you can do this<br>
+in Linux, the process to be kill must have the same id as its user id, or killing is not allowed<br>
+we would never expose broken variants in the file system</p>
 
 </section>
 
