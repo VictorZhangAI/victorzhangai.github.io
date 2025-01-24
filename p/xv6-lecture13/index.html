@@ -368,7 +368,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -456,7 +456,36 @@ file has no concept of offset</p>
 sys_link creates a new name for the inode<br>
 using create, it is easy to implement sys_open, sys_mkdir, and sys_mknod</p>
 <h2 id="lecture-13">Lecture 13
-</h2><p>(TODO)</p>
+</h2><p>user-friendly, concurrency, persistence<br>
+the abstraction itself is useful<br>
+crash safety<br>
+disk layout<br>
+performance problems, as disk are always slow<br>
+pathname is human-readable, no explicit offset in write() syscall</p>
+<p>file system structure: inode<br>
+link count &amp; fd count = 0, miantain an offset<br>
+sync/async read/write option? yes, same way as console driver<br>
+max file size in xv6: (256+12)*1024<br>
+make files bigger: add indirect portions<br>
+why must 256 bytes a block? block address has only 4 digits</p>
+<p>how to compute block index?  divide into 1024<br>
+get index from inode, read out 8000 bytes<br>
+how to find root inode index? scan root block, scan subdir&rsquo;s block</p>
+<p>create a file:<br>
+33, write into the free inode<br>
+33, fill in the inode<br>
+46, write the first block<br>
+32, size changed<br>
+33, return back the inode</p>
+<p>write &ldquo;hi&rdquo; into x:<br>
+45, bitmap refresh<br>
+595: the block allocated for x<br>
+33: updating the size of inode again</p>
+<p>bget: get the bcache lock, scan the buffer<br>
+xv6 follows a rule: any modification on bcache needs bcache lock, any modification on block 33 need to hold sleeplock</p>
+<p>shortage of spinlock: must turn off interrupt<br>
+sleeplock will return the CPU resources</p>
+<p>bcache: a copy of block in mem, sleeplock, LRU, 2-level-blocking</p>
 
 </section>
 
