@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Wed, 22 Jan 2025 14:43:23 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2025 08:33:35 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE13</title>
+      <link>https://vzstless.moe/p/xv6-lecture13/</link>
+      <pubDate>Fri, 24 Jan 2025 08:33:35 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture13/</guid>
+      <description>&lt;h2 id=&#34;handout-13&#34;&gt;Handout 13&lt;/h2&gt;&#xA;&lt;p&gt;files, bit arrays, human-readable names&lt;br&gt;&#xA;fs APIs&lt;br&gt;&#xA;fd: listed to the file even if it changes&lt;br&gt;&#xA;a file can have multiple links&lt;br&gt;&#xA;file must have info stored other than directory&lt;/p&gt;&#xA;&lt;p&gt;inode: i-number(initial version), link count, count of open FDs&lt;br&gt;&#xA;inode deallocation deferred until last link and FD are gone&lt;/p&gt;&#xA;&lt;p&gt;data stays on disk without power&lt;br&gt;&#xA;historically, disks were read/write usually in 512-byte units, called sectors&lt;/p&gt;&#xA;&lt;p&gt;in HDD, sub-sector operation are expensive(read-modify-write)&lt;br&gt;&#xA;flash must be erased before written&lt;br&gt;&#xA;xv6 uses 2-sector blocks&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE12</title>
       <link>https://vzstless.moe/p/xv6-lecture12/</link>
