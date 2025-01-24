@@ -310,7 +310,7 @@
   <ol>
     <li><a href="#handout-13">Handout 13</a></li>
     <li><a href="#slides-13">Slides 13</a></li>
-    <li><a href="#book-chapter-13">Book Chapter 13</a></li>
+    <li><a href="#book-chapter-8">Book Chapter 8</a></li>
     <li><a href="#lecture-13">Lecture 13</a></li>
   </ol>
 </nav>
@@ -368,7 +368,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -421,8 +421,40 @@ FD: stdin(0), stdout(1), stderr(2)</p>
 <p>mkfs: generate layout for new FS, the layout will stay static for the lifetime of fs<br>
 indirect block: inode is fixed size, but file could be large<br>
 tree-structure: dir tree layer; inode layer; block layer</p>
-<h2 id="book-chapter-13">Book Chapter 13
-</h2><p>(TODO)</p>
+<h2 id="book-chapter-8">Book Chapter 8
+</h2><p>file system must have crash recovery</p>
+<p>block 0: boot sector<br>
+block 1: superblock, holds metadata<br>
+block start at 2 hold the log<br>
+inode, bitmap, data</p>
+<p>bcache: only one kernel thread is using the copy, cache popular blocks<br>
+bcache is a doubly linked-list, main-&gt;binit<br>
+bread-&gt;bget-&gt;sleeplock, scan the bcache<br>
+at most one cached buffer per disk sector<br>
+brelse to release the buffer</p>
+<p>block allocator: maintains a free bitmap<br>
+balloc: find the free block, refresh the bitmap, return the block<br>
+bfree: clear the block</p>
+<p>on-disk inode: struct dinode<br>
+itable, struct inode to copy dinode into memory<br>
+iget, iput<br>
+there can be many same pointers point to same inode<br>
+hold ilock and release by iunlock<br>
+Code that modifies an in-memory inode writes it to disk with iupdate<br>
+iput() doesn’t truncate a file immediately when the link count for the file drops to zero</p>
+<p>direct/indirect block<br>
+bmap: returns the nth data block for inode ip, or allocate one if not exists<br>
+itrunc: frees blocks and sets inode to 0</p>
+<p>directory: has type T_DIR, dirlookup<br>
+namex -&gt; skipelem<br>
+namex locks each directory in the path separately<br>
+avoid racing by using sleeplocks</p>
+<p>opened file is symboled as struct file<br>
+kept in ftable, filealloc-&gt;filedup-&gt;fileclose-&gt;fileread/filewrite<br>
+file has no concept of offset</p>
+<p>sys_link, sys_unlink<br>
+sys_link creates a new name for the inode<br>
+using create, it is easy to implement sys_open, sys_mkdir, and sys_mknod</p>
 <h2 id="lecture-13">Lecture 13
 </h2><p>(TODO)</p>
 
