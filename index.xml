@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Fri, 24 Jan 2025 08:33:35 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2025 11:45:07 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>龙芯杯讲座笔记</title>
+      <link>https://vzstless.moe/p/%E9%BE%99%E8%8A%AF%E6%9D%AF%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 25 Jan 2025 11:45:07 +0800</pubDate>
+      <guid>https://vzstless.moe/p/%E9%BE%99%E8%8A%AF%E6%9D%AF%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;龙芯杯介绍&#34;&gt;龙芯杯介绍&lt;/h2&gt;&#xA;&lt;p&gt;龙芯杯：CPU设计相关&lt;br&gt;&#xA;第9届&lt;br&gt;&#xA;loongarch类似于RISC-V&lt;/p&gt;&#xA;&lt;p&gt;初赛：CPU+L1 cache&lt;br&gt;&#xA;决赛配SoC外设和PMON BIOS&lt;br&gt;&#xA;团队赛发平台&lt;/p&gt;&#xA;&lt;p&gt;三月开始报名，八月上旬交初赛作品，八月中旬提交决赛作品&lt;br&gt;&#xA;个人赛名额不限&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE13</title>
       <link>https://vzstless.moe/p/xv6-lecture13/</link>
