@@ -417,7 +417,25 @@ group commit: commit several transactions together<br>
 absorption: achieve better performance<br>
 end_op()-&gt;commit()-&gt;write_log()-&gt;write_head()-&gt;install_trans()</p>
 <h2 id="lecture-14">Lecture 14
-</h2><p>(TODO)</p>
+</h2><p>crash will lead to on-disk incorrect state<br>
+fs operation are all multi-step<br>
+33, failure, 45: a block remain unallocated<br>
+if block is shared between files, there will be a security problem<br>
+solution: logging, atomic fs calls, fast recovery</p>
+<p>crash between log write? see commit records<br>
+every fs-related syscall: begin_op() -&gt; operations -&gt; end_op()<br>
+ialloc() -&gt; bwrite() -&gt; log_write()<br>
+bwrite() could never used by itself but closed with log_write()<br>
+we don&rsquo;t expect the process live after the crash<br>
+log, create, install<br>
+ext3: deal with the factor 2</p>
+<p>eviction: broken of atomicity, write-ahead rule violation<br>
+solution: don&rsquo;t evict blocks in the log</p>
+<p>fs operation must fit in log<br>
+max log size is 30, 30 as the max block size(operation writes)<br>
+write fs-&gt;many transactions</p>
+<p>concurrent fs calls<br>
+all concurrent ops must be fit, limit concurrent calls</p>
 
 </section>
 
