@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 25 Jan 2025 11:45:07 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2025 09:37:33 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE14</title>
+      <link>https://vzstless.moe/p/xv6-lecture14/</link>
+      <pubDate>Sun, 26 Jan 2025 09:37:33 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture14/</guid>
+      <description>&lt;h2 id=&#34;handout-14&#34;&gt;Handout 14&lt;/h2&gt;&#xA;&lt;p&gt;fs write first 46, then 32, 33? dirent points to free inode&lt;br&gt;&#xA;correctness and performance are often conflict&lt;br&gt;&#xA;crash recovery is a recurring problem&lt;br&gt;&#xA;logging solution: goal: fast recovery, atomic syscalls&lt;br&gt;&#xA;log, commit, install&lt;br&gt;&#xA;write-ahead log: if &amp;ldquo;done&amp;rdquo; in log, replay all writes in log, if no &amp;ldquo;done&amp;rdquo;, ignore log&lt;br&gt;&#xA;multiple data structures, lay on existing storage system, high performance&lt;br&gt;&#xA;buffer cache, in-memory log block # array, FS tree on disk, log header and blocks on disk&lt;br&gt;&#xA;write buffers, wait for disk to complete write, keep data in buffer cache&lt;br&gt;&#xA;begin_op()-&amp;gt;bmap()-&amp;gt;bread()-&amp;gt;log_write()-&amp;gt;i_update()-&amp;gt;end_op()&lt;/p&gt;</description>
+    </item>
     <item>
       <title>龙芯杯讲座笔记</title>
       <link>https://vzstless.moe/p/%E9%BE%99%E8%8A%AF%E6%9D%AF%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</link>
