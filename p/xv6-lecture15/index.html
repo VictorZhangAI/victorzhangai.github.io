@@ -367,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -423,7 +423,43 @@ keep old blocks unsynced before commiting to avoid crash<br>
 complete commit: close the transaction, flush transactions to disk, wait for outstanding operations, wait for outstanding transactions, update journal handle block, mark as pinned<br>
 without syncing, maybe data will lost if crash happens when completing commits</p>
 <h2 id="lecture-15">Lecture 15
-</h2>
+</h2><p>ext3 = ext2 + journal<br>
+let operations in begin_op() and end_op() atomic<br>
+write-ahead: all of refresh or write should be pre-declared<br>
+free rule: only when only when synced the logging will delete the indexes</p>
+<p>ext3 didn&rsquo;t modify the bottom layer of ext2, but just added journalling system in it<br>
+cache, action info layer(sequence numbers, block numbers; handles), fs tree<br>
+ext3 log format:<br>
+log super block: off, seq, desc, commit<br>
+there&rsquo;s a bunch of closed older transactions</p>
+<p>async, batching, concurrency<br>
+fsync(fd): do all writes to the file descripter<br>
+batching: one open transaction<br>
+write absorbtion, disk scheduling</p>
+<p>concurrency: syscalls in parallel, older transactions<br>
+one open, commiting, writing, freed<br>
+we can&rsquo;t have a transaction started since close</p>
+<p>sys_unlink()<br>
+h = start()<br>
+get(h, block#)<br>
+stop()</p>
+<p>steps in commit:<br>
+block new syscalls, wait for outstanding syscall, open a new transaction, write a descriptor block with block numbers, write blocks to log, wait for finish, write commit record to the block, wait for the commit point, write the transactions blocks to the home locations, re-use log<br>
+lots of records to show the transactions</p>
+<p>if there&rsquo;s a crash?<br>
+assuming the disk is still all right, when the power reboot, there&rsquo;s a bunch of old completed transactions</p>
+<p>every descriptor block starts with a magic number<br>
+after SB, start with a magic number, it must be a descriptor block</p>
+<p>why not let T2 get syscall just after T1 finishes syscall?<br>
+create()-&gt;unlink(), crash?<br>
+the inode won&rsquo;t be deleted, y still exists in file system<br>
+no possibility to see the refresh in the future transaction<br>
+copy into cache, copy into disk</p>
+<p>logging let multi-step disk transaction into atomic ones<br>
+the correctness of logging is depend on write-ahead rule</p>
+<p>why not put commit message right in the descriptor block?<br>
+no problem is eliminated</p>
+
 </section>
 
 
