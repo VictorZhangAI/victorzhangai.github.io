@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sun, 26 Jan 2025 09:37:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2025 08:59:50 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/tags/xv6-os/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE15</title>
+      <link>https://vzstless.moe/p/xv6-lecture15/</link>
+      <pubDate>Mon, 27 Jan 2025 08:59:50 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture15/</guid>
+      <description>&lt;h2 id=&#34;handout-15&#34;&gt;Handout 15&lt;/h2&gt;&#xA;&lt;p&gt;crashes may lead to problem that won&amp;rsquo;t show immediately&lt;br&gt;&#xA;make syscalls atomic(all-or-nothing)&lt;br&gt;&#xA;ext3: less waiting, reduced writes, ordered data mode&lt;/p&gt;&#xA;&lt;p&gt;batch update blocks, commit the current open transaction&lt;br&gt;&#xA;performance: multiple syscalls, multiple transactions&lt;/p&gt;&#xA;&lt;p&gt;the crash may forget last few ops&lt;br&gt;&#xA;log is circular: SB T4 T5 T2 T3&lt;br&gt;&#xA;before re-use, must write log superblock with offset/seq of resulting now-oldest transaction in log&lt;/p&gt;&#xA;&lt;p&gt;logging could help with &amp;ldquo;fail-stop&amp;rdquo;&lt;br&gt;&#xA;reboot, look in log, find the end of log, re-write all logs&lt;br&gt;&#xA;another crash? just repeat the logging steps&lt;br&gt;&#xA;commit needs to write on-disk log from a snapshot of cached blocks? if not, repeat but not all&lt;br&gt;&#xA;efficient using COW fork&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE14</title>
       <link>https://vzstless.moe/p/xv6-lecture14/</link>
