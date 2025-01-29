@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Mon, 27 Jan 2025 08:59:50 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2025 17:25:38 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE16</title>
+      <link>https://vzstless.moe/p/xv6-lecture16/</link>
+      <pubDate>Wed, 29 Jan 2025 17:25:38 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture16/</guid>
+      <description>&lt;h2 id=&#34;handout-16&#34;&gt;Handout 16&lt;/h2&gt;&#xA;&lt;p&gt;OS kernel use VM in creative ways, even benefit from VM&lt;br&gt;&#xA;trap, prot, unprot, dirty, map&lt;br&gt;&#xA;mmap(): map memory into user space&lt;br&gt;&#xA;mprotect(): change the permission of mapping&lt;br&gt;&#xA;munmap(), sigaction()&lt;br&gt;&#xA;kernel asks VM waht to do, generate signal, run user handler, kernel returns to user program, continue or restart the previous action&lt;br&gt;&#xA;bake a large sqrt table by a single page&lt;br&gt;&#xA;real-time GC Algorithm&lt;/p&gt;&#xA;&lt;p&gt;real-time: cheap and large to allocate&lt;br&gt;&#xA;cost: pointer reside, difficult to run collector and the program at the same time&lt;br&gt;&#xA;adding instructions could solve user-level VM problems&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE15</title>
       <link>https://vzstless.moe/p/xv6-lecture15/</link>
