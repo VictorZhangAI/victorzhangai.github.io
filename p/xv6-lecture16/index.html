@@ -367,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -431,7 +431,30 @@ batch the shootdown to stop the shootdown to the multi-core</p>
 <p>optimal page size &lt;- dynamic ram<br>
 algorithms must be asynchronous friendly</p>
 <h2 id="lecture-16">Lecture 16
-</h2><p>(TODO)</p>
+</h2><p>OS kernel uses VM in creative way<br>
+VM could have same mechanism as the kernel</p>
+<p>what primitives of VM does user program need<br>
+trap<br>
+prot1-decrease accessibility(R+W-&gt;R-&gt;not at all)<br>
+unprot-increase accessibility<br>
+mprotect() still works on page accuracy not addr accuracy<br>
+AS: pagetable+VMA<br>
+contiguous range of memory, some permission, backed by same object</p>
+<p>user-level traps<br>
+does this trap break the isolation? upcall lets the whole program runs in same conrtext and same page</p>
+<p>challenge: the table may be big<br>
+use VM promitives, allocate huge range, allow page fault</p>
+<p>GC: copying, forwarding, move objects from FROM space to TO space<br>
+Baker&rsquo;s algorithm: just copy the root<br>
+new: forward a few more objects<br>
+check whether the reference of the pointer is in from space<br>
+fault handler, scan a page of objects, forward them<br>
+no pointer to check anymore<br>
+if you fulfill the to-space, flip it as a new from space, if the space is still fulfilled, flip it again</p>
+<p>tricky use of concurrency<br>
+maps mapping app&rsquo;s space to GC&rsquo;s space</p>
+<p>VM is a still developing system<br>
+through the VMA there is no hole</p>
 
 </section>
 
