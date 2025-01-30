@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Wed, 29 Jan 2025 17:25:38 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jan 2025 14:55:36 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE17</title>
+      <link>https://vzstless.moe/p/xv6-lecture17/</link>
+      <pubDate>Thu, 30 Jan 2025 14:55:36 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture17/</guid>
+      <description>&lt;h2 id=&#34;handout-17&#34;&gt;Handout 17&lt;/h2&gt;&#xA;&lt;p&gt;What should a kernel do?&lt;br&gt;&#xA;traditional: a &amp;ldquo;monolithic&amp;rdquo; kernel abstraction(UNIX, Linux, xv6)&lt;br&gt;&#xA;abstraction leads to security&lt;br&gt;&#xA;monolithic kernel may lead to a big, complex and buggy system, may lead to many thoughts in designing the whole kernel&lt;br&gt;&#xA;lots of code is needed to execute a pipe&lt;/p&gt;&#xA;&lt;p&gt;microkernel: make kernel simpler enough&lt;br&gt;&#xA;move most techniques out of the kernel, to the user space&lt;br&gt;&#xA;most bugs are at drivers, move them out to the user space so the kernel will be more modifiable&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE16</title>
       <link>https://vzstless.moe/p/xv6-lecture16/</link>
@@ -329,7 +336,7 @@
       <link>https://vzstless.moe/_index.zh-cn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vzstless.moe/_index.zh-cn/</guid>
-      <description>&lt;h1 id=&#34;vzstless-as-your-friend-or-thinker&#34;&gt;VZstless as your friend or thinker&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🍥 Call this name as VictorZhang was signed up by somebody else&amp;hellip;&lt;/li&gt;&#xA;&lt;li&gt;👻 Love frontend in any perspective, digital, or web.&lt;/li&gt;&#xA;&lt;li&gt;🐣 Libre &amp;amp; OpenSource aholic.&lt;/li&gt;&#xA;&lt;li&gt;⭐ Still an undergraduate and a crazyone.&lt;/li&gt;&#xA;&lt;li&gt;🐧 A human-like history book or cheatsheet.&lt;/li&gt;&#xA;&lt;li&gt;✉️ &lt;a href=&#34;mailto:2319725508@qq.com&#34;&gt;2319725508@qq.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;🍀I work so I live.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://skillicons.dev/icons?i=arch,ubuntu,debian,bash,powershell,cloudflare,python,javascript,scala,go,c,haskell,ts,react,fastapi,git,github,githubactions,notion,ps,redis,vscode,vim,azure&#34; alt=&#34;skills&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github-readme-stats-one-bice.vercel.app/api?username=victorzhangai&amp;count_private=true&amp;theme=calm&amp;show_icons=true&amp;include_all_commits=true&amp;role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR&#34; alt=&#34;Where had I walked&#34; height=&#34;185px&#34; /&gt; &lt;!-- img src=&#34;https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=victorzhangai&amp;layout=compact&amp;langs_count=8&amp;theme=calm&amp;role=OWNER,ORGANIZATION_MEMBER&#34; alt=&#34;Mostly Used&#34; height=&#34;185px&#34; / --&gt;&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;vzstless-as-your-friend-or-thinker&#34;&gt;VZstless as your friend or thinker&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🍥 Call this name as VictorZhang was signed up by somebody else&amp;hellip;&lt;/li&gt;&#xA;&lt;li&gt;👻 Love frontend in any perspective, digital, or web.&lt;/li&gt;&#xA;&lt;li&gt;🐣 Libre &amp;amp; OpenSource aholic.&lt;/li&gt;&#xA;&lt;li&gt;⭐ Still an undergraduate and a crazyone.&lt;/li&gt;&#xA;&lt;li&gt;🐧 A human-like history book or cheatsheet.&lt;/li&gt;&#xA;&lt;li&gt;✉️ &lt;a href=&#34;mailto:2319725508@qq.com&#34;&gt;2319725508@qq.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;🍀I work so I live.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;GPG Public Key: 81F97A3DCC8ACF8128F6FBF6D96D94E92C64A252&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://vzstless.moe&#34;&gt;blog&lt;/a&gt;&#xA;&lt;a href=&#34;http://vzstless.notion.so&#34;&gt;notion&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://skillicons.dev/icons?i=arch,ubuntu,debian,nix,plan9,bash,powershell,cloudflare,python,julia,javascript,scala,go,c,haskell,ts,regex,react,fastapi,git,github,githubactions,notion,ps,htmx,jquery,vscode,vim,azure,emacs,&#34; alt=&#34;skills&#34;&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;https://github-readme-stats-one-bice.vercel.app/api?username=victorzhangai&amp;count_private=true&amp;theme=calm&amp;show_icons=true&amp;include_all_commits=true&amp;role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR&#34; alt=&#34;Where had I walked&#34; height=&#34;185px&#34; /&gt;</description>
     </item>
   </channel>
 </rss>

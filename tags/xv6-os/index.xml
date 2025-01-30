@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Wed, 29 Jan 2025 17:25:38 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jan 2025 14:55:36 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/tags/xv6-os/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE17</title>
+      <link>https://vzstless.moe/p/xv6-lecture17/</link>
+      <pubDate>Thu, 30 Jan 2025 14:55:36 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture17/</guid>
+      <description>&lt;h2 id=&#34;handout-17&#34;&gt;Handout 17&lt;/h2&gt;&#xA;&lt;p&gt;What should a kernel do?&lt;br&gt;&#xA;traditional: a &amp;ldquo;monolithic&amp;rdquo; kernel abstraction(UNIX, Linux, xv6)&lt;br&gt;&#xA;abstraction leads to security&lt;br&gt;&#xA;monolithic kernel may lead to a big, complex and buggy system, may lead to many thoughts in designing the whole kernel&lt;br&gt;&#xA;lots of code is needed to execute a pipe&lt;/p&gt;&#xA;&lt;p&gt;microkernel: make kernel simpler enough&lt;br&gt;&#xA;move most techniques out of the kernel, to the user space&lt;br&gt;&#xA;most bugs are at drivers, move them out to the user space so the kernel will be more modifiable&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE16</title>
       <link>https://vzstless.moe/p/xv6-lecture16/</link>

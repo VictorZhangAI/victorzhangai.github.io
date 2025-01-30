@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="VZstless as your friend or thinker 🍥 Call this name as VictorZhang was signed up by somebody else&hellip; 👻 Love frontend in any perspective, digital, or web. 🐣 Libre &amp; OpenSource aholic. ⭐ Still an undergraduate and a crazyone. 🐧 A human-like history book or cheatsheet. ✉️ 2319725508@qq.com 🍀I work so I live. GPG Public Key: 81F97A3DCC8ACF8128F6FBF6D96D94E92C64A252\nblog notion\n">
-<title>Who Am I</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 17 What should a kernel do?\ntraditional: a &ldquo;monolithic&rdquo; kernel abstraction(UNIX, Linux, xv6)\nabstraction leads to security\nmonolithic kernel may lead to a big, complex and buggy system, may lead to many thoughts in designing the whole kernel\nlots of code is needed to execute a pipe\nmicrokernel: make kernel simpler enough\nmove most techniques out of the kernel, to the user space\nmost bugs are at drivers, move them out to the user space so the kernel will be more modifiable\n">
+<title>xv6 LECTURE17</title>
 
-<link rel='canonical' href='https://vzstless.moe/_index.zh-cn/'>
+<link rel='canonical' href='https://vzstless.moe/p/xv6-lecture17/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Who Am I">
-<meta property='og:description' content="VZstless as your friend or thinker 🍥 Call this name as VictorZhang was signed up by somebody else&hellip; 👻 Love frontend in any perspective, digital, or web. 🐣 Libre &amp; OpenSource aholic. ⭐ Still an undergraduate and a crazyone. 🐧 A human-like history book or cheatsheet. ✉️ 2319725508@qq.com 🍀I work so I live. GPG Public Key: 81F97A3DCC8ACF8128F6FBF6D96D94E92C64A252\nblog notion\n">
-<meta property='og:url' content='https://vzstless.moe/_index.zh-cn/'>
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="xv6 LECTURE17">
+<meta property='og:description' content="Handout 17 What should a kernel do?\ntraditional: a &ldquo;monolithic&rdquo; kernel abstraction(UNIX, Linux, xv6)\nabstraction leads to security\nmonolithic kernel may lead to a big, complex and buggy system, may lead to many thoughts in designing the whole kernel\nlots of code is needed to execute a pipe\nmicrokernel: make kernel simpler enough\nmove most techniques out of the kernel, to the user space\nmost bugs are at drivers, move them out to the user space so the kernel will be more modifiable\n">
+<meta property='og:url' content='https://vzstless.moe/p/xv6-lecture17/'>
 <meta property='og:site_name' content='VZstless'>
-<meta property='og:type' content='article'><meta property='article:section' content='' /><meta property='article:tag' content='MISC' />
-<meta name="twitter:title" content="Who Am I">
-<meta name="twitter:description" content="VZstless as your friend or thinker 🍥 Call this name as VictorZhang was signed up by somebody else&hellip; 👻 Love frontend in any perspective, digital, or web. 🐣 Libre &amp; OpenSource aholic. ⭐ Still an undergraduate and a crazyone. 🐧 A human-like history book or cheatsheet. ✉️ 2319725508@qq.com 🍀I work so I live. GPG Public Key: 81F97A3DCC8ACF8128F6FBF6D96D94E92C64A252\nblog notion\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='XV6 OS' /><meta property='article:published_time' content='2025-01-30T14:55:36&#43;08:00'/><meta property='article:modified_time' content='2025-01-30T14:55:36&#43;08:00'/>
+<meta name="twitter:title" content="xv6 LECTURE17">
+<meta name="twitter:description" content="Handout 17 What should a kernel do?\ntraditional: a &ldquo;monolithic&rdquo; kernel abstraction(UNIX, Linux, xv6)\nabstraction leads to security\nmonolithic kernel may lead to a big, complex and buggy system, may lead to many thoughts in designing the whole kernel\nlots of code is needed to execute a pipe\nmicrokernel: make kernel simpler enough\nmove most techniques out of the kernel, to the user space\nmost bugs are at drivers, move them out to the user space so the kernel will be more modifiable\n">
     <link rel="shortcut icon" href="/1f365.ico" />
 
     </head>
@@ -120,7 +120,7 @@
         
         
         
-        <li  class='current' >
+        <li >
             <a href='/_index.zh-cn/' >
                 
                 
@@ -286,7 +286,39 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#handout-17">Handout 17</a></li>
+    <li><a href="#paper">Paper</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -297,7 +329,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/_index.zh-cn/">Who Am I</a>
+            <a href="/p/xv6-lecture17/">xv6 LECTURE17</a>
         </h2>
     
         
@@ -308,6 +340,19 @@
     
     
     <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-01-30</time>
+            </div>
         
 
         
@@ -321,7 +366,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -336,30 +381,56 @@
     <section class="article-content">
     
     
-    <h1 id="vzstless-as-your-friend-or-thinker">VZstless as your friend or thinker
-</h1><ul>
-<li>🍥 Call this name as VictorZhang was signed up by somebody else&hellip;</li>
-<li>👻 Love frontend in any perspective, digital, or web.</li>
-<li>🐣 Libre &amp; OpenSource aholic.</li>
-<li>⭐ Still an undergraduate and a crazyone.</li>
-<li>🐧 A human-like history book or cheatsheet.</li>
-<li>✉️ <a class="link" href="mailto:2319725508@qq.com" >2319725508@qq.com</a></li>
-<li>🍀I work so I live.</li>
-</ul>
-<p>GPG Public Key: 81F97A3DCC8ACF8128F6FBF6D96D94E92C64A252</p>
-<p><a href="http://vzstless.moe">blog</a>
-<a href="http://vzstless.notion.so">notion</a></p>
-<p><img src="https://skillicons.dev/icons?i=arch,ubuntu,debian,nix,plan9,bash,powershell,cloudflare,python,julia,javascript,scala,go,c,haskell,ts,regex,react,fastapi,git,github,githubactions,notion,ps,htmx,jquery,vscode,vim,azure,emacs,"
-	
-	
-	
-	loading="lazy"
-	
-		alt="skills"
-	
-	
-></p>
-<img src="https://github-readme-stats-one-bice.vercel.app/api?username=victorzhangai&count_private=true&theme=calm&show_icons=true&include_all_commits=true&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR" alt="Where had I walked" height="185px" /> 
+    <h2 id="handout-17">Handout 17
+</h2><p>What should a kernel do?<br>
+traditional: a &ldquo;monolithic&rdquo; kernel abstraction(UNIX, Linux, xv6)<br>
+abstraction leads to security<br>
+monolithic kernel may lead to a big, complex and buggy system, may lead to many thoughts in designing the whole kernel<br>
+lots of code is needed to execute a pipe</p>
+<p>microkernel: make kernel simpler enough<br>
+move most techniques out of the kernel, to the user space<br>
+most bugs are at drivers, move them out to the user space so the kernel will be more modifiable</p>
+<p>L4: less syscalls, less code<br>
+missing almost everything, but everything is in the user space<br>
+pager: mmap, cow, alloc<br>
+design to improve bad performance brought by microkernels</p>
+<p>send() &amp; recv(): async &amp; buffered</p>
+<p>how to build a microkernel? for embedded, easy; for a server, maybe run UNIX on top of the kernel is good<br>
+on it, Linux is just a program!<br>
+but Linux switches its threads through L4-s threads<br>
+fork() -&gt; turn into IPC -&gt; alloc pages -&gt; get page faults<br>
+L4 server acts as the Linux&rsquo;s pager<br>
+getpid() is turned into 2 syscalls in L4(call, sendrecv)</p>
+<p>whole OS benchmark: AIM<br>
+microcontrollers are used to run specific software</p>
+<h2 id="paper">Paper
+</h2><p>researchers have almost stopped microkernel researching as its poor performance<br>
+too-low and too-higfh ideas<br>
+L4 built-on threads &amp; addr spaces<br>
+inter-process communication<br>
+grant, map, unmap<br>
+IO are treated as part of addr space<br>
+compilers and libraries hides difference of each architecture</p>
+<p>Linux&rsquo;s processes and resources management system is architecture independent<br>
+device drivers are always hardware dependent<br>
+top halves &amp; bottom halves of Linux interrupt handlers</p>
+<p>microkernel&rsquo;s task use for Linux&rsquo;s processes<br>
+problems surrounding libc<br>
+simulate TLB on Pentium processor<br>
+the L4Linux uses physical copyin and copyout<br>
+inter-thread using the same addr space<br>
+support TLB for smaller spaces</p>
+<p>creating one server addr space per Linux process<br>
+syncronization of server space &amp; server thread lead to the mistake<br>
+re-construct the TLB as Linux&rsquo;s minimum user space is too large</p>
+<p>using benchmarks compare L4Linux to MkLinux<br>
+co-location decreases L4Linux&rsquo;s security, so is it worth?<br>
+measure the cost of getpid() syscall<br>
+indeed IPC is the main additional cost in L4Linux<br>
+use lmbench to measure the cost of sync RPC<br>
+use matrix multiplication to test VM performance<br>
+use a protected transfer to reduce the cost of security, however, performance decreased</p>
+
 </section>
 
 
@@ -367,7 +438,7 @@
     
     <section class="article-tags">
         
-            <a href="/tags/misc/">MISC</a>
+            <a href="/tags/xv6-os/">XV6 OS</a>
         
     </section>
 
