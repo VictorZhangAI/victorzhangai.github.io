@@ -7,8 +7,36 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 11:07:10 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2025 22:25:39 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE24</title>
+      <link>https://vzstless.moe/p/xv6-lecture24/</link>
+      <pubDate>Sat, 01 Feb 2025 22:25:39 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture24/</guid>
+      <description>&lt;h2 id=&#34;handout-24&#34;&gt;Handout 24&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>xv6 LECTURE23</title>
+      <link>https://vzstless.moe/p/xv6-lecture23/</link>
+      <pubDate>Sat, 01 Feb 2025 22:25:33 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture23/</guid>
+      <description>&lt;h2 id=&#34;handout-23&#34;&gt;Handout 23&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>xv6 LECTURE22</title>
+      <link>https://vzstless.moe/p/xv6-lecture22/</link>
+      <pubDate>Sat, 01 Feb 2025 22:25:25 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture22/</guid>
+      <description>&lt;h2 id=&#34;handout-22&#34;&gt;Handout 22&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>xv6 LECTURE21</title>
+      <link>https://vzstless.moe/p/xv6-lecture21/</link>
+      <pubDate>Sat, 01 Feb 2025 22:25:18 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture21/</guid>
+      <description>&lt;h2 id=&#34;handout-21&#34;&gt;Handout 21&lt;/h2&gt;&#xA;&lt;p&gt;What if malicious user code execute in kernel?&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE20</title>
       <link>https://vzstless.moe/p/xv6-lecture20/</link>
