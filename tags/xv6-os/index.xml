@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Fri, 31 Jan 2025 07:48:44 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2025 11:07:10 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/tags/xv6-os/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6 LECTURE20</title>
+      <link>https://vzstless.moe/p/xv6-lecture20/</link>
+      <pubDate>Sat, 01 Feb 2025 11:07:10 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture20/</guid>
+      <description>&lt;h2 id=&#34;handout-20&#34;&gt;Handout 20&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>xv6 LECTURE19</title>
+      <link>https://vzstless.moe/p/xv6-lecture19/</link>
+      <pubDate>Fri, 31 Jan 2025 12:49:19 +0800</pubDate>
+      <guid>https://vzstless.moe/p/xv6-lecture19/</guid>
+      <description>&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;&#xA;&lt;p&gt;what if write an OS in HLL?&lt;br&gt;&#xA;less faults, but with less performance and less chance to interact with bottom of a computer&lt;br&gt;&#xA;tricky to measure trade-offs, must compare with production of C kernel&lt;br&gt;&#xA;kernel threads -&amp;gt; goroutines&lt;br&gt;&#xA;syscall: SYSENTER, SYSEXIT&lt;br&gt;&#xA;solve the heap exhaustion rule&lt;br&gt;&#xA;Go is easy to analyze heap bounds&lt;br&gt;&#xA;HLL truly simplified code&lt;br&gt;&#xA;concurrency in Go is easy&lt;br&gt;&#xA;compare apps through biscuit &amp;amp; Linux&lt;br&gt;&#xA;Go&amp;rsquo;s GC has no many large pauses but many small delays&lt;br&gt;&#xA;many programs could tolerate the pause rate of GC&lt;br&gt;&#xA;Go is slower but competitive&lt;/p&gt;</description>
+    </item>
     <item>
       <title>xv6 LECTURE18</title>
       <link>https://vzstless.moe/p/xv6-lecture18/</link>
