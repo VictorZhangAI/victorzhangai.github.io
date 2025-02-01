@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 20 (TODO)\nPaper (TODO)\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 20 1 tcpdump -t -xx -n ethernet addr\ntoday, ethernet LAN is a switch with cables to each host\nuse the dest addr to decide where to send\narp: translate IP addr to ethernet addr\nnest high layer packet in low layer packet\npacket mbuf allocator\nqueues of buffers: avoid forcing discard, keep output NIC busy, allow independent control flow\nillustrate tradeoffs in kernel network structure\ncould a disk cause a livelock?\ndon&rsquo;t spend time on subsequent packets until done with this one\nmodern Linux: NAPI\nlivelock is made worse by doing even more processing before discard\ntimeout + resend\n">
 <title>xv6 LECTURE20</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/xv6-lecture20/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="xv6 LECTURE20">
-<meta property='og:description' content="Handout 20 (TODO)\nPaper (TODO)\n">
+<meta property='og:description' content="Handout 20 1 tcpdump -t -xx -n ethernet addr\ntoday, ethernet LAN is a switch with cables to each host\nuse the dest addr to decide where to send\narp: translate IP addr to ethernet addr\nnest high layer packet in low layer packet\npacket mbuf allocator\nqueues of buffers: avoid forcing discard, keep output NIC busy, allow independent control flow\nillustrate tradeoffs in kernel network structure\ncould a disk cause a livelock?\ndon&rsquo;t spend time on subsequent packets until done with this one\nmodern Linux: NAPI\nlivelock is made worse by doing even more processing before discard\ntimeout + resend\n">
 <meta property='og:url' content='https://vzstless.moe/p/xv6-lecture20/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='XV6 OS' /><meta property='article:published_time' content='2025-02-01T11:07:10&#43;08:00'/><meta property='article:modified_time' content='2025-02-01T11:07:10&#43;08:00'/>
 <meta name="twitter:title" content="xv6 LECTURE20">
-<meta name="twitter:description" content="Handout 20 (TODO)\nPaper (TODO)\n">
+<meta name="twitter:description" content="Handout 20 1 tcpdump -t -xx -n ethernet addr\ntoday, ethernet LAN is a switch with cables to each host\nuse the dest addr to decide where to send\narp: translate IP addr to ethernet addr\nnest high layer packet in low layer packet\npacket mbuf allocator\nqueues of buffers: avoid forcing discard, keep output NIC busy, allow independent control flow\nillustrate tradeoffs in kernel network structure\ncould a disk cause a livelock?\ndon&rsquo;t spend time on subsequent packets until done with this one\nmodern Linux: NAPI\nlivelock is made worse by doing even more processing before discard\ntimeout + resend\n">
     <link rel="shortcut icon" href="/1f365.ico" />
 
     </head>
@@ -382,7 +382,27 @@
     
     
     <h2 id="handout-20">Handout 20
-</h2><p>(TODO)</p>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tcpdump -t -xx -n
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ethernet addr<br>
+today, ethernet LAN is a switch with cables to each host<br>
+use the dest addr to decide where to send<br>
+arp: translate IP addr to ethernet addr<br>
+nest high layer packet in low layer packet<br>
+packet mbuf allocator</p>
+<p>queues of buffers: avoid forcing discard, keep output NIC busy, allow independent control flow<br>
+illustrate tradeoffs in kernel network structure<br>
+could a disk cause a livelock?<br>
+don&rsquo;t spend time on subsequent packets until done with this one<br>
+modern Linux: NAPI<br>
+livelock is made worse by doing even more processing before discard<br>
+timeout + resend</p>
 <h2 id="paper">Paper
 </h2><p>(TODO)</p>
 
