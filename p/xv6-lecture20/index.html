@@ -366,7 +366,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -404,7 +404,28 @@ modern Linux: NAPI<br>
 livelock is made worse by doing even more processing before discard<br>
 timeout + resend</p>
 <h2 id="paper">Paper
-</h2><p>(TODO)</p>
+</h2><p>receive livelock: system spends all its time deal with interrupts<br>
+poll is expensive especially when I/O is rare<br>
+interrupt-driven design loccking is better<br>
+network implementation must deal with high event rates<br>
+non-flow control protocols</p>
+<p>receive livelock: the system is not deadlocked, but has no progress on current event<br>
+resonable latency and jitter<br>
+scheduling system must fairly allocate CPU resources among packet reception<br>
+queue provides some insulation against packet losses due to transient overlords<br>
+batch interrupts<br>
+receive livelock: a state when the system is no useful process is made, as some necessary resources is consumed with processing receiver interrupts<br>
+latency is increased by the time it receives the entire burst<br>
+transmissin starvation: packets may awaiting transmission, but the transmitting interface is idle</p>
+<p>a cycle that could repeat ad infinitum<br>
+use a round-robin schedule to provide fairness polling<br>
+purely interrupt driven wil lead to livelock, purely polling system will lead to unnecessary latency<br>
+fast-path designs<br>
+use route-under-test to check the performance<br>
+interrupt handler does almost no work at all<br>
+unavoidable queue as no guarantee to let the output interface run as fast as input interface<br>
+the screend program is typically run as the only application on a system<br>
+simply measure the resources used by CPU for receiving packets</p>
 
 </section>
 
