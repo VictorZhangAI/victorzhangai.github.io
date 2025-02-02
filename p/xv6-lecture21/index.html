@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 21 What if malicious user code execute in kernel?\nPaper (TODO)\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 21 What if malicious user code execute in kernel?\nthe CPU may speculate the execution of asm code\nmispredict -&gt; flush the result, revert content, restart execution\nCPU retires an instruction only after they won&rsquo;t be changed after all previous instructions are retired\nL1 miss: TLB look up, L2 look up with phy addr\nin real life, microarchitecture is not entirely invisible\nsense whether the instruction is cached: flush + reload\nuse clflush to reflush the cache, use rdtsc to read the cycle counter\ndeduce the low bit of kernel data based on which cache lines hold\nthe attack is always failed\n">
 <title>xv6 LECTURE21</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/xv6-lecture21/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="xv6 LECTURE21">
-<meta property='og:description' content="Handout 21 What if malicious user code execute in kernel?\nPaper (TODO)\n">
+<meta property='og:description' content="Handout 21 What if malicious user code execute in kernel?\nthe CPU may speculate the execution of asm code\nmispredict -&gt; flush the result, revert content, restart execution\nCPU retires an instruction only after they won&rsquo;t be changed after all previous instructions are retired\nL1 miss: TLB look up, L2 look up with phy addr\nin real life, microarchitecture is not entirely invisible\nsense whether the instruction is cached: flush + reload\nuse clflush to reflush the cache, use rdtsc to read the cycle counter\ndeduce the low bit of kernel data based on which cache lines hold\nthe attack is always failed\n">
 <meta property='og:url' content='https://vzstless.moe/p/xv6-lecture21/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='XV6 OS' /><meta property='article:published_time' content='2025-02-01T22:25:18&#43;08:00'/><meta property='article:modified_time' content='2025-02-01T22:25:18&#43;08:00'/>
 <meta name="twitter:title" content="xv6 LECTURE21">
-<meta name="twitter:description" content="Handout 21 What if malicious user code execute in kernel?\nPaper (TODO)\n">
+<meta name="twitter:description" content="Handout 21 What if malicious user code execute in kernel?\nthe CPU may speculate the execution of asm code\nmispredict -&gt; flush the result, revert content, restart execution\nCPU retires an instruction only after they won&rsquo;t be changed after all previous instructions are retired\nL1 miss: TLB look up, L2 look up with phy addr\nin real life, microarchitecture is not entirely invisible\nsense whether the instruction is cached: flush + reload\nuse clflush to reflush the cache, use rdtsc to read the cycle counter\ndeduce the low bit of kernel data based on which cache lines hold\nthe attack is always failed\n">
     <link rel="shortcut icon" href="/1f365.ico" />
 
     </head>
@@ -366,7 +366,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -382,9 +382,33 @@
     
     
     <h2 id="handout-21">Handout 21
-</h2><p>What if malicious user code execute in kernel?</p>
+</h2><p>What if malicious user code execute in kernel?<br>
+the CPU may speculate the execution of asm code<br>
+mispredict -&gt; flush the result, revert content, restart execution<br>
+CPU retires an instruction only after they won&rsquo;t be changed after all previous instructions are retired</p>
+<p>L1 miss: TLB look up, L2 look up with phy addr<br>
+in real life, microarchitecture is not entirely invisible<br>
+sense whether the instruction is cached: flush + reload<br>
+use clflush to reflush the cache, use rdtsc to read the cycle counter<br>
+deduce the low bit of kernel data based on which cache lines hold<br>
+the attack is always failed</p>
+<p>fix the vulnerability: don&rsquo;t map the kernel in user pagetable, require a pagetable switch when context switches<br>
+only return data from speculative loads</p>
 <h2 id="paper">Paper
-</h2><p>(TODO)</p>
+</h2><p>Meltdown: side effects of out-of-order processing<br>
+exploit side-channel information on modern processors<br>
+in out-of-order, CPU calculates for further information<br>
+influence the cache, affects the side-channel<br>
+kernel ASLR randomizes the offsets where driver is loaded on the boot</p>
+<p>use flush + reload to detect whether the instruction is cached so that the microarchitecture is no more hidden<br>
+spectre attacks: lack of privilege escalation in Meltdown<br>
+a transient instruction as a side effect<br>
+execution suppression<br>
+build a covert channel to receive information from microarchitecture and deduce this secret<br>
+covert channel is not limited to microarchitectures</p>
+<p>steps: content of loadable mem location is loaded in reg, transient instruction, flush + reload<br>
+bias is often lost in out-of-order execution</p>
+<p>KAISER: a strong isolation which won&rsquo;t map any kernel memory into user space</p>
 
 </section>
 

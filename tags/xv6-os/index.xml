@@ -35,7 +35,7 @@
       <link>https://vzstless.moe/p/xv6-lecture21/</link>
       <pubDate>Sat, 01 Feb 2025 22:25:18 +0800</pubDate>
       <guid>https://vzstless.moe/p/xv6-lecture21/</guid>
-      <description>&lt;h2 id=&#34;handout-21&#34;&gt;Handout 21&lt;/h2&gt;&#xA;&lt;p&gt;What if malicious user code execute in kernel?&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;handout-21&#34;&gt;Handout 21&lt;/h2&gt;&#xA;&lt;p&gt;What if malicious user code execute in kernel?&lt;br&gt;&#xA;the CPU may speculate the execution of asm code&lt;br&gt;&#xA;mispredict -&amp;gt; flush the result, revert content, restart execution&lt;br&gt;&#xA;CPU retires an instruction only after they won&amp;rsquo;t be changed after all previous instructions are retired&lt;/p&gt;&#xA;&lt;p&gt;L1 miss: TLB look up, L2 look up with phy addr&lt;br&gt;&#xA;in real life, microarchitecture is not entirely invisible&lt;br&gt;&#xA;sense whether the instruction is cached: flush + reload&lt;br&gt;&#xA;use clflush to reflush the cache, use rdtsc to read the cycle counter&lt;br&gt;&#xA;deduce the low bit of kernel data based on which cache lines hold&lt;br&gt;&#xA;the attack is always failed&lt;/p&gt;</description>
     </item>
     <item>
       <title>xv6 LECTURE20</title>
