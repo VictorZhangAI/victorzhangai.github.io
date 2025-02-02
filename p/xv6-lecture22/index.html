@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 22 (TODO)\nPaper (TODO)\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 22 can we have a lock that allow parappel reads?\none writer, but no other reader or writer; lots of reader, but no writer\natomic CAS&rsquo;s execute one at a time &ndash; not in parallel\nr_lock&rsquo;s writes are expensive\nreader connot simply don&rsquo;t lock, but use methods like RCU\nin RCU: writer doesn&rsquo;t modify the file directly, but prepare a new copy, the reader won&rsquo;t see a partial midified string, even if it doesn&rsquo;t hold a lock\n">
 <title>xv6 LECTURE22</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/xv6-lecture22/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="xv6 LECTURE22">
-<meta property='og:description' content="Handout 22 (TODO)\nPaper (TODO)\n">
+<meta property='og:description' content="Handout 22 can we have a lock that allow parappel reads?\none writer, but no other reader or writer; lots of reader, but no writer\natomic CAS&rsquo;s execute one at a time &ndash; not in parallel\nr_lock&rsquo;s writes are expensive\nreader connot simply don&rsquo;t lock, but use methods like RCU\nin RCU: writer doesn&rsquo;t modify the file directly, but prepare a new copy, the reader won&rsquo;t see a partial midified string, even if it doesn&rsquo;t hold a lock\n">
 <meta property='og:url' content='https://vzstless.moe/p/xv6-lecture22/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='XV6 OS' /><meta property='article:published_time' content='2025-02-01T22:25:25&#43;08:00'/><meta property='article:modified_time' content='2025-02-01T22:25:25&#43;08:00'/>
 <meta name="twitter:title" content="xv6 LECTURE22">
-<meta name="twitter:description" content="Handout 22 (TODO)\nPaper (TODO)\n">
+<meta name="twitter:description" content="Handout 22 can we have a lock that allow parappel reads?\none writer, but no other reader or writer; lots of reader, but no writer\natomic CAS&rsquo;s execute one at a time &ndash; not in parallel\nr_lock&rsquo;s writes are expensive\nreader connot simply don&rsquo;t lock, but use methods like RCU\nin RCU: writer doesn&rsquo;t modify the file directly, but prepare a new copy, the reader won&rsquo;t see a partial midified string, even if it doesn&rsquo;t hold a lock\n">
     <link rel="shortcut icon" href="/1f365.ico" />
 
     </head>
@@ -382,9 +382,21 @@
     
     
     <h2 id="handout-22">Handout 22
-</h2><p>(TODO)</p>
+</h2><p>can we have a lock that allow parappel reads?<br>
+one writer, but no other reader or writer; lots of reader, but no writer<br>
+atomic CAS&rsquo;s execute one at a time &ndash; not in parallel<br>
+r_lock&rsquo;s writes are expensive<br>
+reader connot simply don&rsquo;t lock, but use methods like RCU<br>
+in RCU: writer doesn&rsquo;t modify the file directly, but prepare a new copy, the reader won&rsquo;t see a partial midified string, even if it doesn&rsquo;t hold a lock</p>
+<p>before: no change is visible; after: all changes are visible<br>
+use memory barriers to enhance order of transactions<br>
+potential disaster: use after free<br>
+let writer wait for GC<br>
+implement the graceful delay</p>
+<p>RCU implements nearly zero in reads<br>
+reference counting, redesign for no sharing</p>
 <h2 id="paper">Paper
-</h2><p>(TODO)</p>
+</h2><p>RCU&rsquo;s success: high performance in concurrent reading and updating</p>
 
 </section>
 

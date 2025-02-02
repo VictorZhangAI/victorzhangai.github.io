@@ -7,15 +7,8 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 22:25:39 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2025 22:25:33 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>xv6 LECTURE24</title>
-      <link>https://vzstless.moe/p/xv6-lecture24/</link>
-      <pubDate>Sat, 01 Feb 2025 22:25:39 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture24/</guid>
-      <description>&lt;h2 id=&#34;handout-24&#34;&gt;Handout 24&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
-    </item>
     <item>
       <title>xv6 LECTURE23</title>
       <link>https://vzstless.moe/p/xv6-lecture23/</link>
@@ -28,7 +21,7 @@
       <link>https://vzstless.moe/p/xv6-lecture22/</link>
       <pubDate>Sat, 01 Feb 2025 22:25:25 +0800</pubDate>
       <guid>https://vzstless.moe/p/xv6-lecture22/</guid>
-      <description>&lt;h2 id=&#34;handout-22&#34;&gt;Handout 22&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;handout-22&#34;&gt;Handout 22&lt;/h2&gt;&#xA;&lt;p&gt;can we have a lock that allow parappel reads?&lt;br&gt;&#xA;one writer, but no other reader or writer; lots of reader, but no writer&lt;br&gt;&#xA;atomic CAS&amp;rsquo;s execute one at a time &amp;ndash; not in parallel&lt;br&gt;&#xA;r_lock&amp;rsquo;s writes are expensive&lt;br&gt;&#xA;reader connot simply don&amp;rsquo;t lock, but use methods like RCU&lt;br&gt;&#xA;in RCU: writer doesn&amp;rsquo;t modify the file directly, but prepare a new copy, the reader won&amp;rsquo;t see a partial midified string, even if it doesn&amp;rsquo;t hold a lock&lt;/p&gt;</description>
     </item>
     <item>
       <title>xv6 LECTURE21</title>
