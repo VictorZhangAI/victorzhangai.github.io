@@ -14,7 +14,7 @@
       <link>https://vzstless.moe/p/xv6-lecture23/</link>
       <pubDate>Sat, 01 Feb 2025 22:25:33 +0800</pubDate>
       <guid>https://vzstless.moe/p/xv6-lecture23/</guid>
-      <description>&lt;h2 id=&#34;handout-23&#34;&gt;Handout 23&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;(TODO)&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;handout-23&#34;&gt;Handout 23&lt;/h2&gt;&#xA;&lt;p&gt;what if dynamically update the kernel?&lt;br&gt;&#xA;observability, performance, security&lt;br&gt;&#xA;detect DDoS attack&lt;br&gt;&#xA;eBPF uses bin-constraint approach&lt;br&gt;&#xA;C reads cBPF, emulates the &amp;ldquo;language&amp;rdquo;, run in the same addr space as in the kernel&lt;/p&gt;&#xA;&lt;p&gt;whether the asm-like language will break the isolation?&lt;br&gt;&#xA;binaries, look through the whole program and disallow huge offsets&lt;br&gt;&#xA;speed: slow interpreter -&amp;gt; JIT&lt;br&gt;&#xA;ways of tracking pointers&lt;br&gt;&#xA;is eBPF even the right approach to extensibility?&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;original: designed for capture and filter packets&lt;br&gt;&#xA;design of VM is left behind the traditional processor&lt;br&gt;&#xA;mapping eBPF to native instructions&lt;br&gt;&#xA;in 2014, eBPF is directly accessed by user space&lt;/p&gt;</description>
     </item>
     <item>
       <title>xv6 LECTURE22</title>

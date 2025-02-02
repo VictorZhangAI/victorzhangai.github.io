@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 23 (TODO)\nPaper (TODO)\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Handout 23 what if dynamically update the kernel?\nobservability, performance, security\ndetect DDoS attack\neBPF uses bin-constraint approach\nC reads cBPF, emulates the &ldquo;language&rdquo;, run in the same addr space as in the kernel\nwhether the asm-like language will break the isolation?\nbinaries, look through the whole program and disallow huge offsets\nspeed: slow interpreter -&gt; JIT\nways of tracking pointers\nis eBPF even the right approach to extensibility?\nPaper original: designed for capture and filter packets\ndesign of VM is left behind the traditional processor\nmapping eBPF to native instructions\nin 2014, eBPF is directly accessed by user space\n">
 <title>xv6 LECTURE23</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/xv6-lecture23/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="xv6 LECTURE23">
-<meta property='og:description' content="Handout 23 (TODO)\nPaper (TODO)\n">
+<meta property='og:description' content="Handout 23 what if dynamically update the kernel?\nobservability, performance, security\ndetect DDoS attack\neBPF uses bin-constraint approach\nC reads cBPF, emulates the &ldquo;language&rdquo;, run in the same addr space as in the kernel\nwhether the asm-like language will break the isolation?\nbinaries, look through the whole program and disallow huge offsets\nspeed: slow interpreter -&gt; JIT\nways of tracking pointers\nis eBPF even the right approach to extensibility?\nPaper original: designed for capture and filter packets\ndesign of VM is left behind the traditional processor\nmapping eBPF to native instructions\nin 2014, eBPF is directly accessed by user space\n">
 <meta property='og:url' content='https://vzstless.moe/p/xv6-lecture23/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='XV6 OS' /><meta property='article:published_time' content='2025-02-01T22:25:33&#43;08:00'/><meta property='article:modified_time' content='2025-02-01T22:25:33&#43;08:00'/>
 <meta name="twitter:title" content="xv6 LECTURE23">
-<meta name="twitter:description" content="Handout 23 (TODO)\nPaper (TODO)\n">
+<meta name="twitter:description" content="Handout 23 what if dynamically update the kernel?\nobservability, performance, security\ndetect DDoS attack\neBPF uses bin-constraint approach\nC reads cBPF, emulates the &ldquo;language&rdquo;, run in the same addr space as in the kernel\nwhether the asm-like language will break the isolation?\nbinaries, look through the whole program and disallow huge offsets\nspeed: slow interpreter -&gt; JIT\nways of tracking pointers\nis eBPF even the right approach to extensibility?\nPaper original: designed for capture and filter packets\ndesign of VM is left behind the traditional processor\nmapping eBPF to native instructions\nin 2014, eBPF is directly accessed by user space\n">
     <link rel="shortcut icon" href="/1f365.ico" />
 
     </head>
@@ -382,9 +382,26 @@
     
     
     <h2 id="handout-23">Handout 23
-</h2><p>(TODO)</p>
+</h2><p>what if dynamically update the kernel?<br>
+observability, performance, security<br>
+detect DDoS attack<br>
+eBPF uses bin-constraint approach<br>
+C reads cBPF, emulates the &ldquo;language&rdquo;, run in the same addr space as in the kernel</p>
+<p>whether the asm-like language will break the isolation?<br>
+binaries, look through the whole program and disallow huge offsets<br>
+speed: slow interpreter -&gt; JIT<br>
+ways of tracking pointers<br>
+is eBPF even the right approach to extensibility?</p>
 <h2 id="paper">Paper
-</h2><p>(TODO)</p>
+</h2><p>original: designed for capture and filter packets<br>
+design of VM is left behind the traditional processor<br>
+mapping eBPF to native instructions<br>
+in 2014, eBPF is directly accessed by user space</p>
+<p>attached to a designated code path<br>
+debugging the kernel</p>
+<p>lock the kernel, verify the simulation, secure mode<br>
+define the type of eBPF programs<br>
+eBPF map: allow data pass through kernel, kernel-user, user space</p>
 
 </section>
 
