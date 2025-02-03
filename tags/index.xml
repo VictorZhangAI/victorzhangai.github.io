@@ -7,20 +7,20 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 22:25:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2025 16:37:17 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>COA</title>
+      <link>https://vzstless.moe/tags/coa/</link>
+      <pubDate>Mon, 03 Feb 2025 16:37:17 +0800</pubDate>
+      <guid>https://vzstless.moe/tags/coa/</guid>
+      <description></description>
+    </item>
     <item>
       <title>XV6 OS</title>
       <link>https://vzstless.moe/tags/xv6-os/</link>
       <pubDate>Sat, 01 Feb 2025 22:25:33 +0800</pubDate>
       <guid>https://vzstless.moe/tags/xv6-os/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>COA</title>
-      <link>https://vzstless.moe/tags/coa/</link>
-      <pubDate>Sat, 25 Jan 2025 11:45:07 +0800</pubDate>
-      <guid>https://vzstless.moe/tags/coa/</guid>
       <description></description>
     </item>
     <item>
