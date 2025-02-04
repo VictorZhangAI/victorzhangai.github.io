@@ -1,174 +1,1562 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>XV6 OS on VZstless</title>
-    <link>https://vzstless.moe/tags/xv6-os/</link>
-    <description>Recent content in XV6 OS on VZstless</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 22:25:33 +0800</lastBuildDate>
-    <atom:link href="https://vzstless.moe/tags/xv6-os/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>xv6 LECTURE23</title>
-      <link>https://vzstless.moe/p/xv6-lecture23/</link>
-      <pubDate>Sat, 01 Feb 2025 22:25:33 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture23/</guid>
-      <description>&lt;h2 id=&#34;handout-23&#34;&gt;Handout 23&lt;/h2&gt;&#xA;&lt;p&gt;what if dynamically update the kernel?&lt;br&gt;&#xA;observability, performance, security&lt;br&gt;&#xA;detect DDoS attack&lt;br&gt;&#xA;eBPF uses bin-constraint approach&lt;br&gt;&#xA;C reads cBPF, emulates the &amp;ldquo;language&amp;rdquo;, run in the same addr space as in the kernel&lt;/p&gt;&#xA;&lt;p&gt;whether the asm-like language will break the isolation?&lt;br&gt;&#xA;binaries, look through the whole program and disallow huge offsets&lt;br&gt;&#xA;speed: slow interpreter -&amp;gt; JIT&lt;br&gt;&#xA;ways of tracking pointers&lt;br&gt;&#xA;is eBPF even the right approach to extensibility?&lt;/p&gt;&#xA;&lt;h2 id=&#34;paper&#34;&gt;Paper&lt;/h2&gt;&#xA;&lt;p&gt;original: designed for capture and filter packets&lt;br&gt;&#xA;design of VM is left behind the traditional processor&lt;br&gt;&#xA;mapping eBPF to native instructions&lt;br&gt;&#xA;in 2014, eBPF is directly accessed by user space&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE22</title>
-      <link>https://vzstless.moe/p/xv6-lecture22/</link>
-      <pubDate>Sat, 01 Feb 2025 22:25:25 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture22/</guid>
-      <description>&lt;h2 id=&#34;handout-22&#34;&gt;Handout 22&lt;/h2&gt;&#xA;&lt;p&gt;can we have a lock that allow parappel reads?&lt;br&gt;&#xA;one writer, but no other reader or writer; lots of reader, but no writer&lt;br&gt;&#xA;atomic CAS&amp;rsquo;s execute one at a time &amp;ndash; not in parallel&lt;br&gt;&#xA;r_lock&amp;rsquo;s writes are expensive&lt;br&gt;&#xA;reader connot simply don&amp;rsquo;t lock, but use methods like RCU&lt;br&gt;&#xA;in RCU: writer doesn&amp;rsquo;t modify the file directly, but prepare a new copy, the reader won&amp;rsquo;t see a partial midified string, even if it doesn&amp;rsquo;t hold a lock&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE21</title>
-      <link>https://vzstless.moe/p/xv6-lecture21/</link>
-      <pubDate>Sat, 01 Feb 2025 22:25:18 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture21/</guid>
-      <description>&lt;h2 id=&#34;handout-21&#34;&gt;Handout 21&lt;/h2&gt;&#xA;&lt;p&gt;What if malicious user code execute in kernel?&lt;br&gt;&#xA;the CPU may speculate the execution of asm code&lt;br&gt;&#xA;mispredict -&amp;gt; flush the result, revert content, restart execution&lt;br&gt;&#xA;CPU retires an instruction only after they won&amp;rsquo;t be changed after all previous instructions are retired&lt;/p&gt;&#xA;&lt;p&gt;L1 miss: TLB look up, L2 look up with phy addr&lt;br&gt;&#xA;in real life, microarchitecture is not entirely invisible&lt;br&gt;&#xA;sense whether the instruction is cached: flush + reload&lt;br&gt;&#xA;use clflush to reflush the cache, use rdtsc to read the cycle counter&lt;br&gt;&#xA;deduce the low bit of kernel data based on which cache lines hold&lt;br&gt;&#xA;the attack is always failed&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE20</title>
-      <link>https://vzstless.moe/p/xv6-lecture20/</link>
-      <pubDate>Sat, 01 Feb 2025 11:07:10 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture20/</guid>
-      <description>&lt;h2 id=&#34;handout-20&#34;&gt;Handout 20&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tcpdump -t -xx -n&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;ethernet addr&lt;br&gt;&#xA;today, ethernet LAN is a switch with cables to each host&lt;br&gt;&#xA;use the dest addr to decide where to send&lt;br&gt;&#xA;arp: translate IP addr to ethernet addr&lt;br&gt;&#xA;nest high layer packet in low layer packet&lt;br&gt;&#xA;packet mbuf allocator&lt;/p&gt;&#xA;&lt;p&gt;queues of buffers: avoid forcing discard, keep output NIC busy, allow independent control flow&lt;br&gt;&#xA;illustrate tradeoffs in kernel network structure&lt;br&gt;&#xA;could a disk cause a livelock?&lt;br&gt;&#xA;don&amp;rsquo;t spend time on subsequent packets until done with this one&lt;br&gt;&#xA;modern Linux: NAPI&lt;br&gt;&#xA;livelock is made worse by doing even more processing before discard&lt;br&gt;&#xA;timeout + resend&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE19</title>
-      <link>https://vzstless.moe/p/xv6-lecture19/</link>
-      <pubDate>Fri, 31 Jan 2025 12:49:19 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture19/</guid>
-      <description>&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;&#xA;&lt;p&gt;what if write an OS in HLL?&lt;br&gt;&#xA;less faults, but with less performance and less chance to interact with bottom of a computer&lt;br&gt;&#xA;tricky to measure trade-offs, must compare with production of C kernel&lt;br&gt;&#xA;kernel threads -&amp;gt; goroutines&lt;br&gt;&#xA;syscall: SYSENTER, SYSEXIT&lt;br&gt;&#xA;solve the heap exhaustion rule&lt;br&gt;&#xA;Go is easy to analyze heap bounds&lt;br&gt;&#xA;HLL truly simplified code&lt;br&gt;&#xA;concurrency in Go is easy&lt;br&gt;&#xA;compare apps through biscuit &amp;amp; Linux&lt;br&gt;&#xA;Go&amp;rsquo;s GC has no many large pauses but many small delays&lt;br&gt;&#xA;many programs could tolerate the pause rate of GC&lt;br&gt;&#xA;Go is slower but competitive&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE18</title>
-      <link>https://vzstless.moe/p/xv6-lecture18/</link>
-      <pubDate>Fri, 31 Jan 2025 07:48:44 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture18/</guid>
-      <description>&lt;h2 id=&#34;handout-18&#34;&gt;Handout 18&lt;/h2&gt;&#xA;&lt;p&gt;virtual machine: simulation of a computer&lt;br&gt;&#xA;accuracy may be 100%&lt;br&gt;&#xA;software simulation: like qemu, but may slow&lt;br&gt;&#xA;run the instructions in real CPU but whole in user mode&lt;br&gt;&#xA;VM trap handler&lt;br&gt;&#xA;trap-and-emulate approach&lt;br&gt;&#xA;handle privileged instructions into virtual state&lt;br&gt;&#xA;VMM must ensure that guest only accesses its own memory and must remap guest physical addresses&lt;br&gt;&#xA;turn page faults into operation&lt;br&gt;&#xA;each CPU in non-root mode or in root mode&lt;br&gt;&#xA;extended page table contains user memory space&lt;br&gt;&#xA;2 layers of addr&lt;br&gt;&#xA;CPU forces exit to the guest, passes interrupts to the host&lt;br&gt;&#xA;Dune: use VMX to run a Linux process&lt;br&gt;&#xA;a loadable kernel module&lt;br&gt;&#xA;additional functionality like r/w&lt;br&gt;&#xA;bottom line: faster for some Linux syscalls&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE17</title>
-      <link>https://vzstless.moe/p/xv6-lecture17/</link>
-      <pubDate>Thu, 30 Jan 2025 14:55:36 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture17/</guid>
-      <description>&lt;h2 id=&#34;handout-17&#34;&gt;Handout 17&lt;/h2&gt;&#xA;&lt;p&gt;What should a kernel do?&lt;br&gt;&#xA;traditional: a &amp;ldquo;monolithic&amp;rdquo; kernel abstraction(UNIX, Linux, xv6)&lt;br&gt;&#xA;abstraction leads to security&lt;br&gt;&#xA;monolithic kernel may lead to a big, complex and buggy system, may lead to many thoughts in designing the whole kernel&lt;br&gt;&#xA;lots of code is needed to execute a pipe&lt;/p&gt;&#xA;&lt;p&gt;microkernel: make kernel simpler enough&lt;br&gt;&#xA;move most techniques out of the kernel, to the user space&lt;br&gt;&#xA;most bugs are at drivers, move them out to the user space so the kernel will be more modifiable&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE16</title>
-      <link>https://vzstless.moe/p/xv6-lecture16/</link>
-      <pubDate>Wed, 29 Jan 2025 17:25:38 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture16/</guid>
-      <description>&lt;h2 id=&#34;handout-16&#34;&gt;Handout 16&lt;/h2&gt;&#xA;&lt;p&gt;OS kernel use VM in creative ways, even benefit from VM&lt;br&gt;&#xA;trap, prot, unprot, dirty, map&lt;br&gt;&#xA;mmap(): map memory into user space&lt;br&gt;&#xA;mprotect(): change the permission of mapping&lt;br&gt;&#xA;munmap(), sigaction()&lt;br&gt;&#xA;kernel asks VM waht to do, generate signal, run user handler, kernel returns to user program, continue or restart the previous action&lt;br&gt;&#xA;bake a large sqrt table by a single page&lt;br&gt;&#xA;real-time GC Algorithm&lt;/p&gt;&#xA;&lt;p&gt;real-time: cheap and large to allocate&lt;br&gt;&#xA;cost: pointer reside, difficult to run collector and the program at the same time&lt;br&gt;&#xA;adding instructions could solve user-level VM problems&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE15</title>
-      <link>https://vzstless.moe/p/xv6-lecture15/</link>
-      <pubDate>Mon, 27 Jan 2025 08:59:50 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture15/</guid>
-      <description>&lt;h2 id=&#34;handout-15&#34;&gt;Handout 15&lt;/h2&gt;&#xA;&lt;p&gt;crashes may lead to problem that won&amp;rsquo;t show immediately&lt;br&gt;&#xA;make syscalls atomic(all-or-nothing)&lt;br&gt;&#xA;ext3: less waiting, reduced writes, ordered data mode&lt;/p&gt;&#xA;&lt;p&gt;batch update blocks, commit the current open transaction&lt;br&gt;&#xA;performance: multiple syscalls, multiple transactions&lt;/p&gt;&#xA;&lt;p&gt;the crash may forget last few ops&lt;br&gt;&#xA;log is circular: SB T4 T5 T2 T3&lt;br&gt;&#xA;before re-use, must write log superblock with offset/seq of resulting now-oldest transaction in log&lt;/p&gt;&#xA;&lt;p&gt;logging could help with &amp;ldquo;fail-stop&amp;rdquo;&lt;br&gt;&#xA;reboot, look in log, find the end of log, re-write all logs&lt;br&gt;&#xA;another crash? just repeat the logging steps&lt;br&gt;&#xA;commit needs to write on-disk log from a snapshot of cached blocks? if not, repeat but not all&lt;br&gt;&#xA;efficient using COW fork&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE14</title>
-      <link>https://vzstless.moe/p/xv6-lecture14/</link>
-      <pubDate>Sun, 26 Jan 2025 09:37:33 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture14/</guid>
-      <description>&lt;h2 id=&#34;handout-14&#34;&gt;Handout 14&lt;/h2&gt;&#xA;&lt;p&gt;fs write first 46, then 32, 33? dirent points to free inode&lt;br&gt;&#xA;correctness and performance are often conflict&lt;br&gt;&#xA;crash recovery is a recurring problem&lt;br&gt;&#xA;logging solution: goal: fast recovery, atomic syscalls&lt;br&gt;&#xA;log, commit, install&lt;br&gt;&#xA;write-ahead log: if &amp;ldquo;done&amp;rdquo; in log, replay all writes in log, if no &amp;ldquo;done&amp;rdquo;, ignore log&lt;br&gt;&#xA;multiple data structures, lay on existing storage system, high performance&lt;br&gt;&#xA;buffer cache, in-memory log block # array, FS tree on disk, log header and blocks on disk&lt;br&gt;&#xA;write buffers, wait for disk to complete write, keep data in buffer cache&lt;br&gt;&#xA;begin_op()-&amp;gt;bmap()-&amp;gt;bread()-&amp;gt;log_write()-&amp;gt;i_update()-&amp;gt;end_op()&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE13</title>
-      <link>https://vzstless.moe/p/xv6-lecture13/</link>
-      <pubDate>Fri, 24 Jan 2025 08:33:35 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture13/</guid>
-      <description>&lt;h2 id=&#34;handout-13&#34;&gt;Handout 13&lt;/h2&gt;&#xA;&lt;p&gt;files, bit arrays, human-readable names&lt;br&gt;&#xA;fs APIs&lt;br&gt;&#xA;fd: listed to the file even if it changes&lt;br&gt;&#xA;a file can have multiple links&lt;br&gt;&#xA;file must have info stored other than directory&lt;/p&gt;&#xA;&lt;p&gt;inode: i-number(initial version), link count, count of open FDs&lt;br&gt;&#xA;inode deallocation deferred until last link and FD are gone&lt;/p&gt;&#xA;&lt;p&gt;data stays on disk without power&lt;br&gt;&#xA;historically, disks were read/write usually in 512-byte units, called sectors&lt;/p&gt;&#xA;&lt;p&gt;in HDD, sub-sector operation are expensive(read-modify-write)&lt;br&gt;&#xA;flash must be erased before written&lt;br&gt;&#xA;xv6 uses 2-sector blocks&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE12</title>
-      <link>https://vzstless.moe/p/xv6-lecture12/</link>
-      <pubDate>Wed, 22 Jan 2025 14:43:23 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture12/</guid>
-      <description>&lt;h2 id=&#34;handout-12&#34;&gt;Handout 12&lt;/h2&gt;&#xA;&lt;p&gt;why hold p-&amp;gt;lock across threads?&lt;br&gt;&#xA;forbid holding lock when yielding the CPU!&lt;br&gt;&#xA;threads often wait for conditions&lt;/p&gt;&#xA;&lt;p&gt;use coordination primitives&lt;br&gt;&#xA;uartwrite(): writing thread should give up CPU&lt;br&gt;&#xA;sleep() cannot simply wait the event, or will cause lose wake-up problem&lt;/p&gt;&#xA;&lt;p&gt;what&amp;rsquo;s wrong if uartwrite() releases the lock before broken_sleep()?&lt;br&gt;&#xA;uartwrite() went to sleep EVEN THOUGH UART TX WAS DONE, nothing will awake uartwrite()&lt;br&gt;&#xA;use lock to prevent wakeup() from running during the entire window&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE11</title>
-      <link>https://vzstless.moe/p/xv6-lecture11/</link>
-      <pubDate>Tue, 21 Jan 2025 16:58:37 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture11/</guid>
-      <description>&lt;h2 id=&#34;handout-11&#34;&gt;Handout 11&lt;/h2&gt;&#xA;&lt;p&gt;concurrency: threads inside the kernel, processes&lt;br&gt;&#xA;each thread, taken alone, executes in an ordinary way&lt;br&gt;&#xA;need locks when interact&lt;/p&gt;&#xA;&lt;p&gt;in xv6, only one user-level thread&lt;br&gt;&#xA;event-driven and state machine could also use to multitasking&lt;br&gt;&#xA;executing: using resources; not executing: save and release&lt;br&gt;&#xA;each process has its own kernel thread&lt;/p&gt;&#xA;&lt;p&gt;p-&amp;gt;state: running, runnable, sleeping&lt;br&gt;&#xA;user-&amp;gt;kernel-&amp;gt;scheduler-&amp;gt;kernel-&amp;gt;user&lt;br&gt;&#xA;scheduler thread: one per CPU&lt;br&gt;&#xA;idle scheduler: no running thread&lt;br&gt;&#xA;swtch() returns to scheduler()&lt;br&gt;&#xA;swtch(): saves current registers in xx(a0), restores registers in xx(a1)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE10</title>
-      <link>https://vzstless.moe/p/xv6-lecture10/</link>
-      <pubDate>Sun, 19 Jan 2025 07:11:18 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture10/</guid>
-      <description>&lt;h2 id=&#34;handout-10&#34;&gt;Handout 10&lt;/h2&gt;&#xA;&lt;p&gt;kernel must deal with parallel syscalls&lt;br&gt;&#xA;race between two cores calling kfree() leads to a page losing&lt;br&gt;&#xA;if multiple cores calls the lock, only one will be returned, other will wait until the lock release&lt;br&gt;&#xA;auto locking? needs explicit comtrol over different regions of code&lt;br&gt;&#xA;deadlocking problem&lt;br&gt;&#xA;locks are often not private business of modules&lt;br&gt;&#xA;lock &amp;amp; parallelism may require a whole re-write for the project!&lt;br&gt;&#xA;use big lock first, big lock is always enough&lt;br&gt;&#xA;check and re-lock the lock atomically, pushing down the question into hardware&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE9</title>
-      <link>https://vzstless.moe/p/xv6-lecture9/</link>
-      <pubDate>Thu, 16 Jan 2025 23:24:27 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture9/</guid>
-      <description>&lt;h2 id=&#34;handout-9&#34;&gt;Handout 9&lt;/h2&gt;&#xA;&lt;p&gt;CPU &amp;amp; devices: complicated &amp;amp; parallel&lt;br&gt;&#xA;most code in modern OSes are device drivers&lt;br&gt;&#xA;UART, RS232 port&lt;br&gt;&#xA;UART &amp;amp; FIFO: not using a busy loop, but using interrupts&lt;br&gt;&#xA;UART interrupts if: rx FIFO goes from empty to not-empty, or tx FIFO goes from full to not-full&lt;/p&gt;&#xA;&lt;p&gt;device interrupts: device -&amp;gt; PLIC -&amp;gt; trap -&amp;gt; usertrap()/kerneltrap() -&amp;gt; devintr()&lt;br&gt;&#xA;interrupt just means the state of device is changed&lt;br&gt;&#xA;the bottom-half of interrupt doesn&amp;rsquo;t run in the context of top-half&lt;br&gt;&#xA;registers: sie(supervisor interrupt enabled), PLIC claim: get next IRQ, sstatus&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE8</title>
-      <link>https://vzstless.moe/p/xv6-lecture8/</link>
-      <pubDate>Wed, 15 Jan 2025 10:29:46 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture8/</guid>
-      <description>&lt;h2 id=&#34;handout-8&#34;&gt;Handout 8&lt;/h2&gt;&#xA;&lt;p&gt;pgtbl is hard to debug, why?&lt;br&gt;&#xA;how to speed up syscall? Linux has vDSO&lt;br&gt;&#xA;vDSO enables virtual syscalls&lt;br&gt;&#xA;511: trampoline&lt;br&gt;&#xA;510: trapframe&lt;br&gt;&#xA;509: USYSCALL&lt;/p&gt;&#xA;&lt;p&gt;protection bits? URV, WRV, XRV&lt;br&gt;&#xA;scan all pages could be expensive!!&lt;/p&gt;&#xA;&lt;h2 id=&#34;slides-8&#34;&gt;Slides 8&lt;/h2&gt;&#xA;&lt;p&gt;which syscall could be sped up?&lt;br&gt;&#xA;mo side-effect, return constant value, value can change after entering the kernel&lt;br&gt;&#xA;options: getpid() &amp;amp; uptime()&lt;/p&gt;&#xA;&lt;p&gt;provide a bitmask for pages accessed&lt;br&gt;&#xA;detect page accesses without access bits? use page fault!&lt;br&gt;&#xA;TOCTOU attack: argument is modified after the kernel reads it&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE7</title>
-      <link>https://vzstless.moe/p/xv6-lecture7/</link>
-      <pubDate>Tue, 14 Jan 2025 12:07:31 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture7/</guid>
-      <description>&lt;h2 id=&#34;handout-7&#34;&gt;Handout 7&lt;/h2&gt;&#xA;&lt;p&gt;VM-related projects: COW, mappings, performance&lt;br&gt;&#xA;ideas: isolation, indirection&lt;br&gt;&#xA;panic? update page tables when page fault happens&lt;br&gt;&#xA;VA causes page fault: stval reg&lt;br&gt;&#xA;violation causes page fault: scause reg&lt;br&gt;&#xA;instruction/mode can also cause page fault&lt;/p&gt;&#xA;&lt;p&gt;if the user program asks for more memory, sbrk() could be expensive&lt;br&gt;&#xA;zero-filled page? large part of memory filled with zero&lt;br&gt;&#xA;COW or write then copy&lt;/p&gt;&#xA;&lt;p&gt;don&amp;rsquo;t let fork() copy every pages from parent&lt;br&gt;&#xA;but share addr space between parent and child, use RSW in PTEs&lt;br&gt;&#xA;page fault: make copy, map, read/write(hard in real life!)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE6</title>
-      <link>https://vzstless.moe/p/xv6-lecture6/</link>
-      <pubDate>Sun, 12 Jan 2025 16:14:43 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture6/</guid>
-      <description>&lt;h2 id=&#34;handout-6&#34;&gt;Handout 6&lt;/h2&gt;&#xA;&lt;p&gt;focusing on user-&amp;gt;kernel transition&lt;br&gt;&#xA;NEVER execute user code in supervisor mode&lt;br&gt;&#xA;C on RISC-V puts function arguments in a0, a1, a2, &amp;amp;c&lt;/p&gt;&#xA;&lt;p&gt;check pagetables: C-a c, info mem&lt;br&gt;&#xA;trampoline: the start of kernel&amp;rsquo;s trap handling code&lt;br&gt;&#xA;at the top: avoid punch a hole in user addr&lt;/p&gt;&#xA;&lt;p&gt;observe PC is an indirect way to check whether we&amp;rsquo;re in supervisor mode&lt;/p&gt;&#xA;&lt;p&gt;ecall:&lt;br&gt;&#xA;change mode, save PC in SEPC, jump to STVEC, disable further interrupts&lt;br&gt;&#xA;ecall does as little as possible&lt;br&gt;&#xA;even supervisor mode is constrained to use pgtbl&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE5</title>
-      <link>https://vzstless.moe/p/xv6-lecture5/</link>
-      <pubDate>Thu, 09 Jan 2025 21:52:22 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture5/</guid>
-      <description>&lt;h2 id=&#34;gdb&#34;&gt;GDB&lt;/h2&gt;&#xA;&lt;p&gt;step: one line of code at a time, jumps into the function&lt;br&gt;&#xA;next: jump over functions&lt;br&gt;&#xA;stepi, nexti: do same thing for asm code&lt;br&gt;&#xA;continue: run until next breakpoint&lt;br&gt;&#xA;finish: runs until the function ends&lt;/p&gt;&#xA;&lt;p&gt;break: set a breakpoint&lt;br&gt;&#xA;watch: stop whenever value changes&lt;br&gt;&#xA;x: prints the raw memory&lt;br&gt;&#xA;print: prints the expression&lt;br&gt;&#xA;info registers: print value of registers&lt;br&gt;&#xA;info frame: prints current stack frame&lt;/p&gt;&#xA;&lt;p&gt;set: change value of a variable&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE4</title>
-      <link>https://vzstless.moe/p/xv6-lecture4/</link>
-      <pubDate>Tue, 07 Jan 2025 18:57:30 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture4/</guid>
-      <description>&lt;h2 id=&#34;handout-4&#34;&gt;Handout 4&lt;/h2&gt;&#xA;&lt;p&gt;what if a user program writes to a random part of memory?&lt;br&gt;&#xA;what way could we separate and isolate memory?&lt;br&gt;&#xA;page tables&lt;br&gt;&#xA;a level of indirection: CPU -(VM)&amp;gt; MMU -(PM)&amp;gt; MEM&lt;br&gt;&#xA;satp, MMU, kernel&lt;/p&gt;&#xA;&lt;p&gt;reduce the size of page tables, not building a direct-map&lt;/p&gt;&#xA;&lt;p&gt;page=4KB, maximum 52 bits, nowadays 27bits&lt;br&gt;&#xA;page table entry: 64 bits, 54 used, 10 of them are flags, low 12 bits of PA are from VA&lt;br&gt;&#xA;3-level page table to reduce its size&lt;br&gt;&#xA;a tree descended 9 bits at a time&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE3</title>
-      <link>https://vzstless.moe/p/xv6-lecture3/</link>
-      <pubDate>Sun, 05 Jan 2025 09:49:10 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture3/</guid>
-      <description>&lt;h2 id=&#34;handout-3&#34;&gt;Handout 3&lt;/h2&gt;&#xA;&lt;p&gt;No OS: lack of isolation&lt;br&gt;&#xA;fork() -&amp;gt; abstract core&lt;br&gt;&#xA;exec()/sbrk() -&amp;gt; abstract RAM&lt;br&gt;&#xA;assumption: user is always willing to break the isolation, while kernel is always trustable&lt;br&gt;&#xA;user mode and supervisor mode&lt;br&gt;&#xA;pgtbl: maps virtual-&amp;gt;physical&lt;br&gt;&#xA;ecall: change to supervisor mode, get to a known point of the kernel code&lt;/p&gt;&#xA;&lt;p&gt;Singularity provides a way of process isolation without hardware support&lt;/p&gt;&#xA;&lt;p&gt;kernel is a big program holds all of the syscalls&lt;br&gt;&#xA;On CVE there&amp;rsquo;s 2997 bugs detected on Linux in 2024(kernel bugs are much more common than we thought)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE2</title>
-      <link>https://vzstless.moe/p/xv6-lecture2/</link>
-      <pubDate>Fri, 03 Jan 2025 22:12:02 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture2/</guid>
-      <description>&lt;h2 id=&#34;handout-2&#34;&gt;Handout 2&lt;/h2&gt;&#xA;&lt;p&gt;memory layout:&lt;br&gt;&#xA;text: code, read-only data&lt;br&gt;&#xA;data: global C vars&lt;br&gt;&#xA;stack: local variables&lt;br&gt;&#xA;heap: sbrk, malloc, free&lt;br&gt;&#xA;.c -compile-&amp;gt; .o -link-&amp;gt; executable file&lt;br&gt;&#xA;strlen() uses array access while strcmp() uses pointer access&lt;br&gt;&#xA;kalloc() keeps a large linked list of free pages of memory&lt;br&gt;&#xA;LRU buffer cache is implemented as a dual-pointer linked list&lt;br&gt;&#xA;static: limited to the file where the variable is declared&lt;/p&gt;&#xA;&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;&#xA;&lt;p&gt;This class focus on RAM and I/O&lt;br&gt;&#xA;address space: represent bus as a giant array of data&lt;br&gt;&#xA;memory allocation: decide where array to store things&lt;br&gt;&#xA;A stack is much more smaller than heap&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>xv6 LECTURE1</title>
-      <link>https://vzstless.moe/p/xv6-lecture1/</link>
-      <pubDate>Wed, 01 Jan 2025 08:28:39 +0800</pubDate>
-      <guid>https://vzstless.moe/p/xv6-lecture1/</guid>
-      <description>&lt;h2 id=&#34;handout-1&#34;&gt;Handout 1&lt;/h2&gt;&#xA;&lt;p&gt;Purpose of an OS:&lt;/p&gt;&#xA;&lt;p&gt;Isolate hard/software, virtualize hardware&lt;br&gt;&#xA;Interact with OS via syscalls&lt;br&gt;&#xA;First arg in syscall is FD&lt;br&gt;&#xA;UNIX I/O is 8-bit bytes&lt;/p&gt;&#xA;&lt;p&gt;When CPU receives a syscall:&lt;br&gt;&#xA;save, jump, execute, call, restore, reduce, jump back&lt;/p&gt;&#xA;&lt;p&gt;Shell is a user program instead of shell&lt;br&gt;&#xA;fork() lets us create a new process&lt;br&gt;&#xA;exec() replaces current process with an executable file&lt;/p&gt;&#xA;&lt;h2 id=&#34;book-chapter-1&#34;&gt;Book Chapter 1&lt;/h2&gt;&#xA;&lt;p&gt;Operating system let different softwares use hardware together&lt;br&gt;&#xA;Process: instructions, data, stack&lt;br&gt;&#xA;fork() returns 0 in the child process while pid in the parent process&lt;br&gt;&#xA;wait() returns the pid and copies the exit status&lt;br&gt;&#xA;exec() loads a file and executes it&lt;/p&gt;</description>
-    </item>
-  </channel>
+    <channel>
+        <title>XV6 OS on VZstless</title>
+        <link>https://vzstless.moe/tags/xv6-os/</link>
+        <description>Recent content in XV6 OS on VZstless</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>VZstless</copyright>
+        <lastBuildDate>Sat, 01 Feb 2025 22:25:33 +0800</lastBuildDate><atom:link href="https://vzstless.moe/tags/xv6-os/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>xv6 LECTURE23</title>
+        <link>https://vzstless.moe/p/xv6-lecture23/</link>
+        <pubDate>Sat, 01 Feb 2025 22:25:33 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture23/</guid>
+        <description>&lt;h2 id=&#34;handout-23&#34;&gt;Handout 23
+&lt;/h2&gt;&lt;p&gt;what if dynamically update the kernel?&lt;br&gt;
+observability, performance, security&lt;br&gt;
+detect DDoS attack&lt;br&gt;
+eBPF uses bin-constraint approach&lt;br&gt;
+C reads cBPF, emulates the &amp;ldquo;language&amp;rdquo;, run in the same addr space as in the kernel&lt;/p&gt;
+&lt;p&gt;whether the asm-like language will break the isolation?&lt;br&gt;
+binaries, look through the whole program and disallow huge offsets&lt;br&gt;
+speed: slow interpreter -&amp;gt; JIT&lt;br&gt;
+ways of tracking pointers&lt;br&gt;
+is eBPF even the right approach to extensibility?&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;original: designed for capture and filter packets&lt;br&gt;
+design of VM is left behind the traditional processor&lt;br&gt;
+mapping eBPF to native instructions&lt;br&gt;
+in 2014, eBPF is directly accessed by user space&lt;/p&gt;
+&lt;p&gt;attached to a designated code path&lt;br&gt;
+debugging the kernel&lt;/p&gt;
+&lt;p&gt;lock the kernel, verify the simulation, secure mode&lt;br&gt;
+define the type of eBPF programs&lt;br&gt;
+eBPF map: allow data pass through kernel, kernel-user, user space&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE22</title>
+        <link>https://vzstless.moe/p/xv6-lecture22/</link>
+        <pubDate>Sat, 01 Feb 2025 22:25:25 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture22/</guid>
+        <description>&lt;h2 id=&#34;handout-22&#34;&gt;Handout 22
+&lt;/h2&gt;&lt;p&gt;can we have a lock that allow parappel reads?&lt;br&gt;
+one writer, but no other reader or writer; lots of reader, but no writer&lt;br&gt;
+atomic CAS&amp;rsquo;s execute one at a time &amp;ndash; not in parallel&lt;br&gt;
+r_lock&amp;rsquo;s writes are expensive&lt;br&gt;
+reader connot simply don&amp;rsquo;t lock, but use methods like RCU&lt;br&gt;
+in RCU: writer doesn&amp;rsquo;t modify the file directly, but prepare a new copy, the reader won&amp;rsquo;t see a partial midified string, even if it doesn&amp;rsquo;t hold a lock&lt;/p&gt;
+&lt;p&gt;before: no change is visible; after: all changes are visible&lt;br&gt;
+use memory barriers to enhance order of transactions&lt;br&gt;
+potential disaster: use after free&lt;br&gt;
+let writer wait for GC&lt;br&gt;
+implement the graceful delay&lt;/p&gt;
+&lt;p&gt;RCU implements nearly zero in reads&lt;br&gt;
+reference counting, redesign for no sharing&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;RCU&amp;rsquo;s success: high performance in concurrent reading and updating&lt;br&gt;
+support for concurrent reading and updating, low computation and storage overhead, deterministic completion time&lt;br&gt;
+VFS needs concurrent reading and updating&lt;br&gt;
+RCU allows thread to wait for the completion of pre-existing RCU critical sections, but coordinate activities using other mechanisms&lt;br&gt;
+synchroize_rcu: ensure every cpu acts a context switch&lt;br&gt;
+writer just need to wait for reader, but reader must communicate with writer that the critical section is complete&lt;/p&gt;
+&lt;p&gt;RCU&amp;rsquo;s simplest usage is to wait for a transaction complete&lt;br&gt;
+using RCU in NMI system&lt;br&gt;
+execute in RCU, apply the reference counting&lt;br&gt;
+using an RCU critical section is good if the object is relatively short&lt;br&gt;
+RCU could use to remove need for type-safe memory&lt;br&gt;
+RCU has higher deadlock immunity than read/write lock&lt;/p&gt;
+&lt;p&gt;RCU is used increasingly in Linux kernel source code&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE21</title>
+        <link>https://vzstless.moe/p/xv6-lecture21/</link>
+        <pubDate>Sat, 01 Feb 2025 22:25:18 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture21/</guid>
+        <description>&lt;h2 id=&#34;handout-21&#34;&gt;Handout 21
+&lt;/h2&gt;&lt;p&gt;What if malicious user code execute in kernel?&lt;br&gt;
+the CPU may speculate the execution of asm code&lt;br&gt;
+mispredict -&amp;gt; flush the result, revert content, restart execution&lt;br&gt;
+CPU retires an instruction only after they won&amp;rsquo;t be changed after all previous instructions are retired&lt;/p&gt;
+&lt;p&gt;L1 miss: TLB look up, L2 look up with phy addr&lt;br&gt;
+in real life, microarchitecture is not entirely invisible&lt;br&gt;
+sense whether the instruction is cached: flush + reload&lt;br&gt;
+use clflush to reflush the cache, use rdtsc to read the cycle counter&lt;br&gt;
+deduce the low bit of kernel data based on which cache lines hold&lt;br&gt;
+the attack is always failed&lt;/p&gt;
+&lt;p&gt;fix the vulnerability: don&amp;rsquo;t map the kernel in user pagetable, require a pagetable switch when context switches&lt;br&gt;
+only return data from speculative loads&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;Meltdown: side effects of out-of-order processing&lt;br&gt;
+exploit side-channel information on modern processors&lt;br&gt;
+in out-of-order, CPU calculates for further information&lt;br&gt;
+influence the cache, affects the side-channel&lt;br&gt;
+kernel ASLR randomizes the offsets where driver is loaded on the boot&lt;/p&gt;
+&lt;p&gt;use flush + reload to detect whether the instruction is cached so that the microarchitecture is no more hidden&lt;br&gt;
+spectre attacks: lack of privilege escalation in Meltdown&lt;br&gt;
+a transient instruction as a side effect&lt;br&gt;
+execution suppression&lt;br&gt;
+build a covert channel to receive information from microarchitecture and deduce this secret&lt;br&gt;
+covert channel is not limited to microarchitectures&lt;/p&gt;
+&lt;p&gt;steps: content of loadable mem location is loaded in reg, transient instruction, flush + reload&lt;br&gt;
+bias is often lost in out-of-order execution&lt;/p&gt;
+&lt;p&gt;KAISER: a strong isolation which won&amp;rsquo;t map any kernel memory into user space&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE20</title>
+        <link>https://vzstless.moe/p/xv6-lecture20/</link>
+        <pubDate>Sat, 01 Feb 2025 11:07:10 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture20/</guid>
+        <description>&lt;h2 id=&#34;handout-20&#34;&gt;Handout 20
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tcpdump -t -xx -n
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ethernet addr&lt;br&gt;
+today, ethernet LAN is a switch with cables to each host&lt;br&gt;
+use the dest addr to decide where to send&lt;br&gt;
+arp: translate IP addr to ethernet addr&lt;br&gt;
+nest high layer packet in low layer packet&lt;br&gt;
+packet mbuf allocator&lt;/p&gt;
+&lt;p&gt;queues of buffers: avoid forcing discard, keep output NIC busy, allow independent control flow&lt;br&gt;
+illustrate tradeoffs in kernel network structure&lt;br&gt;
+could a disk cause a livelock?&lt;br&gt;
+don&amp;rsquo;t spend time on subsequent packets until done with this one&lt;br&gt;
+modern Linux: NAPI&lt;br&gt;
+livelock is made worse by doing even more processing before discard&lt;br&gt;
+timeout + resend&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;receive livelock: system spends all its time deal with interrupts&lt;br&gt;
+poll is expensive especially when I/O is rare&lt;br&gt;
+interrupt-driven design loccking is better&lt;br&gt;
+network implementation must deal with high event rates&lt;br&gt;
+non-flow control protocols&lt;/p&gt;
+&lt;p&gt;receive livelock: the system is not deadlocked, but has no progress on current event&lt;br&gt;
+resonable latency and jitter&lt;br&gt;
+scheduling system must fairly allocate CPU resources among packet reception&lt;br&gt;
+queue provides some insulation against packet losses due to transient overlords&lt;br&gt;
+batch interrupts&lt;br&gt;
+receive livelock: a state when the system is no useful process is made, as some necessary resources is consumed with processing receiver interrupts&lt;br&gt;
+latency is increased by the time it receives the entire burst&lt;br&gt;
+transmissin starvation: packets may awaiting transmission, but the transmitting interface is idle&lt;/p&gt;
+&lt;p&gt;a cycle that could repeat ad infinitum&lt;br&gt;
+use a round-robin schedule to provide fairness polling&lt;br&gt;
+purely interrupt driven wil lead to livelock, purely polling system will lead to unnecessary latency&lt;br&gt;
+fast-path designs&lt;br&gt;
+use route-under-test to check the performance&lt;br&gt;
+interrupt handler does almost no work at all&lt;br&gt;
+unavoidable queue as no guarantee to let the output interface run as fast as input interface&lt;br&gt;
+the screend program is typically run as the only application on a system&lt;br&gt;
+simply measure the resources used by CPU for receiving packets&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE19</title>
+        <link>https://vzstless.moe/p/xv6-lecture19/</link>
+        <pubDate>Fri, 31 Jan 2025 12:49:19 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture19/</guid>
+        <description>&lt;h2 id=&#34;slides&#34;&gt;Slides
+&lt;/h2&gt;&lt;p&gt;what if write an OS in HLL?&lt;br&gt;
+less faults, but with less performance and less chance to interact with bottom of a computer&lt;br&gt;
+tricky to measure trade-offs, must compare with production of C kernel&lt;br&gt;
+kernel threads -&amp;gt; goroutines&lt;br&gt;
+syscall: SYSENTER, SYSEXIT&lt;br&gt;
+solve the heap exhaustion rule&lt;br&gt;
+Go is easy to analyze heap bounds&lt;br&gt;
+HLL truly simplified code&lt;br&gt;
+concurrency in Go is easy&lt;br&gt;
+compare apps through biscuit &amp;amp; Linux&lt;br&gt;
+Go&amp;rsquo;s GC has no many large pauses but many small delays&lt;br&gt;
+many programs could tolerate the pause rate of GC&lt;br&gt;
+Go is slower but competitive&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;Go: type-safe with GC&lt;br&gt;
+Singularity didn&amp;rsquo;t fix the security issues in HLL&lt;br&gt;
+Rust kernels designed without using Rust as an implementation language&lt;br&gt;
+no consensus in GC&lt;/p&gt;
+&lt;p&gt;risk of deadlock when dealing with heap exhaustion&lt;br&gt;
+apply too-small-to-fail rule, instead of exhaustion, the user application see delay&lt;br&gt;
+certain kinds of bugs are less likely happen in HLL&lt;/p&gt;
+&lt;p&gt;biscuit is a monolithic UNIX kernel&lt;br&gt;
+shim layer: provide functions of underlying kernel&lt;br&gt;
+provide user with POSIX interfaces&lt;br&gt;
+use Go&amp;rsquo;s channels to ensure synchronization related&lt;br&gt;
+in performance-critical code, using read-lock-free lookups&lt;br&gt;
+biscuit does not support scheduling priority&lt;/p&gt;
+&lt;p&gt;biscuit&amp;rsquo;s approach to kernel exhaustion: purge caches and soft state -&amp;gt; wait until reserve -&amp;gt; kill by kernel-watcher thread&lt;br&gt;
+maximum amount of simultaneously live data&lt;br&gt;
+maxlive to calculate code used for a single syscall&lt;br&gt;
+handle poll &amp;amp; write loops in deep reservations&lt;br&gt;
+apply to long-running kernel threads&lt;br&gt;
+killer thread is woken when syscall&amp;rsquo;s reservation fails&lt;br&gt;
+Go&amp;rsquo;s auto GC never reduce fragmentation nor increases performance&lt;/p&gt;
+&lt;p&gt;unsafe Go used in memory related code&lt;/p&gt;
+&lt;p&gt;count and explain the ways HLL benefits the kernel&lt;br&gt;
+code execution bugs in biscuit is mostly avoided in HLL related features&lt;br&gt;
+try ways to make code routine between C and Go same&lt;br&gt;
+use pingpong and pagefaults to masure performance of biscuit&lt;br&gt;
+Linux uses RCU to delay such frees of safe deleting&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE18</title>
+        <link>https://vzstless.moe/p/xv6-lecture18/</link>
+        <pubDate>Fri, 31 Jan 2025 07:48:44 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture18/</guid>
+        <description>&lt;h2 id=&#34;handout-18&#34;&gt;Handout 18
+&lt;/h2&gt;&lt;p&gt;virtual machine: simulation of a computer&lt;br&gt;
+accuracy may be 100%&lt;br&gt;
+software simulation: like qemu, but may slow&lt;br&gt;
+run the instructions in real CPU but whole in user mode&lt;br&gt;
+VM trap handler&lt;br&gt;
+trap-and-emulate approach&lt;br&gt;
+handle privileged instructions into virtual state&lt;br&gt;
+VMM must ensure that guest only accesses its own memory and must remap guest physical addresses&lt;br&gt;
+turn page faults into operation&lt;br&gt;
+each CPU in non-root mode or in root mode&lt;br&gt;
+extended page table contains user memory space&lt;br&gt;
+2 layers of addr&lt;br&gt;
+CPU forces exit to the guest, passes interrupts to the host&lt;br&gt;
+Dune: use VMX to run a Linux process&lt;br&gt;
+a loadable kernel module&lt;br&gt;
+additional functionality like r/w&lt;br&gt;
+bottom line: faster for some Linux syscalls&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;provide process rather machine abstraction&lt;br&gt;
+move the kernel into lower layer may lead to higher security&lt;br&gt;
+poor interaction between VM and the host OS&lt;br&gt;
+Dune is a loadable kernel module&lt;/p&gt;
+&lt;p&gt;VTX: VMX root &amp;amp; VMX non-root mode&lt;br&gt;
+VMLAUNCH &amp;amp; VNRESUME to enter hardware&lt;br&gt;
+PCID permits a single user program to switch between multi-pagetables efficiently&lt;br&gt;
+include the libdune&lt;br&gt;
+translate through ioctl on &lt;code&gt;/dev/dune&lt;/code&gt;&lt;br&gt;
+assume CPU is free of defects&lt;br&gt;
+hypercalls are common in VMM&lt;br&gt;
+use a narrower hardware interface to limit the differences&lt;br&gt;
+Dune could be considered a type2 hypervisor as it runs on top of an existing OS kernel&lt;/p&gt;
+&lt;p&gt;host-virtual to host-physical memory translation&lt;br&gt;
+query the kernel for mmap, manually update EPT&lt;br&gt;
+mirror the configurationgset to the kernel&lt;br&gt;
+expose raw access to TSC&lt;br&gt;
+use VMCALL to apply syscalls&lt;br&gt;
+share code of low-level of VT-x operations butnot sharing high-level code with KVM&lt;br&gt;
+VPID: enable a unique TLB tag for each Dune process&lt;br&gt;
+libDune is totally untrusted by kernel, including pagetable manager, ELF loader, simple page allocator, routines assist using programs in managing exceptions and syscalls&lt;/p&gt;
+&lt;p&gt;use dune_signals instead of builtin system signals&lt;br&gt;
+simpler implementations, higher performance and security&lt;/p&gt;
+&lt;p&gt;run sandbox in separate memory space&lt;br&gt;
+sandbox: null policy, prevent undesirable parties&lt;br&gt;
+wedge: a sthread abstraction for safe fork, fast sthread recycling&lt;br&gt;
+modified Boehm GC&lt;/p&gt;
+&lt;p&gt;build synthetic benchmarks to test performance&lt;br&gt;
+higher performance in ptrace and trap&lt;br&gt;
+leverage modern virtualization hardware&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE17</title>
+        <link>https://vzstless.moe/p/xv6-lecture17/</link>
+        <pubDate>Thu, 30 Jan 2025 14:55:36 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture17/</guid>
+        <description>&lt;h2 id=&#34;handout-17&#34;&gt;Handout 17
+&lt;/h2&gt;&lt;p&gt;What should a kernel do?&lt;br&gt;
+traditional: a &amp;ldquo;monolithic&amp;rdquo; kernel abstraction(UNIX, Linux, xv6)&lt;br&gt;
+abstraction leads to security&lt;br&gt;
+monolithic kernel may lead to a big, complex and buggy system, may lead to many thoughts in designing the whole kernel&lt;br&gt;
+lots of code is needed to execute a pipe&lt;/p&gt;
+&lt;p&gt;microkernel: make kernel simpler enough&lt;br&gt;
+move most techniques out of the kernel, to the user space&lt;br&gt;
+most bugs are at drivers, move them out to the user space so the kernel will be more modifiable&lt;/p&gt;
+&lt;p&gt;L4: less syscalls, less code&lt;br&gt;
+missing almost everything, but everything is in the user space&lt;br&gt;
+pager: mmap, cow, alloc&lt;br&gt;
+design to improve bad performance brought by microkernels&lt;/p&gt;
+&lt;p&gt;send() &amp;amp; recv(): async &amp;amp; buffered&lt;/p&gt;
+&lt;p&gt;how to build a microkernel? for embedded, easy; for a server, maybe run UNIX on top of the kernel is good&lt;br&gt;
+on it, Linux is just a program!&lt;br&gt;
+but Linux switches its threads through L4-s threads&lt;br&gt;
+fork() -&amp;gt; turn into IPC -&amp;gt; alloc pages -&amp;gt; get page faults&lt;br&gt;
+L4 server acts as the Linux&amp;rsquo;s pager&lt;br&gt;
+getpid() is turned into 2 syscalls in L4(call, sendrecv)&lt;/p&gt;
+&lt;p&gt;whole OS benchmark: AIM&lt;br&gt;
+microcontrollers are used to run specific software&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;researchers have almost stopped microkernel researching as its poor performance&lt;br&gt;
+too-low and too-higfh ideas&lt;br&gt;
+L4 built-on threads &amp;amp; addr spaces&lt;br&gt;
+inter-process communication&lt;br&gt;
+grant, map, unmap&lt;br&gt;
+IO are treated as part of addr space&lt;br&gt;
+compilers and libraries hides difference of each architecture&lt;/p&gt;
+&lt;p&gt;Linux&amp;rsquo;s processes and resources management system is architecture independent&lt;br&gt;
+device drivers are always hardware dependent&lt;br&gt;
+top halves &amp;amp; bottom halves of Linux interrupt handlers&lt;/p&gt;
+&lt;p&gt;microkernel&amp;rsquo;s task use for Linux&amp;rsquo;s processes&lt;br&gt;
+problems surrounding libc&lt;br&gt;
+simulate TLB on Pentium processor&lt;br&gt;
+the L4Linux uses physical copyin and copyout&lt;br&gt;
+inter-thread using the same addr space&lt;br&gt;
+support TLB for smaller spaces&lt;/p&gt;
+&lt;p&gt;creating one server addr space per Linux process&lt;br&gt;
+syncronization of server space &amp;amp; server thread lead to the mistake&lt;br&gt;
+re-construct the TLB as Linux&amp;rsquo;s minimum user space is too large&lt;/p&gt;
+&lt;p&gt;using benchmarks compare L4Linux to MkLinux&lt;br&gt;
+co-location decreases L4Linux&amp;rsquo;s security, so is it worth?&lt;br&gt;
+measure the cost of getpid() syscall&lt;br&gt;
+indeed IPC is the main additional cost in L4Linux&lt;br&gt;
+use lmbench to measure the cost of sync RPC&lt;br&gt;
+use matrix multiplication to test VM performance&lt;br&gt;
+use a protected transfer to reduce the cost of security, however, performance decreased&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE16</title>
+        <link>https://vzstless.moe/p/xv6-lecture16/</link>
+        <pubDate>Wed, 29 Jan 2025 17:25:38 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture16/</guid>
+        <description>&lt;h2 id=&#34;handout-16&#34;&gt;Handout 16
+&lt;/h2&gt;&lt;p&gt;OS kernel use VM in creative ways, even benefit from VM&lt;br&gt;
+trap, prot, unprot, dirty, map&lt;br&gt;
+mmap(): map memory into user space&lt;br&gt;
+mprotect(): change the permission of mapping&lt;br&gt;
+munmap(), sigaction()&lt;br&gt;
+kernel asks VM waht to do, generate signal, run user handler, kernel returns to user program, continue or restart the previous action&lt;br&gt;
+bake a large sqrt table by a single page&lt;br&gt;
+real-time GC Algorithm&lt;/p&gt;
+&lt;p&gt;real-time: cheap and large to allocate&lt;br&gt;
+cost: pointer reside, difficult to run collector and the program at the same time&lt;br&gt;
+adding instructions could solve user-level VM problems&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;add user-level handler to handle fault with more friendly messages&lt;br&gt;
+not decrease the accessibility of a page, but decrease for a large batch with small cost for each page&lt;br&gt;
+in the same pagetable to avoid expensive context switching&lt;/p&gt;
+&lt;p&gt;fetch and store are common in memory operations&lt;/p&gt;
+&lt;p&gt;real-time garbage-collecting algorithm&lt;br&gt;
+divides the memory into 2 spaces: from-space &amp;amp; to-space&lt;br&gt;
+trace out searchable objects&lt;br&gt;
+forward: point to the space previous to the to-object&lt;br&gt;
+mutator see only to-space pointers, new area and scanned area only contains to-space pointers&lt;br&gt;
+synchronize mutatoe and collector&lt;br&gt;
+multiple mapping pages: let the page scanned but still accessed by mutator&lt;/p&gt;
+&lt;p&gt;SVM: large conherent VM accessed by multi-core&lt;br&gt;
+shared memory only exists virtually&lt;/p&gt;
+&lt;p&gt;page fault could be used to make checkpointing real-time&lt;br&gt;
+acess protection page fault to instead saving data to disk all at once&lt;br&gt;
+protect dirtied-pages only&lt;/p&gt;
+&lt;p&gt;young records: may die sooner than old records and likely points to old records&lt;br&gt;
+VM could detect assignments to old records&lt;/p&gt;
+&lt;p&gt;persistent store: a dynamic allocation heap persists from one-invocation to the next&lt;br&gt;
+commit or abort&lt;br&gt;
+as fast as fetches and stores in main memory&lt;br&gt;
+modified: not altered until commit&lt;br&gt;
+compiled programs could act fetch quickly&lt;/p&gt;
+&lt;p&gt;extended address&lt;br&gt;
+handle page fault, append another page, transform it into short pointer&lt;br&gt;
+page compression algoerithm&lt;/p&gt;
+&lt;p&gt;detect stack overflow: mark the page above the stack invalid&lt;br&gt;
+heap overflow: detected by a control and condition-overflow branch&lt;br&gt;
+at the end of the heap, cause a page fault, call the garbage collector&lt;br&gt;
+slow fault will cause problems&lt;/p&gt;
+&lt;p&gt;clear what is needed and what is not&lt;br&gt;
+TLB consistency, easily patch and fix TLB faults&lt;br&gt;
+batch the shootdown to stop the shootdown to the multi-core&lt;/p&gt;
+&lt;p&gt;optimal page size &amp;lt;- dynamic ram&lt;br&gt;
+algorithms must be asynchronous friendly&lt;/p&gt;
+&lt;h2 id=&#34;lecture-16&#34;&gt;Lecture 16
+&lt;/h2&gt;&lt;p&gt;OS kernel uses VM in creative way&lt;br&gt;
+VM could have same mechanism as the kernel&lt;/p&gt;
+&lt;p&gt;what primitives of VM does user program need&lt;br&gt;
+trap&lt;br&gt;
+prot1-decrease accessibility(R+W-&amp;gt;R-&amp;gt;not at all)&lt;br&gt;
+unprot-increase accessibility&lt;br&gt;
+mprotect() still works on page accuracy not addr accuracy&lt;br&gt;
+AS: pagetable+VMA&lt;br&gt;
+contiguous range of memory, some permission, backed by same object&lt;/p&gt;
+&lt;p&gt;user-level traps&lt;br&gt;
+does this trap break the isolation? upcall lets the whole program runs in same conrtext and same page&lt;/p&gt;
+&lt;p&gt;challenge: the table may be big&lt;br&gt;
+use VM promitives, allocate huge range, allow page fault&lt;/p&gt;
+&lt;p&gt;GC: copying, forwarding, move objects from FROM space to TO space&lt;br&gt;
+Baker&amp;rsquo;s algorithm: just copy the root&lt;br&gt;
+new: forward a few more objects&lt;br&gt;
+check whether the reference of the pointer is in from space&lt;br&gt;
+fault handler, scan a page of objects, forward them&lt;br&gt;
+no pointer to check anymore&lt;br&gt;
+if you fulfill the to-space, flip it as a new from space, if the space is still fulfilled, flip it again&lt;/p&gt;
+&lt;p&gt;tricky use of concurrency&lt;br&gt;
+maps mapping app&amp;rsquo;s space to GC&amp;rsquo;s space&lt;/p&gt;
+&lt;p&gt;VM is a still developing system&lt;br&gt;
+through the VMA there is no hole&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE15</title>
+        <link>https://vzstless.moe/p/xv6-lecture15/</link>
+        <pubDate>Mon, 27 Jan 2025 08:59:50 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture15/</guid>
+        <description>&lt;h2 id=&#34;handout-15&#34;&gt;Handout 15
+&lt;/h2&gt;&lt;p&gt;crashes may lead to problem that won&amp;rsquo;t show immediately&lt;br&gt;
+make syscalls atomic(all-or-nothing)&lt;br&gt;
+ext3: less waiting, reduced writes, ordered data mode&lt;/p&gt;
+&lt;p&gt;batch update blocks, commit the current open transaction&lt;br&gt;
+performance: multiple syscalls, multiple transactions&lt;/p&gt;
+&lt;p&gt;the crash may forget last few ops&lt;br&gt;
+log is circular: SB T4 T5 T2 T3&lt;br&gt;
+before re-use, must write log superblock with offset/seq of resulting now-oldest transaction in log&lt;/p&gt;
+&lt;p&gt;logging could help with &amp;ldquo;fail-stop&amp;rdquo;&lt;br&gt;
+reboot, look in log, find the end of log, re-write all logs&lt;br&gt;
+another crash? just repeat the logging steps&lt;br&gt;
+commit needs to write on-disk log from a snapshot of cached blocks? if not, repeat but not all&lt;br&gt;
+efficient using COW fork&lt;/p&gt;
+&lt;p&gt;in ext3, metadata and blocks are both written in log&lt;br&gt;
+write content after metadata? no, crash may leave inode pointing to blocks from other file!&lt;/p&gt;
+&lt;p&gt;correctness challenges&lt;br&gt;
+no enough free blocks? free oldest ones&lt;br&gt;
+use checksums&lt;/p&gt;
+&lt;h2 id=&#34;paper&#34;&gt;Paper
+&lt;/h2&gt;&lt;p&gt;preservation, predictability, atomicity&lt;br&gt;
+ex2fs, however, is not atomic&lt;br&gt;
+synchronous metadata update has performance problems&lt;br&gt;
+solution: defered-ordered write way, but may leat to a cyclic problem&lt;br&gt;
+soft-update way: share same problem as the recovery process still need to scan the whole disk&lt;/p&gt;
+&lt;p&gt;commit: mot make effect until final&lt;br&gt;
+journaling file system: the old and new versions of incomplete updates are preserved by writing the new versions to a separate location on disk until such time as the update has be committed&lt;/p&gt;
+&lt;p&gt;transactions are atomic: either undo or redo&lt;br&gt;
+contains all changed metadata&lt;br&gt;
+reading the existing file system&lt;br&gt;
+before commiting, make sure all blocks are written in the disk&lt;/p&gt;
+&lt;p&gt;fs has no transaction abort, transactions are short-lived&lt;br&gt;
+create a new transaction so often&lt;br&gt;
+less IO operations is needed for long term, but make fs time-predictless&lt;/p&gt;
+&lt;p&gt;inodes, bitmaps, record new contents and maintain atomicity&lt;/p&gt;
+&lt;p&gt;journal metadata block: contains entire component&lt;br&gt;
+keep track of metadata buffers&lt;br&gt;
+keep old blocks unsynced before commiting to avoid crash&lt;br&gt;
+complete commit: close the transaction, flush transactions to disk, wait for outstanding operations, wait for outstanding transactions, update journal handle block, mark as pinned&lt;br&gt;
+without syncing, maybe data will lost if crash happens when completing commits&lt;/p&gt;
+&lt;h2 id=&#34;lecture-15&#34;&gt;Lecture 15
+&lt;/h2&gt;&lt;p&gt;ext3 = ext2 + journal&lt;br&gt;
+let operations in begin_op() and end_op() atomic&lt;br&gt;
+write-ahead: all of refresh or write should be pre-declared&lt;br&gt;
+free rule: only when only when synced the logging will delete the indexes&lt;/p&gt;
+&lt;p&gt;ext3 didn&amp;rsquo;t modify the bottom layer of ext2, but just added journalling system in it&lt;br&gt;
+cache, action info layer(sequence numbers, block numbers; handles), fs tree&lt;br&gt;
+ext3 log format:&lt;br&gt;
+log super block: off, seq, desc, commit&lt;br&gt;
+there&amp;rsquo;s a bunch of closed older transactions&lt;/p&gt;
+&lt;p&gt;async, batching, concurrency&lt;br&gt;
+fsync(fd): do all writes to the file descripter&lt;br&gt;
+batching: one open transaction&lt;br&gt;
+write absorbtion, disk scheduling&lt;/p&gt;
+&lt;p&gt;concurrency: syscalls in parallel, older transactions&lt;br&gt;
+one open, commiting, writing, freed&lt;br&gt;
+we can&amp;rsquo;t have a transaction started since close&lt;/p&gt;
+&lt;p&gt;sys_unlink()&lt;br&gt;
+h = start()&lt;br&gt;
+get(h, block#)&lt;br&gt;
+stop()&lt;/p&gt;
+&lt;p&gt;steps in commit:&lt;br&gt;
+block new syscalls, wait for outstanding syscall, open a new transaction, write a descriptor block with block numbers, write blocks to log, wait for finish, write commit record to the block, wait for the commit point, write the transactions blocks to the home locations, re-use log&lt;br&gt;
+lots of records to show the transactions&lt;/p&gt;
+&lt;p&gt;if there&amp;rsquo;s a crash?&lt;br&gt;
+assuming the disk is still all right, when the power reboot, there&amp;rsquo;s a bunch of old completed transactions&lt;/p&gt;
+&lt;p&gt;every descriptor block starts with a magic number&lt;br&gt;
+after SB, start with a magic number, it must be a descriptor block&lt;/p&gt;
+&lt;p&gt;why not let T2 get syscall just after T1 finishes syscall?&lt;br&gt;
+create()-&amp;gt;unlink(), crash?&lt;br&gt;
+the inode won&amp;rsquo;t be deleted, y still exists in file system&lt;br&gt;
+no possibility to see the refresh in the future transaction&lt;br&gt;
+copy into cache, copy into disk&lt;/p&gt;
+&lt;p&gt;logging let multi-step disk transaction into atomic ones&lt;br&gt;
+the correctness of logging is depend on write-ahead rule&lt;/p&gt;
+&lt;p&gt;why not put commit message right in the descriptor block?&lt;br&gt;
+no problem is eliminated&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE14</title>
+        <link>https://vzstless.moe/p/xv6-lecture14/</link>
+        <pubDate>Sun, 26 Jan 2025 09:37:33 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture14/</guid>
+        <description>&lt;h2 id=&#34;handout-14&#34;&gt;Handout 14
+&lt;/h2&gt;&lt;p&gt;fs write first 46, then 32, 33? dirent points to free inode&lt;br&gt;
+correctness and performance are often conflict&lt;br&gt;
+crash recovery is a recurring problem&lt;br&gt;
+logging solution: goal: fast recovery, atomic syscalls&lt;br&gt;
+log, commit, install&lt;br&gt;
+write-ahead log: if &amp;ldquo;done&amp;rdquo; in log, replay all writes in log, if no &amp;ldquo;done&amp;rdquo;, ignore log&lt;br&gt;
+multiple data structures, lay on existing storage system, high performance&lt;br&gt;
+buffer cache, in-memory log block # array, FS tree on disk, log header and blocks on disk&lt;br&gt;
+write buffers, wait for disk to complete write, keep data in buffer cache&lt;br&gt;
+begin_op()-&amp;gt;bmap()-&amp;gt;bread()-&amp;gt;log_write()-&amp;gt;i_update()-&amp;gt;end_op()&lt;/p&gt;
+&lt;p&gt;when crash happens, kernel calls recover_from_log(), it&amp;rsquo;s OK to replay the log more than once&lt;br&gt;
+challenge: prevent write-back from cache&lt;br&gt;
+system&amp;rsquo;s call data must fit in log&lt;br&gt;
+allowing concurrent syscalls&lt;br&gt;
+xv6&amp;rsquo;s solution: wait&lt;/p&gt;
+&lt;p&gt;avoid written multiple times: write absorbtion&lt;/p&gt;
+&lt;h2 id=&#34;slides-14&#34;&gt;Slides 14
+&lt;/h2&gt;&lt;p&gt;33, 33, 46, 32 inode crashed and wasted&lt;br&gt;
+46, 32, 33, 33 inode reallocated, causing a disaster&lt;br&gt;
+we hope for: internal fs invariants must be held, all but last few options must be stored, no reordering of data writes&lt;br&gt;
+xv6 assumes disk is fail-stop&lt;/p&gt;
+&lt;p&gt;pin dirty blocks in buffer cache, unpin the block&lt;br&gt;
+Logging makes file system transactions atomic&lt;br&gt;
+write-ahead logging is key&lt;/p&gt;
+&lt;h2 id=&#34;book-logging-sections&#34;&gt;Book Logging Sections
+&lt;/h2&gt;&lt;p&gt;log writes, write a special commit, copy the writes, erase the log&lt;br&gt;
+design: logged blocks&lt;br&gt;
+write the header block with a transaction commit&lt;br&gt;
+sequence of write must be atomic&lt;br&gt;
+group commit: commit several transactions together&lt;br&gt;
+absorption: achieve better performance&lt;br&gt;
+end_op()-&amp;gt;commit()-&amp;gt;write_log()-&amp;gt;write_head()-&amp;gt;install_trans()&lt;/p&gt;
+&lt;h2 id=&#34;lecture-14&#34;&gt;Lecture 14
+&lt;/h2&gt;&lt;p&gt;crash will lead to on-disk incorrect state&lt;br&gt;
+fs operation are all multi-step&lt;br&gt;
+33, failure, 45: a block remain unallocated&lt;br&gt;
+if block is shared between files, there will be a security problem&lt;br&gt;
+solution: logging, atomic fs calls, fast recovery&lt;/p&gt;
+&lt;p&gt;crash between log write? see commit records&lt;br&gt;
+every fs-related syscall: begin_op() -&amp;gt; operations -&amp;gt; end_op()&lt;br&gt;
+ialloc() -&amp;gt; bwrite() -&amp;gt; log_write()&lt;br&gt;
+bwrite() could never used by itself but closed with log_write()&lt;br&gt;
+we don&amp;rsquo;t expect the process live after the crash&lt;br&gt;
+log, create, install&lt;br&gt;
+ext3: deal with the factor 2&lt;/p&gt;
+&lt;p&gt;eviction: broken of atomicity, write-ahead rule violation&lt;br&gt;
+solution: don&amp;rsquo;t evict blocks in the log&lt;/p&gt;
+&lt;p&gt;fs operation must fit in log&lt;br&gt;
+max log size is 30, 30 as the max block size(operation writes)&lt;br&gt;
+write fs-&amp;gt;many transactions&lt;/p&gt;
+&lt;p&gt;concurrent fs calls&lt;br&gt;
+all concurrent ops must be fit, limit concurrent calls&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE13</title>
+        <link>https://vzstless.moe/p/xv6-lecture13/</link>
+        <pubDate>Fri, 24 Jan 2025 08:33:35 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture13/</guid>
+        <description>&lt;h2 id=&#34;handout-13&#34;&gt;Handout 13
+&lt;/h2&gt;&lt;p&gt;files, bit arrays, human-readable names&lt;br&gt;
+fs APIs&lt;br&gt;
+fd: listed to the file even if it changes&lt;br&gt;
+a file can have multiple links&lt;br&gt;
+file must have info stored other than directory&lt;/p&gt;
+&lt;p&gt;inode: i-number(initial version), link count, count of open FDs&lt;br&gt;
+inode deallocation deferred until last link and FD are gone&lt;/p&gt;
+&lt;p&gt;data stays on disk without power&lt;br&gt;
+historically, disks were read/write usually in 512-byte units, called sectors&lt;/p&gt;
+&lt;p&gt;in HDD, sub-sector operation are expensive(read-modify-write)&lt;br&gt;
+flash must be erased before written&lt;br&gt;
+xv6 uses 2-sector blocks&lt;/p&gt;
+&lt;p&gt;xv6 treats disk as an array of sectors&lt;br&gt;
+metadata: everything on disk other than file content&lt;br&gt;
+on-disk inode: type, nlink, size, addrs[12+1]&lt;/p&gt;
+&lt;p&gt;content is array of dirents&lt;br&gt;
+dirent: inum, 14-byte filename&lt;/p&gt;
+&lt;p&gt;view file system as an on-disk data structure&lt;br&gt;
+facing concurrency challenges&lt;br&gt;
+look at block cache&lt;br&gt;
+bread-&amp;gt;bget, watch the bcache&lt;br&gt;
+bcache.lock: description of what&amp;rsquo;s in the cache&lt;br&gt;
+b-&amp;gt;lock: protects just the one buffer&lt;/p&gt;
+&lt;p&gt;bcache replacement: bget, brelse&lt;br&gt;
+namex() ilock()&lt;br&gt;
+getting a reference separately from locking&lt;/p&gt;
+&lt;h2 id=&#34;slides-13&#34;&gt;Slides 13
+&lt;/h2&gt;&lt;p&gt;0: syscalls&lt;br&gt;
+1: names+fd&lt;br&gt;
+2: inodes&lt;br&gt;
+3: inode cache &amp;amp; buffer cache&lt;br&gt;
+4: Log&lt;br&gt;
+5: virtio &amp;amp; disk driver&lt;br&gt;
+FD: stdin(0), stdout(1), stderr(2)&lt;/p&gt;
+&lt;p&gt;mkfs: generate layout for new FS, the layout will stay static for the lifetime of fs&lt;br&gt;
+indirect block: inode is fixed size, but file could be large&lt;br&gt;
+tree-structure: dir tree layer; inode layer; block layer&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-8&#34;&gt;Book Chapter 8
+&lt;/h2&gt;&lt;p&gt;file system must have crash recovery&lt;/p&gt;
+&lt;p&gt;block 0: boot sector&lt;br&gt;
+block 1: superblock, holds metadata&lt;br&gt;
+block start at 2 hold the log&lt;br&gt;
+inode, bitmap, data&lt;/p&gt;
+&lt;p&gt;bcache: only one kernel thread is using the copy, cache popular blocks&lt;br&gt;
+bcache is a doubly linked-list, main-&amp;gt;binit&lt;br&gt;
+bread-&amp;gt;bget-&amp;gt;sleeplock, scan the bcache&lt;br&gt;
+at most one cached buffer per disk sector&lt;br&gt;
+brelse to release the buffer&lt;/p&gt;
+&lt;p&gt;block allocator: maintains a free bitmap&lt;br&gt;
+balloc: find the free block, refresh the bitmap, return the block&lt;br&gt;
+bfree: clear the block&lt;/p&gt;
+&lt;p&gt;on-disk inode: struct dinode&lt;br&gt;
+itable, struct inode to copy dinode into memory&lt;br&gt;
+iget, iput&lt;br&gt;
+there can be many same pointers point to same inode&lt;br&gt;
+hold ilock and release by iunlock&lt;br&gt;
+Code that modifies an in-memory inode writes it to disk with iupdate&lt;br&gt;
+iput() doesn’t truncate a file immediately when the link count for the file drops to zero&lt;/p&gt;
+&lt;p&gt;direct/indirect block&lt;br&gt;
+bmap: returns the nth data block for inode ip, or allocate one if not exists&lt;br&gt;
+itrunc: frees blocks and sets inode to 0&lt;/p&gt;
+&lt;p&gt;directory: has type T_DIR, dirlookup&lt;br&gt;
+namex -&amp;gt; skipelem&lt;br&gt;
+namex locks each directory in the path separately&lt;br&gt;
+avoid racing by using sleeplocks&lt;/p&gt;
+&lt;p&gt;opened file is symboled as struct file&lt;br&gt;
+kept in ftable, filealloc-&amp;gt;filedup-&amp;gt;fileclose-&amp;gt;fileread/filewrite&lt;br&gt;
+file has no concept of offset&lt;/p&gt;
+&lt;p&gt;sys_link, sys_unlink&lt;br&gt;
+sys_link creates a new name for the inode&lt;br&gt;
+using create, it is easy to implement sys_open, sys_mkdir, and sys_mknod&lt;/p&gt;
+&lt;h2 id=&#34;lecture-13&#34;&gt;Lecture 13
+&lt;/h2&gt;&lt;p&gt;user-friendly, concurrency, persistence&lt;br&gt;
+the abstraction itself is useful&lt;br&gt;
+crash safety&lt;br&gt;
+disk layout&lt;br&gt;
+performance problems, as disk are always slow&lt;br&gt;
+pathname is human-readable, no explicit offset in write() syscall&lt;/p&gt;
+&lt;p&gt;file system structure: inode&lt;br&gt;
+link count &amp;amp; fd count = 0, miantain an offset&lt;br&gt;
+sync/async read/write option? yes, same way as console driver&lt;br&gt;
+max file size in xv6: (256+12)*1024&lt;br&gt;
+make files bigger: add indirect portions&lt;br&gt;
+why must 256 bytes a block? block address has only 4 digits&lt;/p&gt;
+&lt;p&gt;how to compute block index?  divide into 1024&lt;br&gt;
+get index from inode, read out 8000 bytes&lt;br&gt;
+how to find root inode index? scan root block, scan subdir&amp;rsquo;s block&lt;/p&gt;
+&lt;p&gt;create a file:&lt;br&gt;
+33, write into the free inode&lt;br&gt;
+33, fill in the inode&lt;br&gt;
+46, write the first block&lt;br&gt;
+32, size changed&lt;br&gt;
+33, return back the inode&lt;/p&gt;
+&lt;p&gt;write &amp;ldquo;hi&amp;rdquo; into x:&lt;br&gt;
+45, bitmap refresh&lt;br&gt;
+595: the block allocated for x&lt;br&gt;
+33: updating the size of inode again&lt;/p&gt;
+&lt;p&gt;bget: get the bcache lock, scan the buffer&lt;br&gt;
+xv6 follows a rule: any modification on bcache needs bcache lock, any modification on block 33 need to hold sleeplock&lt;/p&gt;
+&lt;p&gt;shortage of spinlock: must turn off interrupt&lt;br&gt;
+sleeplock will return the CPU resources&lt;/p&gt;
+&lt;p&gt;bcache: a copy of block in mem, sleeplock, LRU, 2-level-blocking&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE12</title>
+        <link>https://vzstless.moe/p/xv6-lecture12/</link>
+        <pubDate>Wed, 22 Jan 2025 14:43:23 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture12/</guid>
+        <description>&lt;h2 id=&#34;handout-12&#34;&gt;Handout 12
+&lt;/h2&gt;&lt;p&gt;why hold p-&amp;gt;lock across threads?&lt;br&gt;
+forbid holding lock when yielding the CPU!&lt;br&gt;
+threads often wait for conditions&lt;/p&gt;
+&lt;p&gt;use coordination primitives&lt;br&gt;
+uartwrite(): writing thread should give up CPU&lt;br&gt;
+sleep() cannot simply wait the event, or will cause lose wake-up problem&lt;/p&gt;
+&lt;p&gt;what&amp;rsquo;s wrong if uartwrite() releases the lock before broken_sleep()?&lt;br&gt;
+uartwrite() went to sleep EVEN THOUGH UART TX WAS DONE, nothing will awake uartwrite()&lt;br&gt;
+use lock to prevent wakeup() from running during the entire window&lt;/p&gt;
+&lt;p&gt;sleep() will require a lock to protect its condition, both sleep() and wakeup() will hold the condition lock&lt;br&gt;
+caller acquired condition lock before calling wakeup()&lt;br&gt;
+acquire p-&amp;gt;lock before releasing condition lock&lt;/p&gt;
+&lt;p&gt;wakeup() holds both locks, sleep() just need to hold either&lt;/p&gt;
+&lt;p&gt;wakeup() can&amp;rsquo;t proceed until after swtch() completes so wakeup() is guaranteed to see p-&amp;gt;state==SLEEPING and p-&amp;gt;chan==chan&lt;br&gt;
+all uses of sleep are wrapped in a loop, so they re-check&lt;br&gt;
+sleep() doesn&amp;rsquo;t need to know the condition&lt;/p&gt;
+&lt;p&gt;a thread cannot free all of its own resources&lt;br&gt;
+voluntarily quit with exit()&lt;br&gt;
+kill() just sets p-&amp;gt;killed flag&lt;br&gt;
+kill() will change SLEEPING into RUNNABLE&lt;br&gt;
+user space: will die next time it makes a system call or takes a timer interrupt&lt;br&gt;
+kernel space: target will never execute another user instruction but may spend a while yet in the kernel&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-7&#34;&gt;Book Chapter 7
+&lt;/h2&gt;&lt;p&gt;(DONE)&lt;/p&gt;
+&lt;h2 id=&#34;lecture-12&#34;&gt;Lecture 12
+&lt;/h2&gt;&lt;p&gt;coordination&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;acquire&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RUNNABLE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;swtch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;release&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;check whether the thread is runnable&lt;br&gt;
+calling swtch() requires p-&amp;gt;lock but forbid any other locks&lt;/p&gt;
+&lt;p&gt;two threads acquire same locks&lt;br&gt;
+freeze as the process2 will spin forever&lt;/p&gt;
+&lt;p&gt;coordination: sleep() &amp;amp; wakeup()&lt;br&gt;
+busywait loop&lt;br&gt;
+sleep channel: sleep() and wakeup() could check whether the thread is sleeping&lt;br&gt;
+why sleep needs the second argument?&lt;/p&gt;
+&lt;p&gt;lost-wakeup problems&lt;br&gt;
+broken_sleep: simply set the value&lt;br&gt;
+wakeup: for each p in procs: setback the process to runnable&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;uartwrite&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nl&#34;&gt;buf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;nl&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nf&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tx_chan&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;intr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;wakeup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tx_chan&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;add lock &amp;amp; unlock; why not work?&lt;br&gt;
+on some other core, UART interrupt is working&lt;br&gt;
+nothing will wake up the broken_sleep, as wakeup() has already happened&lt;br&gt;
+tx_done: a way for interrupt routine to connect the uartintr()&lt;br&gt;
+each typing will cause an interrupt, wakes up the sleeping process for a while then continue sleeping&lt;/p&gt;
+&lt;p&gt;wakeup(): run through process table, lock every process, if SLEEPING &amp;amp; same channel, wakeup and release lock&lt;br&gt;
+after we released the condition lock, the wakeup() will not see this process until it holds process lock&lt;br&gt;
+reader acquire the lock to prevent writer from sleeping&lt;br&gt;
+last thing sleep() does is acquiring condition lock&lt;/p&gt;
+&lt;p&gt;exit() will close files if necessary&lt;br&gt;
+wait() will find the process whose parent process is current process and in state ZOMBIE&lt;br&gt;
+parent will call freeproc() to release resources&lt;br&gt;
+concurrent exit of parent and child?&lt;/p&gt;
+&lt;p&gt;why doesn&amp;rsquo;t kill() kills all the processes that could be handled?&lt;br&gt;
+not allowed in real world, but in xv6, there&amp;rsquo;s no permissions, you can do this&lt;br&gt;
+in Linux, the process to be kill must have the same id as its user id, or killing is not allowed&lt;br&gt;
+we would never expose broken variants in the file system&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE11</title>
+        <link>https://vzstless.moe/p/xv6-lecture11/</link>
+        <pubDate>Tue, 21 Jan 2025 16:58:37 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture11/</guid>
+        <description>&lt;h2 id=&#34;handout-11&#34;&gt;Handout 11
+&lt;/h2&gt;&lt;p&gt;concurrency: threads inside the kernel, processes&lt;br&gt;
+each thread, taken alone, executes in an ordinary way&lt;br&gt;
+need locks when interact&lt;/p&gt;
+&lt;p&gt;in xv6, only one user-level thread&lt;br&gt;
+event-driven and state machine could also use to multitasking&lt;br&gt;
+executing: using resources; not executing: save and release&lt;br&gt;
+each process has its own kernel thread&lt;/p&gt;
+&lt;p&gt;p-&amp;gt;state: running, runnable, sleeping&lt;br&gt;
+user-&amp;gt;kernel-&amp;gt;scheduler-&amp;gt;kernel-&amp;gt;user&lt;br&gt;
+scheduler thread: one per CPU&lt;br&gt;
+idle scheduler: no running thread&lt;br&gt;
+swtch() returns to scheduler()&lt;br&gt;
+swtch(): saves current registers in xx(a0), restores registers in xx(a1)&lt;/p&gt;
+&lt;p&gt;yield() acquires lock, scheduler() releases it&lt;br&gt;
+the lock is released by a different thread&lt;/p&gt;
+&lt;p&gt;p-&amp;gt;lock makes steps atomic&lt;br&gt;
+scheduling policy?&lt;/p&gt;
+&lt;p&gt;yield() can be called by kerneltrap()&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-7&#34;&gt;Book Chapter 7
+&lt;/h2&gt;&lt;p&gt;force switching: sleep &amp;amp; wakeup; long period without sleeping&lt;br&gt;
+context: struct context -&amp;gt; struct proc&lt;br&gt;
+swtch: save callee registers, return to instruction pointed by ra register&lt;br&gt;
+continue for loop, find a thread, run it&lt;br&gt;
+hold the lock, or different CPU may run same thread&lt;br&gt;
+procedures that intentionally transfer control to each other via thread switch are sometimes referred to as coroutines&lt;/p&gt;
+&lt;p&gt;scheduler: find a process, run, until it is terminated&lt;br&gt;
+maintain invariants: p-&amp;gt;lock acquires in a thread and releases in another thread&lt;/p&gt;
+&lt;p&gt;in multi-core, we can&amp;rsquo;t hold global variables for process, create struct cpu for each core&lt;br&gt;
+tp: stores the core&amp;rsquo;s haltid&lt;br&gt;
+xv6 disable caller interrupt but wait until the struct cpu is returned&lt;br&gt;
+return value of myproc() is safe&lt;/p&gt;
+&lt;p&gt;conceal actions from one thread to another: sleep &amp;amp; wakeup&lt;br&gt;
+sequence coordination mechanism&lt;br&gt;
+use a high-level spinlock? most of time it will produce right result but it&amp;rsquo;s expensive&lt;br&gt;
+naive approach of sleep and wakeup will cause lose wake-up problem&lt;br&gt;
+solution: the caller must pass condition lock to sleep&lt;/p&gt;
+&lt;p&gt;sleep: mark the current process SLEEPING and release the resources of core&lt;br&gt;
+same channel: see spurious wakeups&lt;/p&gt;
+&lt;p&gt;pipewrite &amp;amp; piperead are complex applications of sleep &amp;amp; wakeup&lt;br&gt;
+nwrite == nread + PIPESIZE&lt;/p&gt;
+&lt;p&gt;wait: wait_lock; exit: reparent&lt;br&gt;
+kill: set p-&amp;gt;killed, wakeup&lt;br&gt;
+p-&amp;gt;parent is protected by wait_lock instesd of p-&amp;gt;lock&lt;br&gt;
+round robin: run each process in turn&lt;br&gt;
+linux&amp;rsquo;s sleep adds a wait queue&lt;/p&gt;
+&lt;h2 id=&#34;lecture-11&#34;&gt;Lecture 11
+&lt;/h2&gt;&lt;p&gt;full use of multi-core&lt;br&gt;
+thread: one single exec&lt;br&gt;
+care the PC&lt;br&gt;
+interleaving of multiple threads&lt;br&gt;
+interleave threads&lt;/p&gt;
+&lt;p&gt;scheduling: interleave one thread, execute another thread&lt;br&gt;
+compute-bound?&lt;br&gt;
+pre-empitue scheduling: even the code doesn&amp;rsquo;t release the resources of CPU, the kernel will interrupt it by timer&lt;br&gt;
+on the contrary, volunteer scheduling&lt;br&gt;
+p1 -&amp;gt; tf1 -&amp;gt; kernel stack-&amp;gt; swtch()-&amp;gt; ctx1 -&amp;gt; ctx0 -&amp;gt; swtch() -&amp;gt; scheduler() -&amp;gt; tf2 -&amp;gt; p2&lt;br&gt;
+where contexts stores? process structure, p-&amp;gt;context&lt;br&gt;
+process vs threads? a process in user; or in kernel; or stored in trapframe and context&lt;/p&gt;
+&lt;p&gt;yield(): change the thread into runnable&lt;br&gt;
+no point to save PC as we know we&amp;rsquo;re in swtch&lt;br&gt;
+ra will be the point to return&lt;br&gt;
+why only half of regs are stored by swtch()? it is called by C function&lt;br&gt;
+we want the start process also atomic&lt;br&gt;
+what we really care is ra&lt;/p&gt;
+&lt;p&gt;RISC-V uses general registers instead of floating-point registers&lt;br&gt;
+we believe the kernel code will infinitely looping without interrupt&lt;br&gt;
+why trampoline and swtch must be written in assembly? C is hard to reach ra &amp;amp; sp&lt;/p&gt;
+&lt;p&gt;almost each thread in Linux is a complete process&lt;br&gt;
+allocproc() sets the new context for the process&lt;br&gt;
+the first call in forkret is about initializing file system and crash recovery&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE10</title>
+        <link>https://vzstless.moe/p/xv6-lecture10/</link>
+        <pubDate>Sun, 19 Jan 2025 07:11:18 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture10/</guid>
+        <description>&lt;h2 id=&#34;handout-10&#34;&gt;Handout 10
+&lt;/h2&gt;&lt;p&gt;kernel must deal with parallel syscalls&lt;br&gt;
+race between two cores calling kfree() leads to a page losing&lt;br&gt;
+if multiple cores calls the lock, only one will be returned, other will wait until the lock release&lt;br&gt;
+auto locking? needs explicit comtrol over different regions of code&lt;br&gt;
+deadlocking problem&lt;br&gt;
+locks are often not private business of modules&lt;br&gt;
+lock &amp;amp; parallelism may require a whole re-write for the project!&lt;br&gt;
+use big lock first, big lock is always enough&lt;br&gt;
+check and re-lock the lock atomically, pushing down the question into hardware&lt;/p&gt;
+&lt;p&gt;spinlock: if locked=1, again the loop, if locked=0, set it to 1, return 0&lt;br&gt;
+if you use locks, you don&amp;rsquo;t need to understand the memory ordering rules, you need them if you want to write exotic &amp;ldquo;lock-free&amp;rdquo; code&lt;/p&gt;
+&lt;p&gt;in RISC-V:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;a5 = 1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;s1 = &amp;amp;lk-&amp;gt;locked
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;amoswap.w.aq a5, a5, (s1)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;book-chapter-6&#34;&gt;Book Chapter 6
+&lt;/h2&gt;&lt;p&gt;concurrency: multiple instruction streams are interleaved&lt;br&gt;
+wait() frees child&amp;rsquo;s memory&lt;br&gt;
+race: the location is accessed concurrently&lt;br&gt;
+critical section: code covered in acquire() and release()&lt;br&gt;
+invariants: properties of data structures maintained across operations&lt;/p&gt;
+&lt;p&gt;traditional approach:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(;;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;two cores may reach line 43 at the same time!&lt;br&gt;
+amoswap r, a&lt;br&gt;
+swaps the value in address a and register r&lt;br&gt;
+kalloc: a single free list protected by single big lock&lt;br&gt;
+deadlock: a program requires A to B, the other program requires B to A&lt;br&gt;
+deadlock requires global lock aquisition&lt;/p&gt;
+&lt;p&gt;file system contains a huge lock-chain&lt;br&gt;
+re-entrant lock: recursive lock&lt;br&gt;
+acquire the lock again: allow the action&lt;br&gt;
+if a spinlock is used by an interrupt handler, a CPU must never hold that lock with interrupts enabled&lt;/p&gt;
+&lt;p&gt;nesting level of locks: acquire() calls push_off(); release() calls pop_off();&lt;br&gt;
+__sync_synchronize() tells the compiler not to re-order the code, in fact, it&amp;rsquo;s a memory barrier&lt;/p&gt;
+&lt;p&gt;sleeplock: not occupying the core for the lock could last for a long time&lt;/p&gt;
+&lt;p&gt;lock can be expensive if CPU requires the same lock at the same time&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-9&#34;&gt;Book Chapter 9
+&lt;/h2&gt;&lt;p&gt;acquire() and yield() are released in the scheduler thread&lt;br&gt;
+inode acts as a shard lock&lt;br&gt;
+implementation of spinlock: no lock at all&lt;br&gt;
+scheduler, different process call fork() at the same time&lt;/p&gt;
+&lt;h2 id=&#34;lecture-10&#34;&gt;Lecture 10
+&lt;/h2&gt;&lt;p&gt;apps want to use multiple cores, so kernel must handle multiple syscalls&lt;br&gt;
+the performance of single core has reached a limit&lt;/p&gt;
+&lt;p&gt;why locks? avoid race conditions&lt;br&gt;
+many locks -&amp;gt; more parallelism&lt;br&gt;
+access a shared data, one is write -&amp;gt; using lock&lt;br&gt;
+lock-free programming&lt;/p&gt;
+&lt;p&gt;could lock be automatic? wrong result, eg: rename(&amp;lsquo;d1/x&amp;rsquo;, d2/y);&lt;br&gt;
+lock avoids wrong updates, make operations atomic&lt;br&gt;
+lock helps maintain an invariant&lt;/p&gt;
+&lt;p&gt;deadlock:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;acquire&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;acquire&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;order the locks globally&lt;/p&gt;
+&lt;p&gt;internals of m2 must be seen by m1&lt;/p&gt;
+&lt;p&gt;rebuild code with locks: start with coarse-grained locks, measure locks are co-required&lt;br&gt;
+lock isolation, redesign&lt;/p&gt;
+&lt;p&gt;UART in printf: a buffer with a read pointer and a write pointer&lt;br&gt;
+implementation of amoswap depends on memory layout&lt;br&gt;
+same CPU: let operation atomic&lt;br&gt;
+memory fence: any ld/st instruction aren&amp;rsquo;t allowed to move after this instruction&lt;br&gt;
+use a race detector&lt;/p&gt;
+&lt;p&gt;is fence unnecessary as there are atomic memory instructions?&lt;br&gt;
+the compiler knows what couldn&amp;rsquo;t be moved&lt;/p&gt;
+&lt;p&gt;old OS kernels didn&amp;rsquo;t have lock acquire as they always assume that they run on a single core&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE9</title>
+        <link>https://vzstless.moe/p/xv6-lecture9/</link>
+        <pubDate>Thu, 16 Jan 2025 23:24:27 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture9/</guid>
+        <description>&lt;h2 id=&#34;handout-9&#34;&gt;Handout 9
+&lt;/h2&gt;&lt;p&gt;CPU &amp;amp; devices: complicated &amp;amp; parallel&lt;br&gt;
+most code in modern OSes are device drivers&lt;br&gt;
+UART, RS232 port&lt;br&gt;
+UART &amp;amp; FIFO: not using a busy loop, but using interrupts&lt;br&gt;
+UART interrupts if: rx FIFO goes from empty to not-empty, or tx FIFO goes from full to not-full&lt;/p&gt;
+&lt;p&gt;device interrupts: device -&amp;gt; PLIC -&amp;gt; trap -&amp;gt; usertrap()/kerneltrap() -&amp;gt; devintr()&lt;br&gt;
+interrupt just means the state of device is changed&lt;br&gt;
+the bottom-half of interrupt doesn&amp;rsquo;t run in the context of top-half&lt;br&gt;
+registers: sie(supervisor interrupt enabled), PLIC claim: get next IRQ, sstatus&lt;/p&gt;
+&lt;p&gt;kernelvec is like trampoline for kernel&lt;br&gt;
+executing syscall in kernel, save in some proc&amp;rsquo;s stack&lt;/p&gt;
+&lt;p&gt;multiple devices? deliver to different CPU or stay pending&lt;br&gt;
+disable interrupts? clear SIE, using intr_off(), remember the pending interrupts, deliver when kernel re-enables interrupts&lt;br&gt;
+many places has parallelism, the operation msy not atomic!&lt;br&gt;
+using producer-consumer buffer&lt;/p&gt;
+&lt;p&gt;trampoline cannot tolerate a second interrupt to trampoline!&lt;br&gt;
+polling strategy: Top-half loops until device says it is ready&lt;br&gt;
+use DMA is more efficient&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-5&#34;&gt;Book Chapter 5
+&lt;/h2&gt;&lt;p&gt;dispatch happens in devintr()&lt;br&gt;
+top-half: kernel thread, bottom-kernel: executes at interrupt time&lt;br&gt;
+UART appears as a series of memory-mapped registers&lt;br&gt;
+use consoleinit() to init UART hardware&lt;br&gt;
+transmit complete&lt;br&gt;
+init() will let the shell read the console&lt;/p&gt;
+&lt;p&gt;read() -&amp;gt; consoleread() -&amp;gt; sleep()&lt;br&gt;
+devintr() -(UART)-&amp;gt; uartintr() -&amp;gt; consoleintr()&lt;br&gt;
+each time the UART finishes sending a byte, it generates an interrupt.&lt;br&gt;
+in write(), uartintr() -&amp;gt; uartstart()&lt;br&gt;
+allowing processes to execute concurrently with device I/O&lt;/p&gt;
+&lt;p&gt;in RISC-V, timer interrupt happens in M mode&lt;br&gt;
+start.c executes before main, to program CLINT hardware, set up a scratch area, set mtvec to timeervec&lt;br&gt;
+The kernel could be made somewhat simpler if device and timer interrupts only
+occurred while executing user code.&lt;/p&gt;
+&lt;h2 id=&#34;lecture-9&#34;&gt;Lecture 9
+&lt;/h2&gt;&lt;p&gt;save, process, resume&lt;br&gt;
+asynchronous, concurrency, program devices&lt;br&gt;
+How the &amp;lsquo;$&amp;rsquo; appears, and what happens after ls ?&lt;br&gt;
+PLIC: 53 interrupt connect from devices&lt;br&gt;
+core hold interrupt&lt;/p&gt;
+&lt;p&gt;Driver manages device&lt;br&gt;
+interrupt handler: top, bottom, a queue in it with read/write interface&lt;br&gt;
+the queue is used to decouple top &amp;amp; bottom&lt;br&gt;
+programming device: memory-mapped I/O; ld/st&lt;br&gt;
+the kernel and the device should make a protocol&lt;/p&gt;
+&lt;p&gt;$: device put it into UART, UART gen interrupts when the char has been sent&lt;br&gt;
+ls: keyboard connect to receive line, generate interrupt&lt;/p&gt;
+&lt;p&gt;RISC-V support:&lt;br&gt;
+SIE: 1 bit for external interrupt&lt;br&gt;
+SSTATUS: bit enable/disable&lt;br&gt;
+SIP: interrupt pending&lt;br&gt;
+SCAUSE: the cause of interrupt&lt;br&gt;
+STVEC: holds address for the switching&lt;/p&gt;
+&lt;p&gt;plicinit(): take interrupt from the devices&lt;br&gt;
+more initialization in main.c, main() finally calls scheduler()&lt;/p&gt;
+&lt;p&gt;init.c: creates a device as console&lt;br&gt;
+shell itself writes into fd 2&lt;/p&gt;
+&lt;p&gt;a pointer to producer and a pointer to consumer&lt;/p&gt;
+&lt;p&gt;Interrupt:&lt;br&gt;
+If SIE bitset: clear SIE bits&lt;br&gt;
+sepc&amp;lt;-pc, save current mode, entering supervisor mode, pc&amp;lt;-stvec&lt;/p&gt;
+&lt;p&gt;interrupts &amp;amp; concurrency:&lt;br&gt;
+devices &amp;amp; CPU run in parallel, interrupt stops current program&lt;br&gt;
+top &amp;amp; bottom deliver may run in parallel&lt;br&gt;
+producer &amp;amp; consumer: read after write, using a queue&lt;/p&gt;
+&lt;p&gt;once, interrupt was fast, now, interrupt is slow.&lt;br&gt;
+solution: polling &lt;br&gt;
+dynamic switch&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE8</title>
+        <link>https://vzstless.moe/p/xv6-lecture8/</link>
+        <pubDate>Wed, 15 Jan 2025 10:29:46 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture8/</guid>
+        <description>&lt;h2 id=&#34;handout-8&#34;&gt;Handout 8
+&lt;/h2&gt;&lt;p&gt;pgtbl is hard to debug, why?&lt;br&gt;
+how to speed up syscall? Linux has vDSO&lt;br&gt;
+vDSO enables virtual syscalls&lt;br&gt;
+511: trampoline&lt;br&gt;
+510: trapframe&lt;br&gt;
+509: USYSCALL&lt;/p&gt;
+&lt;p&gt;protection bits? URV, WRV, XRV&lt;br&gt;
+scan all pages could be expensive!!&lt;/p&gt;
+&lt;h2 id=&#34;slides-8&#34;&gt;Slides 8
+&lt;/h2&gt;&lt;p&gt;which syscall could be sped up?&lt;br&gt;
+mo side-effect, return constant value, value can change after entering the kernel&lt;br&gt;
+options: getpid() &amp;amp; uptime()&lt;/p&gt;
+&lt;p&gt;provide a bitmask for pages accessed&lt;br&gt;
+detect page accesses without access bits? use page fault!&lt;br&gt;
+TOCTOU attack: argument is modified after the kernel reads it&lt;/p&gt;
+&lt;p&gt;chatgpt: reduce the time lap between check and use&lt;/p&gt;
+&lt;h2 id=&#34;virtual-syscalls&#34;&gt;virtual syscalls
+&lt;/h2&gt;&lt;p&gt;put syscalls access kernel space -&amp;gt; access process addr space, reduce the cost of context switching&lt;br&gt;
+vDSO? a library, or a memory region&lt;br&gt;
+vDSO is a fully formed ELF image&lt;/p&gt;
+&lt;h2 id=&#34;list-balancing&#34;&gt;List Balancing
+&lt;/h2&gt;&lt;p&gt;file-backed pages&lt;br&gt;
+change of kernel-tracking infrastructure&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE7</title>
+        <link>https://vzstless.moe/p/xv6-lecture7/</link>
+        <pubDate>Tue, 14 Jan 2025 12:07:31 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture7/</guid>
+        <description>&lt;h2 id=&#34;handout-7&#34;&gt;Handout 7
+&lt;/h2&gt;&lt;p&gt;VM-related projects: COW, mappings, performance&lt;br&gt;
+ideas: isolation, indirection&lt;br&gt;
+panic? update page tables when page fault happens&lt;br&gt;
+VA causes page fault: stval reg&lt;br&gt;
+violation causes page fault: scause reg&lt;br&gt;
+instruction/mode can also cause page fault&lt;/p&gt;
+&lt;p&gt;if the user program asks for more memory, sbrk() could be expensive&lt;br&gt;
+zero-filled page? large part of memory filled with zero&lt;br&gt;
+COW or write then copy&lt;/p&gt;
+&lt;p&gt;don&amp;rsquo;t let fork() copy every pages from parent&lt;br&gt;
+but share addr space between parent and child, use RSW in PTEs&lt;br&gt;
+page fault: make copy, map, read/write(hard in real life!)&lt;/p&gt;
+&lt;p&gt;load the pages for the file on demand&lt;br&gt;
+keep meta information in VMA&lt;/p&gt;
+&lt;p&gt;memory-mapping: use load &amp;amp; store to access files&lt;br&gt;
+page-in &amp;amp; page-out due to the LRU strategy, especially when the file is larger than the VM page&lt;/p&gt;
+&lt;p&gt;KPTI is used to handle meltdown&lt;/p&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides
+&lt;/h2&gt;&lt;p&gt;Modern OSes allocate memory lazily, only allocate memory when user program accesses the memory&lt;br&gt;
+COW: make all pages read-only, On page fault, copy page and mark R/W, use extra PTE bits&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-46&#34;&gt;Book Chapter 4.6
+&lt;/h2&gt;&lt;p&gt;xv6&amp;rsquo;s response:&lt;br&gt;
+kill the faulting process; kernel panic&lt;br&gt;
+let child and parent use same block of PM? overwritten!!!
+load, store, instruction page faults&lt;br&gt;
+COW fork is faster especially in fork just before exec&lt;br&gt;
+lazy allocation&lt;br&gt;
+demand paging; page to disk&lt;/p&gt;
+&lt;h2 id=&#34;the-paper-of-cow&#34;&gt;The Paper of COW
+&lt;/h2&gt;&lt;p&gt;&lt;a&gt;&lt;a class=&#34;link&#34; href=&#34;https://lwn.net/Articles/849638/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://lwn.net/Articles/849638/&lt;/a&gt;&lt;/a&gt;
+Project Zero issue; CVE-2020-29374&lt;br&gt;
+for performance, android doesn&amp;rsquo;t put an exec() just behind fork()&lt;/p&gt;
+&lt;p&gt;Xu: Breaking COW by GUP; Tovalds: do_wp_pages()&lt;br&gt;
+the new approach breaks RDMA self-tests&lt;/p&gt;
+&lt;p&gt;a userfaultfd() was reported&lt;br&gt;
+something about the new rules&lt;br&gt;
+the way of using RDMA for soft-dirty or userfaultfd() is broken now&lt;/p&gt;
+&lt;h2 id=&#34;lecture-7&#34;&gt;Lecture 7
+&lt;/h2&gt;&lt;p&gt;page faults can let page mapping from a static map to a dynamic one&lt;br&gt;
+information needed: faulted va page, stval register&lt;br&gt;
+type of page fault&lt;/p&gt;
+&lt;p&gt;when page fault happens:&lt;br&gt;
+allocate 1 page, set the page all 0, map the page, restart instruction&lt;br&gt;
+what if the process uses up the PM? just kill the process&lt;br&gt;
+lazy allocation: the memory not allocated will not be mapped&lt;/p&gt;
+&lt;p&gt;free the memory that is not allocated will cause a fault, as the sbrk() let p-&amp;gt;sz go upper&lt;br&gt;
+negative number? shrinking addr space, but be careful!!!&lt;/p&gt;
+&lt;p&gt;zero-fill on demand&lt;br&gt;
+kalloc() a zero page, change the mapping&lt;br&gt;
+copy, update, restart&lt;br&gt;
+the cost of switching space and storing registers will be huge!!!&lt;/p&gt;
+&lt;p&gt;COW fork: use share instead of copy&lt;br&gt;
+set all pages read only, receive page fault, copy the page into a new page, map it, restart instruction, call userret()&lt;br&gt;
+except trampoline which could never be freed, other physical memory blocks are belonged to two or more different processes&lt;br&gt;
+but when to free the page?&lt;/p&gt;
+&lt;p&gt;demand paging&lt;br&gt;
+exec(): load text, data, segment, eagerly alloc page&lt;br&gt;
+read, map, restart&lt;br&gt;
+If out of memory: evict, use the just-free-page, restart&lt;br&gt;
+evict the clean pages not dirty ones!!!&lt;/p&gt;
+&lt;p&gt;mmap(va, len, plot, flags, fd, off)&lt;br&gt;
+unmap(va, len), write back dirty block&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE6</title>
+        <link>https://vzstless.moe/p/xv6-lecture6/</link>
+        <pubDate>Sun, 12 Jan 2025 16:14:43 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture6/</guid>
+        <description>&lt;h2 id=&#34;handout-6&#34;&gt;Handout 6
+&lt;/h2&gt;&lt;p&gt;focusing on user-&amp;gt;kernel transition&lt;br&gt;
+NEVER execute user code in supervisor mode&lt;br&gt;
+C on RISC-V puts function arguments in a0, a1, a2, &amp;amp;c&lt;/p&gt;
+&lt;p&gt;check pagetables: C-a c, info mem&lt;br&gt;
+trampoline: the start of kernel&amp;rsquo;s trap handling code&lt;br&gt;
+at the top: avoid punch a hole in user addr&lt;/p&gt;
+&lt;p&gt;observe PC is an indirect way to check whether we&amp;rsquo;re in supervisor mode&lt;/p&gt;
+&lt;p&gt;ecall:&lt;br&gt;
+change mode, save PC in SEPC, jump to STVEC, disable further interrupts&lt;br&gt;
+ecall does as little as possible&lt;br&gt;
+even supervisor mode is constrained to use pgtbl&lt;/p&gt;
+&lt;p&gt;save the user registers:&lt;br&gt;
+using trapframe or the sscratch register&lt;/p&gt;
+&lt;p&gt;why not a crash? we just switched page tables while executing&lt;br&gt;
+the trampoline is mapped at the same addr in pgtbls&lt;/p&gt;
+&lt;p&gt;back to usertrap(), return $ and space&lt;br&gt;
+usertrapret()&lt;br&gt;
+prepare for next transition&lt;br&gt;
+use sret instruction&lt;/p&gt;
+&lt;p&gt;complex from isolation&lt;br&gt;
+what if design for faster?&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-4&#34;&gt;Book Chapter 4
+&lt;/h2&gt;&lt;p&gt;ecall &amp;amp; exception will cause a trap&lt;br&gt;
+stvec: trap handler&lt;br&gt;
+sepc: PC saver&lt;br&gt;
+scause: cause of occurring a trap&lt;br&gt;
+sscratch: avoid overwriting&lt;br&gt;
+usertrap: determine the reason of trap&lt;br&gt;
+usertrapret -&amp;gt; userret -&amp;gt; switch satp to user space -&amp;gt; load trapframe addr to a0 -&amp;gt; executes sret&lt;/p&gt;
+&lt;p&gt;argint, argaddr, argfd retrieves n&amp;rsquo;th argument of integer, address or fd&lt;br&gt;
+kernelvec: save regs, jump to kerneltrap, yield&lt;/p&gt;
+&lt;h2 id=&#34;lecture-6&#34;&gt;Lecture 6
+&lt;/h2&gt;&lt;p&gt;don&amp;rsquo;t let user code to interfere the transition between user and kernel code&lt;br&gt;
+supervisor: R/W control regs, satp, stvec, sepc, sscratch, use PTE/PTE_U&lt;/p&gt;
+&lt;p&gt;write() -&amp;gt; ecall -(user-&amp;gt;kernel)-&amp;gt; uservec -&amp;gt; usertrap() -&amp;gt; syscall() &amp;lt;-&amp;gt; sys_write() -&amp;gt; usertrapret() -&amp;gt; userret()&lt;/p&gt;
+&lt;p&gt;the user code could only access memory with PTE_U flag&lt;br&gt;
+(checking by C-a c, info mem)&lt;br&gt;
+csrrw? swaps a0 and special temp register&lt;br&gt;
+lack of crash, the status of pc -&amp;gt; we&amp;rsquo;re in supervisor mode&lt;br&gt;
+OS cares lot about performance, so ecall never forces you to do stack operations&lt;br&gt;
+struct trapframe stays in proc.h, using 32 slots to save registers&lt;/p&gt;
+&lt;p&gt;when running shell, sscratch holds the pointer to trapframe&lt;br&gt;
+save? beware overwrite&lt;br&gt;
+the instructions not executed? we&amp;rsquo;re still in trampoline, where user VA = kernel VA&lt;/p&gt;
+&lt;p&gt;what if switch to another process?&lt;br&gt;
+we could only switch pgtbl on trampoline&lt;/p&gt;
+&lt;p&gt;sret? re-enables interrupts, setting the PC same as sepc, switching user mode&lt;br&gt;
+what happens in UIE?&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE5</title>
+        <link>https://vzstless.moe/p/xv6-lecture5/</link>
+        <pubDate>Thu, 09 Jan 2025 21:52:22 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture5/</guid>
+        <description>&lt;h2 id=&#34;gdb&#34;&gt;GDB
+&lt;/h2&gt;&lt;p&gt;step: one line of code at a time, jumps into the function&lt;br&gt;
+next: jump over functions&lt;br&gt;
+stepi, nexti: do same thing for asm code&lt;br&gt;
+continue: run until next breakpoint&lt;br&gt;
+finish: runs until the function ends&lt;/p&gt;
+&lt;p&gt;break: set a breakpoint&lt;br&gt;
+watch: stop whenever value changes&lt;br&gt;
+x: prints the raw memory&lt;br&gt;
+print: prints the expression&lt;br&gt;
+info registers: print value of registers&lt;br&gt;
+info frame: prints current stack frame&lt;/p&gt;
+&lt;p&gt;set: change value of a variable&lt;/p&gt;
+&lt;h2 id=&#34;handout-5&#34;&gt;Handout 5
+&lt;/h2&gt;&lt;p&gt;overwrite return address will cause an infinite loop&lt;/p&gt;
+&lt;h2 id=&#34;calling-conventions&#34;&gt;Calling Conventions
+&lt;/h2&gt;&lt;p&gt;int in RISC-V is always 32-bit wide, while long is 32-bit wide in RV32 and 64-bit wide in RV64&lt;br&gt;
+in RV64, int is sign-extended&lt;br&gt;
+struct: pass first 8 pointer-words into register&lt;br&gt;
+twice size as a pointer word: use an even-odd pair; more than twice: pass by reference&lt;/p&gt;
+&lt;h2 id=&#34;lecture-5&#34;&gt;Lecture 5
+&lt;/h2&gt;&lt;p&gt;since published, x86 adds 3 instructions per month&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;.section .test
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;.global sum_to
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;definition of .test is at &amp;lt;defs.h&amp;gt;&lt;/p&gt;
+&lt;p&gt;focus: switch the layout window in gdb&lt;/p&gt;
+&lt;p&gt;tmux:
+C-b c: new window&lt;br&gt;
+C-b p &amp;amp; C-b n: switch between terminals&lt;br&gt;
+C-b %: vertical split&lt;br&gt;
+C-b &amp;ldquo;: horizontal split&lt;br&gt;
+C-b o: jump between splited windows&lt;/p&gt;
+&lt;p&gt;apropos will display gdb built-in manual&lt;/p&gt;
+&lt;p&gt;caller: not preserved, callee: preserved&lt;br&gt;
+s0-s11 is for? maybe to give compiler flexibility&lt;/p&gt;
+&lt;p&gt;stack frame generated by calls&lt;br&gt;
+sp-&amp;gt;bottom of the stack&lt;br&gt;
+fp-&amp;gt;top of the current frame&lt;/p&gt;
+&lt;p&gt;i frame: show the message of stack frame&lt;br&gt;
+backtrace&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE4</title>
+        <link>https://vzstless.moe/p/xv6-lecture4/</link>
+        <pubDate>Tue, 07 Jan 2025 18:57:30 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture4/</guid>
+        <description>&lt;h2 id=&#34;handout-4&#34;&gt;Handout 4
+&lt;/h2&gt;&lt;p&gt;what if a user program writes to a random part of memory?&lt;br&gt;
+what way could we separate and isolate memory?&lt;br&gt;
+page tables&lt;br&gt;
+a level of indirection: CPU -(VM)&amp;gt; MMU -(PM)&amp;gt; MEM&lt;br&gt;
+satp, MMU, kernel&lt;/p&gt;
+&lt;p&gt;reduce the size of page tables, not building a direct-map&lt;/p&gt;
+&lt;p&gt;page=4KB, maximum 52 bits, nowadays 27bits&lt;br&gt;
+page table entry: 64 bits, 54 used, 10 of them are flags, low 12 bits of PA are from VA&lt;br&gt;
+3-level page table to reduce its size&lt;br&gt;
+a tree descended 9 bits at a time&lt;/p&gt;
+&lt;p&gt;page-fault forces transfer to kernel&lt;br&gt;
+PHYSTOP = 0x88000000&lt;/p&gt;
+&lt;p&gt;the design and arrangement of user address space: easier for compiler to compile&lt;br&gt;
+need contingous PM not VM&lt;/p&gt;
+&lt;p&gt;kvmmake() makes kernel&amp;rsquo;s page table&lt;br&gt;
+kvmmap() adds PTEs to a page table&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-3&#34;&gt;Book Chapter 3
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bits 25  27    12
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;VA   EXT index offset
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;V
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bits      44  10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pagetable PPN flags
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;V
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bits 44    10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PA   index offset
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;TLB: avoid the cost of loading PTE&lt;br&gt;
+write PA into satp register&lt;br&gt;
+1 page table per process&lt;br&gt;
+KERNBASE=0x80000000&lt;br&gt;
+fork() uses parent&amp;rsquo;s virtual memory address directly&lt;br&gt;
+trampoline and kernel stack aren&amp;rsquo;t directly-mapped&lt;/p&gt;
+&lt;p&gt;pagetable_t: a pointer to root page table page&lt;br&gt;
+walk() looks up for PTE&amp;rsquo;s VA&lt;br&gt;
+instruction sfence.vma flushes CPU&amp;rsquo;s TLB&lt;/p&gt;
+&lt;p&gt;allocator: keeps a free list of struct run&lt;br&gt;
+kfree: set value to all 1&lt;/p&gt;
+&lt;p&gt;refuse to execute, occur a page fault, kill the process and print the message&lt;br&gt;
+make exploit attack harder by such a protection process&lt;/p&gt;
+&lt;p&gt;sbrk() -&amp;gt; growproc() -&amp;gt; uvmalloc()/uvdemalloc() -&amp;gt; kalloc()/uvmunmap()
+exec() -&amp;gt; namei() -&amp;gt; quick check -&amp;gt; proc_pagetable() -&amp;gt; loadseg() -&amp;gt; walkaddr()&lt;/p&gt;
+&lt;p&gt;xv6 is lack of malloc()-like allocator to allocate small pieces of space&lt;/p&gt;
+&lt;h2 id=&#34;lecture-4&#34;&gt;Lecture 4
+&lt;/h2&gt;&lt;p&gt;What do we want from isolation?&lt;/p&gt;
+&lt;p&gt;The VA_MAX could be larger than PA_MAX&lt;br&gt;
+where does page table allocates? kalloc()&lt;br&gt;
+there are 4096 bytes of continuous PA in PM, but not continuous for pages&lt;br&gt;
+the size of PM is determined by designers&lt;br&gt;
+satp is points to the top directory&lt;/p&gt;
+&lt;p&gt;don&amp;rsquo;t use a translation scheme to rely on another translation scheme, so store PA in tables&lt;br&gt;
+satp also stores PA&lt;br&gt;
+why walk() ? initialization, sysinfo() needs walk()&lt;br&gt;
+flexibility stays in dealing with page faults&lt;br&gt;
+where will the data store? depends on a &amp;ldquo;multiplexer&amp;rdquo;&lt;br&gt;
+mostly-identity mapping is used in kernel mapping&lt;/p&gt;
+&lt;p&gt;stack overflow: page fault instead of covering other program&amp;rsquo;s memory&lt;br&gt;
+consolidate the mapping? good, but xv6 didn&amp;rsquo;t do this action&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;b main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;c
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;b kvminit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;c
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;layout src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;b kvminithart
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;c
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;where to store satp? in each proc structure, there&amp;rsquo;s a satp&lt;br&gt;
+why 3-level not a single big table? you can remain many blocks empty&lt;br&gt;
+etext is the last addr of kernel, KERNBASE=0x80000000, etext-KERNBASE=size of kernel&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE3</title>
+        <link>https://vzstless.moe/p/xv6-lecture3/</link>
+        <pubDate>Sun, 05 Jan 2025 09:49:10 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture3/</guid>
+        <description>&lt;h2 id=&#34;handout-3&#34;&gt;Handout 3
+&lt;/h2&gt;&lt;p&gt;No OS: lack of isolation&lt;br&gt;
+fork() -&amp;gt; abstract core&lt;br&gt;
+exec()/sbrk() -&amp;gt; abstract RAM&lt;br&gt;
+assumption: user is always willing to break the isolation, while kernel is always trustable&lt;br&gt;
+user mode and supervisor mode&lt;br&gt;
+pgtbl: maps virtual-&amp;gt;physical&lt;br&gt;
+ecall: change to supervisor mode, get to a known point of the kernel code&lt;/p&gt;
+&lt;p&gt;Singularity provides a way of process isolation without hardware support&lt;/p&gt;
+&lt;p&gt;kernel is a big program holds all of the syscalls&lt;br&gt;
+On CVE there&amp;rsquo;s 2997 bugs detected on Linux in 2024(kernel bugs are much more common than we thought)&lt;/p&gt;
+&lt;p&gt;build the kernel: make&lt;br&gt;
+gcc compiles every .c, .o, linking, kernel/kernel, kernel/kernel.asm, produces an .iso&lt;br&gt;
+run the OS: make qemu&lt;br&gt;
+simulates the CPU, run into the first instruction in the OS&lt;/p&gt;
+&lt;p&gt;kernel/entry.S -&amp;gt; start.c -&amp;gt; main()&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-2&#34;&gt;Book Chapter 2
+&lt;/h2&gt;&lt;p&gt;Isolation can be done by protecting sensitive hardware from system calls&lt;br&gt;
+monolithic kernel: the whole OS resides in the kernel&lt;br&gt;
+micro kernel: minimalize code run in the supervisor mode&lt;br&gt;
+in xv6, isolation is done by setting processes&lt;br&gt;
+trampoline: contains the code from user space to kernel space&lt;br&gt;
+trapframe: protects the status of the process&lt;br&gt;
+sret instruction is used to return to user space from kernel space&lt;/p&gt;
+&lt;p&gt;process: an addr space as a virtual RAM and an thread as a virtual CPU&lt;/p&gt;
+&lt;p&gt;Boot a RISC-V Computer:&lt;br&gt;
+power on -&amp;gt; run bootloader -&amp;gt; load kernel into memory address 0x80000000(I/O starts from here) and run into M mode -&amp;gt; set up a stack at _entry for runnning C code -&amp;gt; run into start of C -&amp;gt; program the clock chip to generate timer interrupts -&amp;gt; call useerinit to start the first syscall -&amp;gt; complete exec() -&amp;gt; return to user space and initialize the shell&lt;/p&gt;
+&lt;h2 id=&#34;lecture-3&#34;&gt;Lecture 3
+&lt;/h2&gt;&lt;p&gt;No strong isolation will cause memory overwrite, which will lead to a bug hard to debug&lt;br&gt;
+OS should be defensive&lt;br&gt;
+There is a flag to check whether the CPU is at user mode or kernel mode&lt;br&gt;
+BIOS is always trustworthy&lt;/p&gt;
+&lt;p&gt;fork() as a syscall hasn&amp;rsquo;t its function decalaration&lt;br&gt;
+when calling fork: ecall sys_fork (here sys_fork is a number) -&amp;gt; syscall -&amp;gt; find number in a0 -&amp;gt; create a new process&lt;br&gt;
+How to get control from buggy useer application? set a timer&lt;/p&gt;
+&lt;p&gt;think qemu as a real circuit board&lt;br&gt;
+qemu is an infinite for loop: fetch, decode, execute&lt;br&gt;
+use gdb: b _entry; c; si; layout src;&lt;br&gt;
+use n to goto next line of C code&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-43--44&#34;&gt;Book Chapter 4.3 &amp;amp; 4.4
+&lt;/h2&gt;&lt;p&gt;(Before the labs&amp;hellip;)&lt;br&gt;
+args for exec() in a0 &amp;amp; a1, syscall number in a7&lt;br&gt;
+SYS_exec -&amp;gt; sys_exec&lt;br&gt;
+return value in p-&amp;gt;trapframe-&amp;gt;a0&lt;/p&gt;
+&lt;p&gt;fetchstr -&amp;gt; copyinstr -&amp;gt; walkaddr -&amp;gt; walk -&amp;gt; pagetable&lt;/p&gt;
+&lt;h2 id=&#34;just-before-lab-syscall&#34;&gt;Just before Lab syscall&amp;hellip;
+&lt;/h2&gt;&lt;p&gt;installing riscv64-unknown-elf-gdb:&lt;br&gt;
+download the tar file from TUNA mirror site, unpack it, enter the current directory&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir build
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; build
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;../configure --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local --target&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;riscv64-unknown-elf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make -j &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;using-gdb&#34;&gt;using gdb
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;target remote localhost:26000
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;b syscall
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;c
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;layout src
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;backtrace
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;p /x *p
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;p /x &lt;span class=&#34;nv&#34;&gt;$sstatus&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE2</title>
+        <link>https://vzstless.moe/p/xv6-lecture2/</link>
+        <pubDate>Fri, 03 Jan 2025 22:12:02 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture2/</guid>
+        <description>&lt;h2 id=&#34;handout-2&#34;&gt;Handout 2
+&lt;/h2&gt;&lt;p&gt;memory layout:&lt;br&gt;
+text: code, read-only data&lt;br&gt;
+data: global C vars&lt;br&gt;
+stack: local variables&lt;br&gt;
+heap: sbrk, malloc, free&lt;br&gt;
+.c -compile-&amp;gt; .o -link-&amp;gt; executable file&lt;br&gt;
+strlen() uses array access while strcmp() uses pointer access&lt;br&gt;
+kalloc() keeps a large linked list of free pages of memory&lt;br&gt;
+LRU buffer cache is implemented as a dual-pointer linked list&lt;br&gt;
+static: limited to the file where the variable is declared&lt;/p&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides
+&lt;/h2&gt;&lt;p&gt;This class focus on RAM and I/O&lt;br&gt;
+address space: represent bus as a giant array of data&lt;br&gt;
+memory allocation: decide where array to store things&lt;br&gt;
+A stack is much more smaller than heap&lt;/p&gt;
+&lt;h2 id=&#34;kr&#34;&gt;K&amp;amp;R
+&lt;/h2&gt;&lt;p&gt;alloc: use a stack to allocate memory space&lt;br&gt;
+afree: pop the space and decrease the pointer&lt;br&gt;
+the behavior is undefined for arithmetic or comparisons with pointers that do not point to members of the same array&lt;br&gt;
+size_t is uint returned by sizeof()&lt;br&gt;
+the result of modifying the string pointer is undefined&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>xv6 LECTURE1</title>
+        <link>https://vzstless.moe/p/xv6-lecture1/</link>
+        <pubDate>Wed, 01 Jan 2025 08:28:39 +0800</pubDate>
+        
+        <guid>https://vzstless.moe/p/xv6-lecture1/</guid>
+        <description>&lt;h2 id=&#34;handout-1&#34;&gt;Handout 1
+&lt;/h2&gt;&lt;p&gt;Purpose of an OS:&lt;/p&gt;
+&lt;p&gt;Isolate hard/software, virtualize hardware&lt;br&gt;
+Interact with OS via syscalls&lt;br&gt;
+First arg in syscall is FD&lt;br&gt;
+UNIX I/O is 8-bit bytes&lt;/p&gt;
+&lt;p&gt;When CPU receives a syscall:&lt;br&gt;
+save, jump, execute, call, restore, reduce, jump back&lt;/p&gt;
+&lt;p&gt;Shell is a user program instead of shell&lt;br&gt;
+fork() lets us create a new process&lt;br&gt;
+exec() replaces current process with an executable file&lt;/p&gt;
+&lt;h2 id=&#34;book-chapter-1&#34;&gt;Book Chapter 1
+&lt;/h2&gt;&lt;p&gt;Operating system let different softwares use hardware together&lt;br&gt;
+Process: instructions, data, stack&lt;br&gt;
+fork() returns 0 in the child process while pid in the parent process&lt;br&gt;
+wait() returns the pid and copies the exit status&lt;br&gt;
+exec() loads a file and executes it&lt;/p&gt;
+&lt;p&gt;file descripter refers to a file.&lt;br&gt;
+fork() and exec()let the shell has the chance to redirect child&amp;rsquo;s I/O&lt;br&gt;
+File descripter is a good abstraction&lt;/p&gt;
+&lt;p&gt;Pipe is a small kernel buffer conncting files.&lt;br&gt;
+Pipe: auto-clean, pass long data, allow parallel execution&lt;/p&gt;
+&lt;p&gt;Underlying file is called inode&lt;br&gt;
+cd is built-in, if not, the shell will form a infinity process tree of dir-changing&lt;/p&gt;
+&lt;p&gt;ALL XV6 PROGRAMS RUN AS ROOT!!!!!&lt;/p&gt;
+&lt;h2 id=&#34;amusement-unix&#34;&gt;Amusement: UNIX
+&lt;/h2&gt;&lt;p&gt;In order to avoid large amount of team population and project cost, we need to build a good programming environment. UNIX is for building such an environment.&lt;br&gt;
+PROBLEM: Large number of softwares, large scale of jobs&lt;br&gt;
+Software is always demanded for different operations, to avoid rewrite code per annum, the code should be divided into modules.
+Layers: kernel, shell, util&lt;br&gt;
+A show of pipes&lt;br&gt;
+Easy and packed pattern-matching algorithms&lt;br&gt;
+Refer file as a simple sequence of bytes, file is contained in directories&lt;br&gt;
+Concept of I/O redirection&lt;br&gt;
+C: If you need to avoid hardware, simply use it; but also ways to interact with hardware directly&lt;br&gt;
+An example of a software, inputting boolean equation and outputting circuit traces&lt;br&gt;
+Computer is built for easy to use&lt;/p&gt;
+&lt;h2 id=&#34;lecture-1&#34;&gt;Lecture 1
+&lt;/h2&gt;&lt;p&gt;What would a kernel do?&lt;br&gt;
+Everyone thought OS provides what they already know&lt;br&gt;
+Many tensions occurred in OS design&lt;br&gt;
+Func call vs Syscall? func hasn&amp;rsquo;t previlege to access real CPU and mem but syscalls have&lt;br&gt;
+High-level language is designed to be portable&lt;br&gt;
+There is a rule that we read from fd 0 and write to fd 1&lt;br&gt;
+Kernel holds a process table and guided by fd&lt;br&gt;
+Instruction ecall passes the system from user space to the kernel space&lt;br&gt;
+Parent and child process shares the same fd&lt;br&gt;
+exec() loads the program in the file and throw away current process&lt;br&gt;
+exec() remains the fd that already exists&lt;br&gt;
+wait() waits the child process to return, if the process hasn&amp;rsquo;t child process, it&amp;rsquo;ll return -1&lt;/p&gt;
+&lt;h2 id=&#34;just-before-lab-util&#34;&gt;Just before Lab util&amp;hellip;
+&lt;/h2&gt;&lt;p&gt;installing the riscv64-unknown-elf-gcc:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install &lt;span class=&#34;nv&#34;&gt;gcc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;riscv64-unknown-elf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
 </rss>
