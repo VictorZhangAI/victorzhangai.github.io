@@ -313,6 +313,7 @@
     <li><a href="#datatypes">Datatypes</a></li>
     <li><a href="#combinational">Combinational</a></li>
     <li><a href="#sequential">Sequential</a></li>
+    <li><a href="#fixed-point">Fixed-Point</a></li>
   </ol>
 </nav>
         </div>
@@ -369,7 +370,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    5 minute read
                 </time>
             </div>
         
@@ -654,7 +655,79 @@ RegNext(something) is equal to:</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>for initialization for simulation, using randBoot() method</p>
-<p>Memory: (TODO)</p>
+<p>Memory: use Mem() class</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Scala" data-lang="Scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">mem</span> <span class="k">=</span> <span class="nc">Mem</span><span class="o">(</span><span class="nc">Bits</span><span class="o">(</span><span class="mi">32</span> <span class="n">bits</span><span class="o">),</span><span class="n">wordCount</span> <span class="k">=</span> <span class="mi">256</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>memory could be blackboxed</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Scala" data-lang="Scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">mem</span> <span class="k">=</span> <span class="nc">Mem</span><span class="o">(</span><span class="nc">Rgb</span><span class="o">(</span><span class="nc">RgbConfig</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">8</span><span class="o">)),</span><span class="mi">1024</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mem</span><span class="o">.</span><span class="n">generateAsBlackBox</span><span class="o">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="fixed-point">Fixed-Point
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Scala" data-lang="Scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">c</span> <span class="k">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1">//return 8 bits without protection, may cause overflow
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">c</span> <span class="k">=</span> <span class="n">a</span> <span class="o">+^</span> <span class="n">b</span> <span class="c1">//return 9 bits, adder with carry
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>bits also can be rounded</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Scala" data-lang="Scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">in</span> <span class="nc">SInt</span><span class="o">(</span><span class="mi">16</span> <span class="n">bits</span><span class="o">)</span> <span class="c1">//source data is 16 bits 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">f</span> <span class="k">=</span> <span class="n">a</span><span class="o">.</span><span class="n">roundUp</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>     <span class="c1">//round 2 bits to +Inf  return 15 bits
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>fixTo: a way same as round to inf</p>
+<p>width propagation is auto in Spinal.<br>
+bit join:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Scala" data-lang="Scala"><span class="line"><span class="cl"><span class="n">c</span><span class="k">:</span><span class="o">=</span> <span class="o">(</span><span class="n">a0</span> <span class="o">#</span><span class="k">#</span> <span class="n">a1</span><span class="o">).</span><span class="n">asSInt</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//assign c = {a0,a1};
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>in/out &lt; Typename &gt; or use master/slave<br>
+jump wire:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Scala" data-lang="Scala"><span class="line"><span class="cl"><span class="n">xx</span> <span class="k">:</span><span class="o">=</span>  <span class="n">ctrl</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">pull</span><span class="o">()</span> <span class="c1">//Jump wire auto through IO
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>SpinalHDL will never Pruned signals with names<br>
+The ways you can use Scala functions to generate hardware are radically different than VHDL/Verilog for many reasons:<br>
+You can instantiate registers, combinational logic and components inside them.<br>
+You don’t have to play with process/@always that limit the scope of assignment of signals<br>
+Everything is passed by reference, which allows easy manipulation. For example you can give a bus to a function as an argument, then the function can internaly read/write to it. You can also return a Component, a Bus, or anything else from scala and the scala world.</p>
+<p>define something inside the class is accepted<br>
+Area is used to define a group of logic<br>
+(TODO)</p>
 
 </section>
 
