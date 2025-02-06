@@ -314,6 +314,7 @@
     <li><a href="#combinational">Combinational</a></li>
     <li><a href="#sequential">Sequential</a></li>
     <li><a href="#fixed-point">Fixed-Point</a></li>
+    <li><a href="#clock-domain">Clock Domain</a></li>
   </ol>
 </nav>
         </div>
@@ -726,8 +727,34 @@ You can instantiate registers, combinational logic and components inside them.<b
 You don’t have to play with process/@always that limit the scope of assignment of signals<br>
 Everything is passed by reference, which allows easy manipulation. For example you can give a bus to a function as an argument, then the function can internaly read/write to it. You can also return a Component, a Bus, or anything else from scala and the scala world.</p>
 <p>define something inside the class is accepted<br>
-Area is used to define a group of logic<br>
-(TODO)</p>
+Area is used to define a group of logic</p>
+<h2 id="clock-domain">Clock Domain
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Scala" data-lang="Scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">in</span> <span class="nc">Bits</span><span class="o">(</span><span class="mi">8</span> <span class="n">bits</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="n">b</span> <span class="k">=</span> <span class="nc">RegNext</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="n">init</span> <span class="mi">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>set your own clock domain:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Scala" data-lang="Scala"><span class="line"><span class="cl"><span class="k">new</span> <span class="nc">ClockingArea</span><span class="o">(</span><span class="nc">ClockDomain</span><span class="o">(</span><span class="n">myclk</span><span class="o">,</span><span class="n">myrst</span><span class="o">)){</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="n">reg0</span> <span class="k">=</span> <span class="nc">RegNext</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="n">init</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="n">b</span> <span class="k">:</span><span class="o">=</span> <span class="n">reg0</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>setSyncWith lets you divide the clock or gate it</p>
 
 </section>
 
