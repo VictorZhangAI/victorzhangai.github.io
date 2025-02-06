@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Mon, 03 Feb 2025 16:37:17 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2025 09:48:12 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于6.1810</title>
+      <link>https://vzstless.moe/p/%E5%85%B3%E4%BA%8E6.1810/</link>
+      <pubDate>Thu, 06 Feb 2025 09:48:12 +0800</pubDate>
+      <guid>https://vzstless.moe/p/%E5%85%B3%E4%BA%8E6.1810/</guid>
+      <description>&lt;p&gt;终于，从寒假到现在磕磕绊绊算是把6.1810攻克了&lt;/p&gt;&#xA;&lt;p&gt;这个课分为几个部分，讲义，课本，xv6本身以及课程。讲义是给你稍微溜一眼这节课要干啥用的，课本的参考价值极高，几乎做实验过一会儿就要翻一下。xv6就不说了，公认的艺术品，功能齐全而且每个调用的路径都极其清晰，哪怕你不按课本瞎改一些部分看报错也是挺享受的。课，emm&amp;hellip;实在话，这个课是真干啊，真hacking啊，估计你讲义和书没看懂的话课程也看不懂。如果你没时间，只看Q&amp;amp;A就行了，代码示例可以跟着讲义自己弄。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>SpinalHDL Basics</title>
       <link>https://vzstless.moe/p/spinalhdl-basics/</link>
