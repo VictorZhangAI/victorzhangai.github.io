@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Mon, 10 Feb 2025 21:08:22 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2025 17:11:02 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ssh与网络杂项</title>
+      <link>https://vzstless.moe/p/ssh%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%9D%82%E9%A1%B9/</link>
+      <pubDate>Thu, 13 Feb 2025 17:11:02 +0800</pubDate>
+      <guid>https://vzstless.moe/p/ssh%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%9D%82%E9%A1%B9/</guid>
+      <description>&lt;h2 id=&#34;pwncollege&#34;&gt;pwn.college&lt;/h2&gt;&#xA;&lt;p&gt;先使用&lt;code&gt;ssh-keygen&lt;/code&gt;进行key的建立：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -f key -N &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;然后将公钥复制到pwn.college中&#xA;想要链接dojo时使用：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh -i key hacker@dojo.pwn.college&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;h2 id=&#34;从一次git-push失败说起&#34;&gt;从一次git push失败说起&lt;/h2&gt;&#xA;&lt;p&gt;2月13日，我的git莫名其妙push不到远端了，尝试排查问题，先使用了&lt;code&gt;ping&lt;/code&gt;，没发现任何问题，后使用&lt;code&gt;ssh -T git@github.com&lt;/code&gt;，不行，尝试重启&lt;code&gt;wsl --shutdown&lt;/code&gt;，不行，尝试查看GitHub是否今天有服务中断，进入 &lt;a href=&#34;https://www.githubstatus.com/&#34;&gt;https://www.githubstatus.com/&lt;/a&gt; 进行查看，一切正常，尝试unset掉proxy，未解决，进行nslookup，未解决，查看代理端口发现代理端口从1085更改至1087，重新设置&lt;code&gt;git config&lt;/code&gt;，解决&lt;/p&gt;</description>
+    </item>
     <item>
       <title>冷门的STL相关知识</title>
       <link>https://vzstless.moe/p/%E5%86%B7%E9%97%A8%E7%9A%84stl%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</link>
