@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall ">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:\n">
 <title>assembly-related</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/assembly-related/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="assembly-related">
-<meta property='og:description' content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall ">
+<meta property='og:description' content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:\n">
 <meta property='og:url' content='https://vzstless.moe/p/assembly-related/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='COA' /><meta property='article:published_time' content='2025-02-26T20:49:18&#43;08:00'/><meta property='article:modified_time' content='2025-02-26T20:49:18&#43;08:00'/>
 <meta name="twitter:title" content="assembly-related">
-<meta name="twitter:description" content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall ">
+<meta name="twitter:description" content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:\n">
     <link rel="shortcut icon" href="/1f365.ico" />
 
     </head>
@@ -428,6 +428,41 @@
 </span></span><span class="line"><span class="cl">mov rdx, &lt;bytes&gt;
 </span></span><span class="line"><span class="cl">mov rax, 0
 </span></span><span class="line"><span class="cl">syscall
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>assemble the program:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gcc -nostdlib hello.S -o hello <span class="c1"># assemble the code</span>
+</span></span><span class="line"><span class="cl">objdump -M intel -d hello <span class="c1"># read the code</span>
+</span></span><span class="line"><span class="cl">objcopy --dump-section .text<span class="o">=</span>hello_bin_code hello <span class="c1"># extracting binary code</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>arithmetic:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">add &lt;reg&gt; &lt;opr&gt; # reg += opr
+</span></span><span class="line"><span class="cl">sub &lt;reg&gt; &lt;opr&gt; # reg -= opr
+</span></span><span class="line"><span class="cl">imul &lt;reg&gt; &lt;opr&gt; # reg *= opr
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>specially, for division:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">div &lt;reg&gt; # rax = {rdx, rax} / reg, rdx = remainder
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
