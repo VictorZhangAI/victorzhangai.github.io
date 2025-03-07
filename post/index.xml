@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Wed, 26 Feb 2025 20:49:18 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Mar 2025 08:42:42 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>玩转虚拟内存</title>
+      <link>https://vzstless.moe/p/%E7%8E%A9%E8%BD%AC%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/</link>
+      <pubDate>Fri, 07 Mar 2025 08:42:42 +0800</pubDate>
+      <guid>https://vzstless.moe/p/%E7%8E%A9%E8%BD%AC%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/VictorZhangAI/memhack&#34;&gt;Source Code&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;看了jyy今年的虚拟内存，有感而发给GPT丢了几个prompt，产生了这些东西：&lt;/p&gt;&#xA;&lt;h2 id=&#34;mmap&#34;&gt;mmap&lt;/h2&gt;&#xA;&lt;p&gt;mmap() 是一个用于内存映射的syscall，可用于快速分配大段内存空间。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>assembly-related</title>
       <link>https://vzstless.moe/p/assembly-related/</link>

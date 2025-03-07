@@ -334,7 +334,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -488,7 +488,41 @@
 </span></span><span class="line"><span class="cl">pop &lt;reg&gt;
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>jump:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">jmp reg # jump to the addr in the reg
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>repeat the instruction:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.rept 0x51
+</span></span><span class="line"><span class="cl">nop # repeat nop for 0x51 times
+</span></span><span class="line"><span class="cl">.endr
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>compare:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cmp dword ptr [edi] 0x12345678
+</span></span><span class="line"><span class="cl">je label
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ja must jump to a label not an address</p>
+
 </section>
 
 
