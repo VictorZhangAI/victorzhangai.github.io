@@ -375,7 +375,7 @@
 
 
                 <time class="article-time--reading">
-                    6 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -587,19 +587,30 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>举例说明一下原理：</p>
+<p>已知三次多项式方程：
+</p>
 $$
 a_3x^3+a_2x^2+a_1x+a_0=0
-$$$$
+$$<p>
+构造矩阵：
+</p>
+$$
 A=\begin{bmatrix}
  -\frac{a_2}{a_3}  & -\frac{a_1}{a_3} &-\frac{a_0}{a_3} \\
   1 & 0 & 0\\
  0 & 1 & 0
 \end{bmatrix}
-$$$$
+$$<p>
+解为：
+</p>
+$$
 x=\begin{bmatrix}
 x_1\\x_2\\x_3
 \end{bmatrix}
-$$$$
+$$<p>
+对解有Ax=λx，则有方程：
+</p>
+$$
 \begin{matrix}
 -\frac{a_2}{a_3}x_1-\frac{a_1}{a_3}x_2-\frac{a_0}{a_3}x_3=\lambda x_1\\
 x_1=\lambda x_2\\
