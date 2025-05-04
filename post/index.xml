@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Mon, 28 Apr 2025 14:33:15 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 19:58:00 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计算机数学杂项</title>
+      <link>https://vzstless.moe/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%95%B0%E5%AD%A6%E6%9D%82%E9%A1%B9/</link>
+      <pubDate>Sun, 04 May 2025 19:58:00 +0800</pubDate>
+      <guid>https://vzstless.moe/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%95%B0%E5%AD%A6%E6%9D%82%E9%A1%B9/</guid>
+      <description>&lt;p&gt;(a + b) % c = ((a % c) + (b % c)) % c&lt;br&gt;&#xA;(a - b) % c = ((a % c) - (b % c)) % c&lt;br&gt;&#xA;(a * b) % c = ((a % c) * (b % c)) % c&lt;/p&gt;&#xA;&lt;p&gt;C++中的 &lt;code&gt;std::__gcd(a, b)&lt;/code&gt; 可用于计算最大公约数&lt;br&gt;&#xA;裴蜀定理：如果a和b均为整数，则有整数x和y满足ax + by = gcd(a, b)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>OSTEP为什么好</title>
       <link>https://vzstless.moe/p/ostep%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A5%BD/</link>
