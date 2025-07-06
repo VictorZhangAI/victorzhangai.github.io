@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="接口 求某几个数字中的最大元素我们可能会使用max()进行求解，而对于STL中有特殊的\n1 2 3 vector&lt;int&gt; vi = {4, 5, 3, 1, 6, 2}; int top = *max_element(vi.begin(), vi.end()); int bottom = *min_element(vi.begin(), vi.end()); STL中的元素还可以进行在某个初始值基础上的累加操作：\n">
-<title>冷门的STL相关知识</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一些根据OzaShin Music Channel的讲座汉化版随堂做的笔记\n基础篇 音名，音程，全音，半音\n全全半全全全半的排列直接平移就能得到大调音阶，从C开始即为C大调\n">
+<title>随手记下的乐理知识</title>
 
-<link rel='canonical' href='https://vzstless.moe/p/%E5%86%B7%E9%97%A8%E7%9A%84stl%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/'>
+<link rel='canonical' href='https://vzstless.moe/p/%E9%9A%8F%E6%89%8B%E8%AE%B0%E4%B8%8B%E7%9A%84%E4%B9%90%E7%90%86%E7%9F%A5%E8%AF%86/'>
 
-<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="冷门的STL相关知识">
-<meta property='og:description' content="接口 求某几个数字中的最大元素我们可能会使用max()进行求解，而对于STL中有特殊的\n1 2 3 vector&lt;int&gt; vi = {4, 5, 3, 1, 6, 2}; int top = *max_element(vi.begin(), vi.end()); int bottom = *min_element(vi.begin(), vi.end()); STL中的元素还可以进行在某个初始值基础上的累加操作：\n">
-<meta property='og:url' content='https://vzstless.moe/p/%E5%86%B7%E9%97%A8%E7%9A%84stl%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/'>
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="随手记下的乐理知识">
+<meta property='og:description' content="一些根据OzaShin Music Channel的讲座汉化版随堂做的笔记\n基础篇 音名，音程，全音，半音\n全全半全全全半的排列直接平移就能得到大调音阶，从C开始即为C大调\n">
+<meta property='og:url' content='https://vzstless.moe/p/%E9%9A%8F%E6%89%8B%E8%AE%B0%E4%B8%8B%E7%9A%84%E4%B9%90%E7%90%86%E7%9F%A5%E8%AF%86/'>
 <meta property='og:site_name' content='VZstless'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='MISC' /><meta property='article:published_time' content='2025-02-10T21:08:22&#43;08:00'/><meta property='article:modified_time' content='2025-02-10T21:08:22&#43;08:00'/>
-<meta name="twitter:title" content="冷门的STL相关知识">
-<meta name="twitter:description" content="接口 求某几个数字中的最大元素我们可能会使用max()进行求解，而对于STL中有特殊的\n1 2 3 vector&lt;int&gt; vi = {4, 5, 3, 1, 6, 2}; int top = *max_element(vi.begin(), vi.end()); int bottom = *min_element(vi.begin(), vi.end()); STL中的元素还可以进行在某个初始值基础上的累加操作：\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='MISC' /><meta property='article:published_time' content='2025-07-06T15:10:33&#43;08:00'/><meta property='article:modified_time' content='2025-07-06T15:10:33&#43;08:00'/>
+<meta name="twitter:title" content="随手记下的乐理知识">
+<meta name="twitter:description" content="一些根据OzaShin Music Channel的讲座汉化版随堂做的笔记\n基础篇 音名，音程，全音，半音\n全全半全全全半的排列直接平移就能得到大调音阶，从C开始即为C大调\n">
     <link rel="shortcut icon" href="/1f365.ico" />
 
     </head>
@@ -308,9 +308,9 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#接口">接口</a></li>
-    <li><a href="#bitset">bitset</a></li>
-    <li><a href="#lambda">Lambda</a></li>
+    <li><a href="#基础篇">基础篇</a></li>
+    <li><a href="#应用篇">应用篇</a></li>
+    <li><a href="#发展篇">发展篇</a></li>
   </ol>
 </nav>
         </div>
@@ -330,7 +330,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%86%B7%E9%97%A8%E7%9A%84stl%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">冷门的STL相关知识</a>
+            <a href="/p/%E9%9A%8F%E6%89%8B%E8%AE%B0%E4%B8%8B%E7%9A%84%E4%B9%90%E7%90%86%E7%9F%A5%E8%AF%86/">随手记下的乐理知识</a>
         </h2>
     
         
@@ -352,7 +352,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2025-02-10</time>
+                <time class="article-time--published">2025-07-06</time>
             </div>
         
 
@@ -367,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -382,95 +382,127 @@
     <section class="article-content">
     
     
-    <h2 id="接口">接口
-</h2><p>求某几个数字中的最大元素我们可能会使用<code>max()</code>进行求解，而对于STL中有特殊的</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vi</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="o">*</span><span class="n">max_element</span><span class="p">(</span><span class="n">vi</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">vi</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">bottom</span> <span class="o">=</span> <span class="o">*</span><span class="n">min_element</span><span class="p">(</span><span class="n">vi</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">vi</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>STL中的元素还可以进行在某个初始值基础上的累加操作：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">sum_vi</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">(</span><span class="n">vi</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">vi</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>关于查找：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">vec</span><span class="p">,</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="bitset">bitset
-</h2><p>bitset 可以使用初始值初始化也可以使用字符串进行初始化：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">bitset</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">bs</span><span class="p">(</span><span class="s">&#34;01010001&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">bitset</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">bs</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>bitset自带置1，置0，反转操作</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">bs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">bs</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">bs</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">bs</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">bs</span><span class="p">.</span><span class="n">flip</span><span class="p">();</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>count()</code>：返回 1 的个数<br>
-<code>size()</code>：返回位数<br>
-<code>test(pos)</code>：检查某一位是否为1<br>
-<code>all()</code>：检查是否所有位都为1<br>
-<code>any()</code>：检查是否有任何一位为1<br>
-<code>none()</code>：检查是否所有位都为0</p>
-<p>也可以使用<code>to_ulong()</code> <code>to_ullong()</code> <code>to_string()</code>进行类型转换</p>
-<p>bitset可以直接进行位操作</p>
-<h2 id="lambda">Lambda
-</h2><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">init</span> <span class="o">=</span> <span class="p">[]()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="sc">&#39;c&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}();</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>做力扣的时候突然发现的一段未知的玩意儿，一查发现其实是一个lambda函数定义，第一行中的<code>[]()</code>表示不捕获，不传参，函数体中，第一行关闭stdio与iostream的同步操作，后两行解除cin与cout的缓冲区绑定，最后的一个<code>()</code>表示立即执行</p>
+    <p>一些根据OzaShin Music Channel的讲座汉化版随堂做的笔记</p>
+<h2 id="基础篇">基础篇
+</h2><p>音名，音程，全音，半音</p>
+<p>全全半全全全半的排列直接平移就能得到大调音阶，从C开始即为C大调</p>
+<p>与大调相对的是自然小调，大调的3，6，7降半音即为自然小调</p>
+<p>自然小调的第三音开始，排列就和大调一样了</p>
+<p>平行调：整体移位音阶中的两个音符得到对应的大调/小调（如C大调和A小调）</p>
+<p>同主调：同一个主音的大调和小调（如C大调和C小调）</p>
+<p>顺阶和弦：每三度一个音，共计三个音（如CEG，DFA）称为3和音和弦，四个音同理</p>
+<p>根音到三音的距离为四个半音的为大和弦，三个半音的为小和弦</p>
+<p>将中间的音（三音）降低/升高半音即可改变和弦的大小</p>
+<p>大调的最后一个和弦较为特殊，三个音中间都是三个半音的距离，即五音相比其他和弦降了一个半音的音程（♭5和弦）</p>
+<p>7和maj7：总计距离是十个半音还是十一个半音</p>
+<p>和弦进行：多个和弦改变排列顺序，通常这个顺序中的第一个和弦会给人这个曲子的最初印象（一般用C和Am最多）</p>
+<p>C | Am | Dm G ： 1625</p>
+<p>C | G | Am | Em | F | C | Dm | G ： 卡农</p>
+<p>改变和弦进行中各个和弦之间的间隔也能改变给人的感受</p>
+<p>Voicing：把相邻的两个和弦的同音部分保持一致，只改变不同的那个音，就能减少手在钢琴上的移位距离</p>
+<p>转位：把下位的音转移到上位（CEG-EGC-GCE）</p>
+<p>标注：最低音（C，C/E，C/G）</p>
+<p>只要最低音是根音就算原位和弦，所以可以使用左手弹奏更低位的根音</p>
+<p>bass的音可以直接视作最低音</p>
+<p>一般的曲子多用C这样较为稳定的和弦结束 tonic-dominant-tonic(C-G7-C)</p>
+<p>主-下属-主的组合（C-F-C）</p>
+<p>Cadence：T-D-T，T-SD-T，（T-）SD-D-T</p>
+<p>代理和弦：Dm，Em，Am，Bm，根据同音数量分T，D和SD</p>
+<p>同功能的代理和弦互相替代的时候要做到“听着觉得没问题”</p>
+<h2 id="应用篇">应用篇
+</h2><p>基音：音量很大，一般能盖过泛音</p>
+<p>强进行：“泛音能够让人联想到基音”，G-C一类的走向</p>
+<p>C大调中C，E，G为稳定音，而与稳定音紧挨着的音是不稳定的，如果相隔着全音则不易被吸引</p>
+<p>间隔三个全音的音听着会不和谐</p>
+<p>G7：强进行+三全音，最倾向于解决C</p>
+<p>属七和弦：三音和七音一定是 三全音的关系</p>
+<p>偶尔使用平行调的和弦能够增加曲子的色彩</p>
+<p>自然小调缺少导音（实际上是缺少和弦中的三全音）这时候需要将作为导音的音升半音，构成三全音</p>
+<p>和声小调：为了制造导音和三全音把自然小调的第七音提高半音组成的</p>
+<p>在和声小调的基础上把增音程去除变为全音即为旋律小调</p>
+<p>曲中也可以中途转向和声/旋律小调</p>
+<p>属七和弦：形如〇7的和弦</p>
+<p>附属和弦的解决方法：往右数3个或者往左数4个</p>
+<p>注意：F7不能作为附属和弦使用（可能会出现曲调跑偏）</p>
+<p>可以使用度名来标记和弦，如C大调中C为I，Dm为II…Bm为VII</p>
+<p>2-5-1，最初的两个和弦一般用4和音和弦，连续的两个强进行，有很强的终止感</p>
+<p>J-Pop常用Gm7-C7-Fmaj7的走向（很常见，背下来）</p>
+<p>251也有大调和小调之分，</p>
+<p>附属和弦适合在进入副歌之前用于调动情绪</p>
+<p>sus4：大和弦的三音提升半音构成的</p>
+<p>减和弦：根音和三音，三音和五音之间的距离都是三个半音</p>
+<p>强调经过减和弦使用dim标识，强调从小和弦变换而来使用♭5标识</p>
+<p>dim7：四个音之间相邻的两个音都是三个半音的距离</p>
+<p>m7♭5又称半减七和弦，它的七音并没有进行降半音的处理</p>
+<p>只有在根音以全音移动的进行中才能使用减和弦进行改写，插入第一个和弦距离半音的dim</p>
+<p>dim中含有三全音：与属七和弦省略根音相同</p>
+<p>减和弦一般会给人复杂、阴暗的感受，如果减七和弦带来的情感过于浓重也可以使用减三和弦进行代替</p>
+<p>五度圈：十二点钟方向是C，顺时针转动就上行七个半音</p>
+<p>沿图顺时针旋转度数为对应大调的声调数，逆时针则为降调数</p>
+<p>加升号：从F开始顺时针旋转，加降号：从B开始逆时针旋转</p>
+<p>逆时针移动：纯五度下行=纯四度上行=强进行方向</p>
+<p>减七和弦的构成音相互间隔90度</p>
+<p>增三和弦的三个音在五度图中构成等边三角形</p>
+<p>里和弦：属七和弦的形态，但是不做下行</p>
+<p>里和弦D♭7的所有构成音都和C半音相连</p>
+<p>所有属七和弦都一定有且只有一个对应的里和弦，这两个和弦在五度圈上是一条直线的两端</p>
+<p>F7虽然不能作为附属和弦使用，但是可以作为里和弦下落半音</p>
+<p>下属到主是比属到主更加平稳的下降方法</p>
+<p>属系分数和弦：低音构成强进行的下属和弦</p>
+<p>下属和弦低音无法强进行，可以改成属系分数和弦解决</p>
+<p>另一个弱点是与主和弦相邻半音的音只有一个F</p>
+<p>下属和弦除了改变的那个音之外相较于主和弦太过稳定了，需要改变和弦结构解决，把其中的A改成A♭即可形成下属小和弦</p>
+<p>套句：根音不变，改变上方三，五，七音之间的和弦</p>
+<p>低音以半音或者全音级进的进行：低音线套句</p>
+<p>低音线套句中所有和弦都含有C，可以以C音作为长音结束</p>
+<p>持续低音：固定一组和弦进行低音部</p>
+<p>低音固定在主音：持续低主音，低音固定在属音：持续低属音</p>
+<h2 id="发展篇">发展篇
+</h2><p>sus4分数和弦：既不是大和弦也不是小和弦，因为没有三度音</p>
+<p>sus4的根音和三音之间是五个半音的距离</p>
+<p>分数和弦：转位和弦，Hybrid Chord，Polychord</p>
+<p>Hybrid Chord：分子上的和弦的构成因以外的音构成分母</p>
+<p>属系分数和弦属于Hybrid Chord</p>
+<p>F/G拥有sus4的特征音</p>
+<p>sus4系分数和弦：由于分子与分母的错位形成的</p>
+<p>构成方法：分母不动，分子构成下方全音上的大三和弦</p>
+<p>下方全音的和弦作分子用大和弦，反之用小和弦</p>
+<p>Tension Chord: add9th和九和弦</p>
+<p>9度：根音高八度再加一个全音</p>
+<p>构成方法：原有的四和弦基础上加一个根音的九度</p>
+<p>小九度：Em7♭9，由于它的九度音和根音是半音的距离</p>
+<p>不含七音的和弦加上9/11/13的时候要有add记号</p>
+<p>和弦的纯五度音对和弦的音响影响也不大，也可以删除</p>
+<p>九和弦中的九音排列在和弦内部能够让声音更饱满</p>
+<p>Cmaj13：CEGBA</p>
+<p>避免音（Avoid Note）：距离任一Chord Tone（1/3/5/7）小九度或八度上下的小九度（同音名）的Tension</p>
+<p>要检查是否在Tension和Chord Tone之间有没有小九度</p>
+<p>避免音的形成条件：对Chord Tone形成小九度（或相差八度的小九度）的Tension</p>
+<p>同为Chord Tone的音即使形成小九度也不构成避免音</p>
+<p>对Tension形成小九度（或相差八度的小九度）的Chord Tone不算做避免音</p>
+<p>将和弦的一处音改为避免音的同音，避免音不再存在，但也失去了七和弦的三全音</p>
+<p>但这种方法容易形成转位和弦导致声音变得更奇怪</p>
+<p>小九度变大九度也可以去除避免音（将与避免音冲突的和弦构成音下降半音）</p>
+<p>不改变和弦形态——伴奏不会改变</p>
+<p>Altered Tension：带有升降记号的Tension</p>
+<p>只有升11度和降13度的Altered Tension，否则就是其他的音了</p>
+<p>Altered Tension中的音的升降号和琴键上的升降号没有对应关系</p>
+<p>从Natural9th位置开始，降半音为♭9，升半音为♯9</p>
+<p>大和弦的Natural 11th一定是一个避免音，不能使用</p>
+<p>属七和弦原本音色浑浊，所以加上♭9是可以的</p>
+<p>但即便是属七和弦也禁止纯11度的避免音</p>
+<p>所有的Altered Tension都可以由12小节的蓝调形式与蓝调音阶中的音组合产生</p>
+<p>G7♭9=G7+Bdim7，是一种不稳定的音</p>
+<p>Tension Resolve：有紧张感的Tension移动到稳定的和弦音</p>
+<p>Omit：省略与Tension相邻的和弦音</p>
+<p>两个或两个以上的Tension可以复合使用，适用于表达复杂哀伤的情绪</p>
+<p>使用Altered Tension时应该省略和音且排列不要过于紧密</p>
+<p>两个相隔半音的Tension不能同时使用，否则会影响彼此的音响</p>
+<p>7（♭9♯11）有一些不同寻常的性质</p>
+<p>Poly Chord：双层结构，竖着写</p>
+<p>上层结构多为三个和音，下层结构多为四个和音，下层的避免音不能出现在上层中（属和弦除外）</p>
+<p>上层必须含有下层的一个Tension</p>
+<p>上层可以自由转位，下层只有在有低音乐器衬底的情况下转位</p>
 
 </section>
 

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://vzstless.moe/p/assembly-related/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="assembly-related">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="assembly-related">
 <meta property='og:description' content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:\n">
 <meta property='og:url' content='https://vzstless.moe/p/assembly-related/'>
 <meta property='og:site_name' content='VZstless'>

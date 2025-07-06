@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Thu, 15 May 2025 19:45:58 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 06 Jul 2025 15:10:33 +0800</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>随手记下的乐理知识</title>
+      <link>https://vzstless.moe/p/%E9%9A%8F%E6%89%8B%E8%AE%B0%E4%B8%8B%E7%9A%84%E4%B9%90%E7%90%86%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Sun, 06 Jul 2025 15:10:33 +0800</pubDate>
+      <guid>https://vzstless.moe/p/%E9%9A%8F%E6%89%8B%E8%AE%B0%E4%B8%8B%E7%9A%84%E4%B9%90%E7%90%86%E7%9F%A5%E8%AF%86/</guid>
+      <description>&lt;p&gt;一些根据OzaShin Music Channel的讲座汉化版随堂做的笔记&lt;/p&gt;&#xA;&lt;h2 id=&#34;基础篇&#34;&gt;基础篇&lt;/h2&gt;&#xA;&lt;p&gt;音名，音程，全音，半音&lt;/p&gt;&#xA;&lt;p&gt;全全半全全全半的排列直接平移就能得到大调音阶，从C开始即为C大调&lt;/p&gt;</description>
+    </item>
     <item>
       <title>浅谈MIT-6.102</title>
       <link>https://vzstless.moe/p/%E6%B5%85%E8%B0%88mit-6.102/</link>

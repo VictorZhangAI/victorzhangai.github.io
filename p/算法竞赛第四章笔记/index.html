@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="《算法竞赛》第四章笔记">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="《算法竞赛》第四章笔记">
 <meta property='og:description' content="并查集 合并优化与路径压缩\n初始化：每个点属于独立的集\n合并，查找，统计集的个数\n例：hdu1213，直接使用并查集模板即可\n合并优化\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 int height[N]; void init_set() { for(int i = 1; i &lt;= N; i++) { s[i] = i; height[i] = 0; } } void merge_set(int x, int y) { x = find_set(x); y = find_set(y); if(height[x] == height[y]) { height[x] = height[x] + 1; s[y] = x; } else { if(height[x] &lt; height[y]) s[x] = y; else s[y] = x; } } 路径压缩：在返回时将i所属的集全部归到根节点\n">
 <meta property='og:url' content='https://vzstless.moe/p/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0/'>
 <meta property='og:site_name' content='VZstless'>
