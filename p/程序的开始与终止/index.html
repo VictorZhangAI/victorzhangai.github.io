@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="main 函数与程序的启动 main没有原型，启用main需要一个特殊的启动流程\n1 2 3 4 int main(int argc, char *argv[]) { printf(&#34;main is at 0x%lX\\n&#34;, (unsigned long)&amp;main); } 使用c89标准编译后的输出结果与readelf的entry point不同\n使用gdb，发现_start，先跳转到___start，启动_exit和__libc_init，然后跳入main\n执行完程序内所有行为后回到___start\n阅读crt0.S发现内存布局和库函数相关的初始化数据（源实验环境为NetBSD）\n在cc中可以使用-e指定程序的入口函数\n在gdb中查看$rip发现非法的地址访问，产生了段错误，当将这个指定的入口函数使用exit()退出时程序段错误消失\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="main 函数与程序的启动 main没有原型，启用main需要一个特殊的启动流程 1 2 3 4 int main(int argc, char *argv[]) { printf(&#34;main is at 0x%lX\\n&#34;, (unsigned long)&amp;main); } 使用c89标准编译后的输出结果与re">
 <title>程序的开始与终止</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BC%80%E5%A7%8B%E4%B8%8E%E7%BB%88%E6%AD%A2/'>
 
-<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="程序的开始与终止">
-<meta property='og:description' content="main 函数与程序的启动 main没有原型，启用main需要一个特殊的启动流程\n1 2 3 4 int main(int argc, char *argv[]) { printf(&#34;main is at 0x%lX\\n&#34;, (unsigned long)&amp;main); } 使用c89标准编译后的输出结果与readelf的entry point不同\n使用gdb，发现_start，先跳转到___start，启动_exit和__libc_init，然后跳入main\n执行完程序内所有行为后回到___start\n阅读crt0.S发现内存布局和库函数相关的初始化数据（源实验环境为NetBSD）\n在cc中可以使用-e指定程序的入口函数\n在gdb中查看$rip发现非法的地址访问，产生了段错误，当将这个指定的入口函数使用exit()退出时程序段错误消失\n">
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="程序的开始与终止">
+<meta property='og:description' content="main 函数与程序的启动 main没有原型，启用main需要一个特殊的启动流程 1 2 3 4 int main(int argc, char *argv[]) { printf(&#34;main is at 0x%lX\\n&#34;, (unsigned long)&amp;main); } 使用c89标准编译后的输出结果与re">
 <meta property='og:url' content='https://vzstless.moe/p/%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BC%80%E5%A7%8B%E4%B8%8E%E7%BB%88%E6%AD%A2/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Operating System' /><meta property='article:published_time' content='2025-03-13T17:07:52&#43;08:00'/><meta property='article:modified_time' content='2025-03-13T17:07:52&#43;08:00'/>
 <meta name="twitter:title" content="程序的开始与终止">
-<meta name="twitter:description" content="main 函数与程序的启动 main没有原型，启用main需要一个特殊的启动流程\n1 2 3 4 int main(int argc, char *argv[]) { printf(&#34;main is at 0x%lX\\n&#34;, (unsigned long)&amp;main); } 使用c89标准编译后的输出结果与readelf的entry point不同\n使用gdb，发现_start，先跳转到___start，启动_exit和__libc_init，然后跳入main\n执行完程序内所有行为后回到___start\n阅读crt0.S发现内存布局和库函数相关的初始化数据（源实验环境为NetBSD）\n在cc中可以使用-e指定程序的入口函数\n在gdb中查看$rip发现非法的地址访问，产生了段错误，当将这个指定的入口函数使用exit()退出时程序段错误消失\n">
+<meta name="twitter:description" content="main 函数与程序的启动 main没有原型，启用main需要一个特殊的启动流程 1 2 3 4 int main(int argc, char *argv[]) { printf(&#34;main is at 0x%lX\\n&#34;, (unsigned long)&amp;main); } 使用c89标准编译后的输出结果与re">
     <link rel="shortcut icon" href="/1f365.ico" />
+
+  
+
 
     </head>
     <body class="
@@ -58,7 +61,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_65b50560fe06d9e.png" width="300"
+                        <img src="/img/avatar_hu9665492565906287031.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 

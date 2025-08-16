@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Source Code\n看了jyy今年的虚拟内存，有感而发给GPT丢了几个prompt，产生了这些东西：\nmmap mmap() 是一个用于内存映射的syscall，可用于快速分配大段内存空间。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Source Code 看了jyy今年的虚拟内存，有感而发给GPT丢了几个prompt，产生了这些东西： mmap mmap() 是一个用于内存映射的syscall，可用于快速分配大">
 <title>玩转虚拟内存</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/%E7%8E%A9%E8%BD%AC%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/'>
 
-<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="玩转虚拟内存">
-<meta property='og:description' content="Source Code\n看了jyy今年的虚拟内存，有感而发给GPT丢了几个prompt，产生了这些东西：\nmmap mmap() 是一个用于内存映射的syscall，可用于快速分配大段内存空间。\n">
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="玩转虚拟内存">
+<meta property='og:description' content="Source Code 看了jyy今年的虚拟内存，有感而发给GPT丢了几个prompt，产生了这些东西： mmap mmap() 是一个用于内存映射的syscall，可用于快速分配大">
 <meta property='og:url' content='https://vzstless.moe/p/%E7%8E%A9%E8%BD%AC%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Operating System' /><meta property='article:published_time' content='2025-03-07T08:42:42&#43;08:00'/><meta property='article:modified_time' content='2025-03-07T08:42:42&#43;08:00'/>
 <meta name="twitter:title" content="玩转虚拟内存">
-<meta name="twitter:description" content="Source Code\n看了jyy今年的虚拟内存，有感而发给GPT丢了几个prompt，产生了这些东西：\nmmap mmap() 是一个用于内存映射的syscall，可用于快速分配大段内存空间。\n">
+<meta name="twitter:description" content="Source Code 看了jyy今年的虚拟内存，有感而发给GPT丢了几个prompt，产生了这些东西： mmap mmap() 是一个用于内存映射的syscall，可用于快速分配大">
     <link rel="shortcut icon" href="/1f365.ico" />
+
+  
+
 
     </head>
     <body class="
@@ -58,7 +61,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_65b50560fe06d9e.png" width="300"
+                        <img src="/img/avatar_hu9665492565906287031.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -586,38 +589,38 @@ vdso是一个特殊的共享库，提供一些常用的syscall供用户态实现
 </div>
 </div><p>看看它们分别是什么。别小看这件事情，某种意义上你刨一下发现这是个巨大的历史残留&hellip;&hellip;</p>
 <div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>pid</th>
-          <th>CMD</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>/sbin/init</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>/init</td>
-      </tr>
-      <tr>
-          <td>7</td>
-          <td>plan9 &ndash;control-socket 7 &ndash;log-level 4 &ndash;server-fd 8 &ndash;pipe-fd 10 &ndash;log-truncate</td>
-      </tr>
-      <tr>
-          <td>107</td>
-          <td>/usr/lib/systemd/systemd-udevd</td>
-      </tr>
-      <tr>
-          <td>1219</td>
-          <td>/sbin/agetty -o -p &ndash; \u &ndash;noclear &ndash;keep-baud - 115200,38400,9600 vt220</td>
-      </tr>
-      <tr>
-          <td>200</td>
-          <td>snapfuse /var/lib/snapd/snaps/snapd_23545.snap /snap/snapd/23545 -oro,nodev,allow_other,suid</td>
-      </tr>
-  </tbody>
+<thead>
+<tr>
+<th>pid</th>
+<th>CMD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>/sbin/init</td>
+</tr>
+<tr>
+<td>2</td>
+<td>/init</td>
+</tr>
+<tr>
+<td>7</td>
+<td>plan9 &ndash;control-socket 7 &ndash;log-level 4 &ndash;server-fd 8 &ndash;pipe-fd 10 &ndash;log-truncate</td>
+</tr>
+<tr>
+<td>107</td>
+<td>/usr/lib/systemd/systemd-udevd</td>
+</tr>
+<tr>
+<td>1219</td>
+<td>/sbin/agetty -o -p &ndash; \u &ndash;noclear &ndash;keep-baud - 115200,38400,9600 vt220</td>
+</tr>
+<tr>
+<td>200</td>
+<td>snapfuse /var/lib/snapd/snaps/snapd_23545.snap /snap/snapd/23545 -oro,nodev,allow_other,suid</td>
+</tr>
+</tbody>
 </table></div>
 <p>这个plan9出来的时候没绷住，感觉像是一位已经死了的故人突然复活了一样</p>
 <h2 id="遍历整个地址空间">遍历整个地址空间

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="asm &amp; syscalls move value into register: 1 mov rax, 60 dereference a pointer: 1 mov rdi, [1337000] let the asm program executable: 1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit(): 1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write(): 1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read(): 1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:">
 <title>assembly-related</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/assembly-related/'>
 
-<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="assembly-related">
-<meta property='og:description' content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:\n">
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="assembly-related">
+<meta property='og:description' content="asm &amp; syscalls move value into register: 1 mov rax, 60 dereference a pointer: 1 mov rdi, [1337000] let the asm program executable: 1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit(): 1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write(): 1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read(): 1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:">
 <meta property='og:url' content='https://vzstless.moe/p/assembly-related/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='COA' /><meta property='article:published_time' content='2025-02-26T20:49:18&#43;08:00'/><meta property='article:modified_time' content='2025-02-26T20:49:18&#43;08:00'/>
 <meta name="twitter:title" content="assembly-related">
-<meta name="twitter:description" content="asm &amp; syscalls move value into register:\n1 mov rax, 60 dereference a pointer:\n1 mov rdi, [1337000] let the asm program executable:\n1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit():\n1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write():\n1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read():\n1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:\n">
+<meta name="twitter:description" content="asm &amp; syscalls move value into register: 1 mov rax, 60 dereference a pointer: 1 mov rdi, [1337000] let the asm program executable: 1 2 3 4 .intel_syntax noprefix .global _start _start: &lt;asm_code&gt; exit(): 1 2 3 mov rdi, &lt;exit_code&gt; mov rax, 60 syscall write(): 1 2 3 4 5 mov rdi, &lt;1_or_2&gt; mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 1 syscall read(): 1 2 3 4 5 mov rdi, 0 mov rsi, &lt;memory_addr&gt; mov rdx, &lt;bytes&gt; mov rax, 0 syscall assemble the program:">
     <link rel="shortcut icon" href="/1f365.ico" />
+
+  
+
 
     </head>
     <body class="
@@ -58,7 +61,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_65b50560fe06d9e.png" width="300"
+                        <img src="/img/avatar_hu9665492565906287031.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
