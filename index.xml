@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 23 Aug 2025 12:20:01 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Aug 2025 13:34:05 +0000</lastBuildDate>
     <atom:link href="https://vzstless.moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>失败的远征</title>
+      <link>https://vzstless.moe/p/%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%BF%9C%E5%BE%81/</link>
+      <pubDate>Wed, 27 Aug 2025 13:34:05 +0000</pubDate>
+      <guid>https://vzstless.moe/p/%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%BF%9C%E5%BE%81/</guid>
+      <description>&lt;p&gt;2025年8月27日早间7时16分29秒，我决定开始把Linux From Scratch当成mini hackathon进行学习，终于下午六时左右因grub安装失误前功尽弃。&lt;br&gt;&#xA;LFS被设计在一次会话中完成，其中包含且不限于磁盘分区，grub，硬写系统文件，硬写网卡，持续时间极其长的测试以及循环往复的tar，configure，make，make check，make install。中途还有大量的前后强制依赖——前脚编译出的tcl和expect要用来写gcc的测试，前脚编译出的gcc和binutils后脚就要用来编译后面的工具链，刚才编译的python后面就要用pip装包，以及meson，ninja之类的构建软件，大量重复且有细微差别的活动叠加的后果是毁灭性的，总之一步错步步错。&lt;br&gt;&#xA;这是一个强度远高于之前的两次“系统构建”的活动——前两次中一次只要编译Linux Kernel，准备FHS，把busybox丢进去然后启动qemu，后一次至少你只需要看手册，和其他的装系统有异曲同工之处。但这个不一样，从头开始你都要自己做，工具自己编译，测试自己运行，引导配不好甚至能直接弄坏主系统。总之，不要因为这个工程不涉及写代码就低估了它的工作量。&lt;br&gt;&#xA;虽说这次构建失败了，但是还是收获了不少东西——最重要的就是谁在什么包中，谁依赖于谁，你自己成为了一个人形的包管理器和makefile，一步一步把之前你搜索的“xxx is in which package”给探明，还是很爽的，其次在这个过程中你还可以掌握加快测试和编译的一般方法，度量时间消耗并知晓Linux中你未曾接触过的底层文件和其他环境变量的细节。Linux From Scratch的Scratch之处不只是因为它从bare metal开始，更重要的是它能够带你以手动trace的视角来遍览整个Linux，这是Arch Linux的安装所不能带给你的。&lt;br&gt;&#xA;下一步也许我应该看看grub和启动引导相关的知识了？我在它上栽了无数次，下一次装系统再出问题可就不应该了。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>DL First Taste</title>
       <link>https://vzstless.moe/p/dl-first-taste/</link>
