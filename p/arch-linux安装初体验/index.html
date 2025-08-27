@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="什么嘛，Arch Linux哪里劝退了（） 观前提醒，遇到问题先查手册，本篇专栏仅进行踩坑记录 从镜像到启动 配置键盘布局和字体，验证引导模式，验证">
-<title>Arch Linux安装初体验&#34;</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="什么嘛，Arch Linux哪里劝退了（）\n观前提醒，遇到问题先查手册，本篇专栏仅进行踩坑记录\n从镜像到启动 配置键盘布局和字体，验证引导模式，验证互联网连接，更新系统时间，然后是磁盘分区。\n磁盘分区就是第一个坑，一定要给root和efi划够，哪怕你的swap只有8G也没事，把它俩先照顾好，要不然后面装固件和内核的时候直接失败。\n挂载对应分区（一定不要挂错了！挂错了后面装固件和内核还是莫名失败！）。\n获取中国大陆的镜像站列表，取消清华源和科大源的注释，使用pacstrap安装启动必需的软件包，使用pacman安装vim和dhcpcd（至少要把vim装了，然后dhcpcd在后面网络配置的时候有大用，如果嫌麻烦还要安装NetworkManager）。\nfstab，arch-chroot，设置时区（后面可以通过网络授时把漂移问题解决），本地化，配置主机名，设置root密码（这一部分抄手册即可）。\n安装grub。好，劲爆尾杀。最难看懂的部分来了。这里在稍微skim了一下GRUB的wiki页面之后我在GPT-4o上使用了如下prompt：\n">
+<title>Arch Linux安装初体验</title>
 
 <link rel='canonical' href='https://vzstless.moe/p/arch-linux%E5%AE%89%E8%A3%85%E5%88%9D%E4%BD%93%E9%AA%8C/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Arch Linux安装初体验\"">
-<meta property='og:description' content="什么嘛，Arch Linux哪里劝退了（） 观前提醒，遇到问题先查手册，本篇专栏仅进行踩坑记录 从镜像到启动 配置键盘布局和字体，验证引导模式，验证">
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Arch Linux安装初体验">
+<meta property='og:description' content="什么嘛，Arch Linux哪里劝退了（）\n观前提醒，遇到问题先查手册，本篇专栏仅进行踩坑记录\n从镜像到启动 配置键盘布局和字体，验证引导模式，验证互联网连接，更新系统时间，然后是磁盘分区。\n磁盘分区就是第一个坑，一定要给root和efi划够，哪怕你的swap只有8G也没事，把它俩先照顾好，要不然后面装固件和内核的时候直接失败。\n挂载对应分区（一定不要挂错了！挂错了后面装固件和内核还是莫名失败！）。\n获取中国大陆的镜像站列表，取消清华源和科大源的注释，使用pacstrap安装启动必需的软件包，使用pacman安装vim和dhcpcd（至少要把vim装了，然后dhcpcd在后面网络配置的时候有大用，如果嫌麻烦还要安装NetworkManager）。\nfstab，arch-chroot，设置时区（后面可以通过网络授时把漂移问题解决），本地化，配置主机名，设置root密码（这一部分抄手册即可）。\n安装grub。好，劲爆尾杀。最难看懂的部分来了。这里在稍微skim了一下GRUB的wiki页面之后我在GPT-4o上使用了如下prompt：\n">
 <meta property='og:url' content='https://vzstless.moe/p/arch-linux%E5%AE%89%E8%A3%85%E5%88%9D%E4%BD%93%E9%AA%8C/'>
 <meta property='og:site_name' content='VZstless'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='OS' /><meta property='article:published_time' content='2025-07-15T19:51:37&#43;08:00'/><meta property='article:modified_time' content='2025-07-15T19:51:37&#43;08:00'/>
-<meta name="twitter:title" content="Arch Linux安装初体验\"">
-<meta name="twitter:description" content="什么嘛，Arch Linux哪里劝退了（） 观前提醒，遇到问题先查手册，本篇专栏仅进行踩坑记录 从镜像到启动 配置键盘布局和字体，验证引导模式，验证">
+<meta name="twitter:title" content="Arch Linux安装初体验">
+<meta name="twitter:description" content="什么嘛，Arch Linux哪里劝退了（）\n观前提醒，遇到问题先查手册，本篇专栏仅进行踩坑记录\n从镜像到启动 配置键盘布局和字体，验证引导模式，验证互联网连接，更新系统时间，然后是磁盘分区。\n磁盘分区就是第一个坑，一定要给root和efi划够，哪怕你的swap只有8G也没事，把它俩先照顾好，要不然后面装固件和内核的时候直接失败。\n挂载对应分区（一定不要挂错了！挂错了后面装固件和内核还是莫名失败！）。\n获取中国大陆的镜像站列表，取消清华源和科大源的注释，使用pacstrap安装启动必需的软件包，使用pacman安装vim和dhcpcd（至少要把vim装了，然后dhcpcd在后面网络配置的时候有大用，如果嫌麻烦还要安装NetworkManager）。\nfstab，arch-chroot，设置时区（后面可以通过网络授时把漂移问题解决），本地化，配置主机名，设置root密码（这一部分抄手册即可）。\n安装grub。好，劲爆尾杀。最难看懂的部分来了。这里在稍微skim了一下GRUB的wiki页面之后我在GPT-4o上使用了如下prompt：\n">
     <link rel="shortcut icon" href="/1f365.ico" />
-
-  
-
 
     </head>
     <body class="
@@ -61,7 +58,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu9665492565906287031.png" width="300"
+                        <img src="/img/avatar_hu_65b50560fe06d9e.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -333,7 +330,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/arch-linux%E5%AE%89%E8%A3%85%E5%88%9D%E4%BD%93%E9%AA%8C/">Arch Linux安装初体验&#34;</a>
+            <a href="/p/arch-linux%E5%AE%89%E8%A3%85%E5%88%9D%E4%BD%93%E9%AA%8C/">Arch Linux安装初体验</a>
         </h2>
     
         

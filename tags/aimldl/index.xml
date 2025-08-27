@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AIMLDL on VZstless</title>
+    <link>https://vzstless.moe/tags/aimldl/</link>
+    <description>Recent content in AIMLDL on VZstless</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>VZstless</copyright>
+    <lastBuildDate>Sat, 23 Aug 2025 12:20:01 +0800</lastBuildDate>
+    <atom:link href="https://vzstless.moe/tags/aimldl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DL First Taste</title>
+      <link>https://vzstless.moe/p/dl-first-taste/</link>
+      <pubDate>Sat, 23 Aug 2025 12:20:01 +0800</pubDate>
+      <guid>https://vzstless.moe/p/dl-first-taste/</guid>
+      <description>&lt;h2 id=&#34;lecture-1&#34;&gt;Lecture 1&lt;/h2&gt;&#xA;&lt;p&gt;neuron: a function that records a feature&lt;br&gt;&#xA;connection: a number of weight&lt;br&gt;&#xA;spread: calculate the function, times the weight, sum the bias and impulse using ReLU(modern way) or Sigmoid(older way)&lt;/p&gt;&#xA;&lt;p&gt;Deep Learning itself is just build a huge function.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lecture-2&#34;&gt;Lecture 2&lt;/h2&gt;&#xA;&lt;p&gt;Cost: how the whole network recognizes your data&lt;br&gt;&#xA;It&amp;rsquo;s always easy to find a local minimum in a function&lt;br&gt;&#xA;The way to calculate the gradient descent is backpropagation&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
