@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>VZstless</copyright>
-    <lastBuildDate>Sat, 13 Sep 2025 01:27:43 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Sep 2025 02:59:24 +0000</lastBuildDate>
     <atom:link href="https://vzstless.moe/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;的那些事</title>
+      <link>https://vzstless.moe/p/c-%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</link>
+      <pubDate>Sun, 14 Sep 2025 02:59:24 +0000</pubDate>
+      <guid>https://vzstless.moe/p/c-%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</guid>
+      <description>&lt;h3 id=&#34;内部细节&#34;&gt;内部细节&lt;/h3&gt;&#xA;&lt;p&gt;能const auto &amp;amp;就const auto &amp;amp;，能引用就引用&lt;/p&gt;&#xA;&lt;p&gt;vector：分配一大块连续的内存空间，每次空间不够用的时候把原有的空间翻倍进行扩容（这个过程中原有的元素会重新移位），对前插不友好故没有前插的实现&#xA;deque：分配一些较为平均且碎片化的空间并向这些空间的首个元素设置索引指针。每次插入时如果空间不够就再分配一小块空间，故对前插和后插都很友好，但是比vector慢&#xA;map：把每对键-值作为节点的一棵红黑树，所以map的key必须实现了＜的运算符重载&#xA;set：本质上是没有key的map&#xA;unordered_map：哈希表，所以key必须是可哈希化的。当load factor过大时会进行rehash重新分配哈希值&#xA;array：固定的连续空间&#xA;list：双链表（对，它的内部实现就是你理解的那样）&lt;/p&gt;</description>
+    </item>
     <item>
       <title>“帮我选个字体吧！”</title>
       <link>https://vzstless.moe/p/%E5%B8%AE%E6%88%91%E9%80%89%E4%B8%AA%E5%AD%97%E4%BD%93%E5%90%A7/</link>
